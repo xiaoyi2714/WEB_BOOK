@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gbk">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="incubator-echarts-4.2.1\dist\echarts.min.js"></script>
+</head>
+<body>
+    <h1>评价饼图</h1>
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var option = {
+            backgroundColor:'#2c343c',
+            visualMap:{
+                show:false,
+                min:80,
+                max:600,
+                inRange:{
+                    colorLightness:[0,1]
+                }
+            },
+            series:[
+                {
+                    name:'访问来源',
+                    type: 'pie',
+                    radius: '55%',
+                    data:[
+                        {value:235, name:'好评'},
+                        {value:274, name:'中评'},
+                        {value:310, name:'差评'},
+                    ],
+                    roseType:'angle',
+                    label:{
+                        normal:{
+                            textStyle:{
+                                color: 'rgba(255, 255, 255, 0.3)'
+                            }
+                        }
+                    },
+                    labelLine:{
+                        normal:{
+                            lineStyle:{
+                                color: 'rgba(255, 255, 255, 0.3)'
+                            }
+                        }
+                    },
+                    itemStyle:{
+                        normal:{
+                            color:'#c23531',
+                            shadowBlur:200,
+                            shadowColor:'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+       };
+    myChart.setOption(option);
+    </script>
+
+</body>
+</html>

@@ -76,7 +76,7 @@
 			<div class="custom-header-content">
                 <div class="container">
                   <h1 class="page-title">我的店铺</h1>
-<!-- #breadcrumb -->
+                  <!-- #breadcrumb -->
                 </div> <!-- .container -->
               </div>  <!-- .custom-header-content -->
             </div> <!-- .custom-header -->
@@ -89,58 +89,7 @@
 						<div class="title">
 							<h3>订单信息</h3>
 						</div>
-						<div class="content">
-							<form>
-								<table class="frameless-table">
-									<tr>
-										<td><label>商品ID</label></td>
-										<td><input type="text" style="width:250px; height:35px;" /></td>
-										<td><label>创建时间</label></td>
-										<td><input type="date" style="width:130px; height:35px;"/><label>——</label><input type="date" style="width:130px; height:35px;"/></td>
-									</tr>
-									<tr>
-										<td><label>书籍名称</label></td>
-										<td><input type="text" style="width:250px; height:35px;" /></td>
-										<td><label>成交金额</label></td>
-										<td><input type="number" style="width:100px; height:35px;"/><label>——</label><input type="number" style="width:100px; height:35px;"/></td>
-									</tr>
-									<tr>
-										<td><label>ISBN号码</label></td>
-										<td><input type="text" style="width:250px; height:35px;" /></td>
-										<td><label>物流单号</label></td>
-										<td><input type="number" style="width:250px; height: 35px;"/></td>
-									</tr>
-									<tr>
-										<td><label>顾客昵称</label></td>
-										<td><input type="text" style="width:250px; height:35px;" /></td>
-										<td><label>评价状态</label></td>
-										<td><select style="width:250px; height:40px;">
-												<option value="全部">全部</option>
-												<option value="好评">好评</option>
-												<option value="中评">中评</option>
-												<option value="差评">差评</option>
-												<option value="尚未评价">尚未评价</option></select></td>
-									</tr>
-									<tr>
-										<td><label>顾客ID</label></td>
-										<td><input type="text" style="width:250px; height:35px;" /></td>
-										<td><label>交易状态</label></td>
-										<td><select style="width:250px; height:40px;">
-												<option value="全部">全部</option>
-												<option value="等待买家付款">等待买家付款</option>
-												<option value="买家已付款">买家已付款</option>
-												<option value="卖家已发货">卖家已发货</option>
-												<option value="交易成功">交易成功</option>
-												<option value="交易关闭">交易关闭</option>
-												<option value="退款中">退款中</option></select></td>
-									</tr>
-								</table>
-							</form>
-						</div>
-						<br>
-						<div>
-							<p><input type="submit" value="订单查询" onlick="show();"/></p>
-						</div>
+
 						<br><br>
 
 
@@ -152,7 +101,97 @@
 
 
 						<div id="chart" style="width:600px; height:400px;"></div>
-						<script type="text/javascript" src="js/chart1.js"></script>
+						<script>
+							var myChart = echarts.init(document.getElementById('chart'));
+							myChart.setOption({
+								title:{
+									text: '销量Top10的书籍'
+								},
+								tooltip: {},
+								legend: {
+									data: ['销量']
+								},
+								xAxis: {
+									data: []
+								},
+								yAxis: {},
+								series: [{
+									name: '销量',
+									type: 'bar',
+									data: []
+								}]
+							});
+							function displayChart(){
+								var myChart = echarts.init(document.getElementById('chart'));
+								var option = {
+									xAxis:{
+										data:['追风筝的人', '彷徨之刃', '放学后', '湖畔']
+									},
+									series:[{
+										name:'销量',
+										data:[100, 80, 30, 20]
+									}]
+								};
+								myChart.setOption(option);
+							}
+						</script>
+
+						<!-- 第二幅图 -->
+						<input type="button" style="background-color:#ffffff;border:1px solid #e4e4e4;color:black;padding:2px 15px;text-align:center;
+							text-decoration:none;display:inline-block;font-size:15px;" value="查看GMV变化量", onclick="displayChart2()">
+						<input type="button" style="background-color:#ffffff;border:1px solid #e4e4e4;color:black;padding:2px 15px;text-align:center;
+							text-decoration:none;display:inline-block;font-size:15px;" value="关闭图表", onclick="closeChart()">
+						<br><br>
+
+						<div id="chart1" style="width:600px; height:400px;"></div>
+						<script>
+							var myChart = echarts.init(document.getElementById('chart1'));
+							myChart.setOption({
+								title:{
+									text: 'GMV变化趋势'
+								},
+								tooltip: {},
+								legend: {
+									data: ['GMV']
+								},
+								xAxis: {
+									data: []
+								},
+								yAxis: {},
+								series: [{
+									name: 'GMV',
+									type: 'line',
+									data: []
+								}]
+							});
+							function displayChart2(){
+								var myChart = echarts.init(document.getElementById('chart1'));
+								option = {
+								xAxis: {
+											type: 'category',
+											data: ['2012', '2013', '2014', '2015', '2016', '2017', '2018']
+										},
+								yAxis: {
+									type: 'value'
+								},
+								series: [{
+									data: [820, 932, 901, 934, 1290, 1330, 1320],
+									type: 'line',
+									smooth: true
+								}]
+							};
+								myChart.setOption(option);
+							}
+						</script>
+
+
+
+
+
+
+
+
+
 						<div>
 							<table>
 								<tr>

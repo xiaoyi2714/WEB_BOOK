@@ -2,13 +2,8 @@
 <html lang="en">
 <html lang="en">
 	<head>
-		<style>
-			body{text-align:center}
-			#divcss5{margin:0 auto} 
-		</style>
-
 		<meta charset="utf-8">
-		<title>SequoiaBook</title>
+		<title>SequoiaBook | Multi-Purpose E-commerce Template</title>
 		<meta name="description" content="Multi-Purpose E-commerce Template">
 		<!--[if IE]>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +16,7 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
 		<link rel="stylesheet" type="text/css" href="third-party/sidr/css/jquery.sidr.dark.css">
 		<link rel="stylesheet" type="text/css" href="third-party/slick/css/slick.css">
+		
 		<link rel="stylesheet" type="text/css" href="third-party/wow/css/animate.min.css">
         <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 		<link rel="stylesheet" type="text/css" href="third-party/magnific-popup-master/css/magnific-popup.css">
@@ -29,8 +25,6 @@
 		<link rel="stylesheet" type="text/css" href="icons/icons.css">
 		<link rel="stylesheet" type="text/css" href="css/custom.css">
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
-		<link rel="stylesheet" type="text/css" href="css/logistics.css">
-
 		<link rel="stylesheet" id="color" href="css/default.css">
 		<!-- <link rel="stylesheet" type="text/css" href="css/colors/lite-green.css"> -->
 		<!-- <link rel="stylesheet" type="text/css" href="css/colors/dark-green.css"> -->
@@ -56,175 +50,214 @@
 		<script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
 	</head>
-	
 	<body class="home header-v1">
+		<!--<div class="color-switcher" id="choose_color">
+			<a href="#." class="picker_close"><i class="fas fa-cog fa-spin"></i></a>
+			<div class="theme-colours">
+				<p>Choose Colour style</p>
+				<ul>
+					<li><a href="#" class="red" id="red"></a></li>
+					<li><a href="#" class="cyan" id="cyan"></a></li>
+					<li><a href="#" class="sky-blue" id="sky-blue"></a></li>
+					<li><a href="#" class="dark-blue" id="dark-blue"></a></li>
+					<li><a href="#" class="dark-green" id="dark-green"></a></li>
+					<li><a href="#" class="lite-green" id="lite-green"></a></li>
+					<li><a href="#" class="purple" id="purple"></a></li>
+					<li><a href="#" class="dark-purple" id="dark-purple"></a></li>
+					<li><a href="#" class="blue" id="blue"></a></li>
+					<li><a href="#" class="orange" id="orange"></a></li>
+					<li><a href="#" class="brown" id="brown"></a></li>
+					<li><a href="#" class="pink" id="pink"></a></li>
+				</ul>
+			</div>
+		</div>-->
 		<div id="page" class="site">
+		<!-- Mobile main menu -->
+			<a href="#" id="mobile-trigger"><i class="fa fa-list" aria-hidden="true"></i></a>
+			<div id ="mob-menu">
+				<ul>
+					<li class="current-menu-item menu-item-has-children"><a href="#">Home</a>
+						<ul class="sub-menu">
+							<li><a href="1-home.html">Home v1</a></li>
+							<li><a href="home-v2.html">Home v2</a></li>
+							<li><a href="home-v3.html">Home v3</a></li>
+							<li><a href="home-v4.html">Home v4</a></li>
+							<li><a href="home-v5.html">Home v5</a></li>
+							<li><a href="home-v6.html">Home v6</a></li>
+						</ul>
+					</li>
+					<li class="menu-item-has-children"><a href="#">Categorys</a>
+						<ul class="sub-menu">
+							<li class="current-menu-item menu-item-has-children"><a href="#">Dresses</a>
+								<ul class="sub-menu">
+                                  <li class=""> <a href="#">Casual dresses</a> </li>
+                                  <li> <a href="#">Evening</a> </li>
+                                  <li> <a href="#">Party</a> </li>
+                                  <li> <a href="#">Printed</a> </li>
+							      <li> <a href="#">Winter </a> </li>
+						      </ul>
+					 		 </li>
+							<li class="current-menu-item menu-item-has-children"><a href="#">Tops category</a>
+								<ul class="sub-menu">
+								      <li class=""> <a href="#">Blouses</a> </li>
+								      <li> <a href="#">Evening tops</a> </li>
+								      <li> <a href="#">Work</a> </li>
+								      <li> <a href="#">Winter</a> </li>
+								      <li> <a href="#">Summer</a> </li>
+								 </ul>
+					 		 </li>
+							<li class="current-menu-item menu-item-has-children"><a href="#">Lingerie</a>
+								<ul class="sub-menu">
+                         			  <li> <a href="#">Bras</a> </li>
+                                      <li> <a href="#">Knickers</a> </li>
+                                      <li> <a href="#">Nightwear</a> </li>
+                                      <li> <a href="#">Summerwear</a> </li>
+                                      <li> <a href="#">Men Fashion </a> </li>
+								 </ul>
+							 </li>
+						</ul>
+					</li>
+					<li class="menu-item-has-children"><a href="#">Shop Pages</a>
+						<ul class="sub-menu">
+							<li><a href="shop-grid.html">product Grid</a></li>
+							<li><a href="shop-full.html">product Full</a></li>
+							<li><a href="1-search.html"> Sidebar left</a></li>
+							<li><a href="shop-right-sidebar.html"> Sidebar Right</a></li>
+							<li><a href="shop-three-column.html"> Three Column</a></li>
+						</ul>
+					</li>
+						<li class="menu-item-has-children"><a href="#" >Pages</a>
+						<ul class="sub-menu">
+							<li><a href="single-product.html">Single Product</a></li>
+							<li><a href="1-login.html">Login</a></li>
+							<li><a href="1-register.html">Register</a></li>
+							<li><a href="wishlist.html">wishlist Page</a></li>
+							<li><a href="checkout.html">Checkout Page</a></li>
+							<li><a href="cart.html">Cart Page</a></li>
+							<li><a href="faq.html">FAQ</a></li>
+							<li><a href="404-error.html">404 Error</a></li>
+							<li><a href="typography.html">Typographys</a>
+							</ul>
+						</li>
+					<li class="menu-item-has-children"><a href="#" >Blog</a>
+						<ul class="sub-menu">
+							<li><a href="blog-grid.html">Blog Grid</a></li>
+							<li><a href="left-sidebar.html">left Sidebar</a></li>
+							<li><a href="right-sidebar.html">Right Sidebar</a></li>
+							<li><a href="single-blog.html">Single Blog</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div> <!-- #mob-menu -->
 			<header id="masthead" class="site-header sticky-enabled">
 				<div class="container">
 					<div class="site-branding pull-left">
 						<div id="site-identity">
-							<h1 class="site-title"><a href="home-v1.html"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
+							<h1 class="site-title"><a href="1-home.html" rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
-					<input type="button" value="搜索" class="pull-right quick-link-button"><input type="text" Class="pull-right quick-link-button">
+					<a href="1-search.html"><input type="button" value="搜索" class="pull-right quick-link-button" ><input type="text" Class="pull-right quick-link-button"></a>
 					<div id="header-right" class="pull-right">
 						<div class="hearder-min-cart">
 							<ul>
 								<li class="cart-button mini-cart-wrap">
-									<a href="#"><i class=" icon-basket"></i>	</a>
+									<a href="1-pay.html"><i class=" icon-basket"></i>	</a>
 								</li>
-			       				<li class="cart-button">
-				       				<a href="wishlist.html"  title="wishlist"><i class=" icon-heart"></i>	</a>
-			       				</li>
+								<li class="cart-button">
+									<a href="1-wishlist.html"  title="wishlist"><i class=" icon-heart"></i>	</a>
+								</li>
 							</ul>
 						</div><!-- #quick-link-buttons -->
 					</div>
 					<nav class="main-navigation pull-right">
 						<ul>
-							<a href="#">主页&nbsp&nbsp</a>
+							<a href="1-home.html">主页&nbsp&nbsp</a>
 							<li class="menu-item-has-children"><a href="#">类别</a>
 								<ul class="sub-menu">
-									<li><a href="shop-grid.html">世界名著</a></li>
-									<li><a href="shop-full.html">当代文学</a></li>
-									<li><a href="shop-left-sidebar.html">哲学宗教</a></li>
-									<li><a href="shop-right-sidebar.html">政治法律</a></li>
-									<li><a href="shop-three-column.html">历史地理</a></li>
-									<li><a href="shop-three-column.html">自然科学</a></li>
+									<li><a href="1-search.html">世界名著</a></li>
+									<li><a href="1-search.html">当代文学</a></li>
+									<li><a href="1-search.html">哲学宗教</a></li>
+									<li><a href="1-search.html">政治法律</a></li>
+									<li><a href="1-search.html">历史地理</a></li>
+									<li><a href="1-search.html">自然科学</a></li>
 								</ul>
 							</li>
-							<a href="#" >我的订单&nbsp&nbsp&nbsp</a>
-							<a href="#" >我的账户</a>
+							<a href="1-order.html" >我的订单&nbsp&nbsp&nbsp</a>
+							<a href="1-info.html" >我的账户</a>
 						</ul>
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
 			</header> <!-- .site-header -->
-			
-			   <div id="custom-header">
+			<div id="custom-header">
 			  <div class="custom-header-content">
 			    <div class="container">
-			      <h1 class="page-title">物流信息</h1>
+			      <h1 class="page-title">扫码付款</h1>
 			      <div id="breadcrumb">
 			        <div  aria-label="Breadcrumbs" class="breadcrumbs breadcrumb-trail">
 			          <ul class="trail-items">
-			            <li class="trail-item trail-begin"><a href="1-home.html" rel="home"><span>主页</span></a></li>
-			            <li class="trail-item trail-end"><span>物流信息</span></li>
+						  <li class="trail-item trail-begin"><a href="1-home.html" rel="home"><span>主页</span></a></li>
+			            <li class="trail-item trail-end"><span>扫码付款</span></li>
 			          </ul>
 			        </div> <!-- .breadcrumbs -->
 			      </div> <!-- #breadcrumb -->
 			    </div> <!-- .container -->
 			  </div>  <!-- .custom-header-content -->
 			</div> <!-- .custom-header -->
+			<br>
+			<br>
+			<br>
+			<br>
             <div id="content" class="site-content default-full-width">
-              <div class="container">
-                <div class="inner-wrapper">
-                  <div id="primary" class="content-area">
-                    <main id="main" class="site-main">
-						<div class="section-my-account">
-							 <div class="register-account">
-							    <div class="user-acc-header">
-										 <h3>物流信息</h3>
-										 
-							    </div>
-							    <div class="content-body">
-										<table class="shop-table shop-table-responsive">
-											<tbody>
-												<th>物流 ID</th>
-													<td>
-														Log-1
-													</td>
-											</tbody>
-											<tbody>
-												<th>商品 ID</th>
-													<td>
-														Com-1
-													</td>
-											</tbody>																	 
-											<tbody>
-												<th>始发地</th>
-													<td>
-														北京，东城
-													</td>
-											</tbody>
-											<tbody>
-												<th>目的地</th>
-													<td>
-														上海，静安
-													</td>
-											</tbody>																																		 
-										</table>
-
-											<div class="package-status">
-												<div class="status-box" >
-													<ul  class="status-list">
-														<li>
-															<div class="status-content-before">您的订单开始处理</div>
-															<div class="status-time-before">2017-08-17 23:31 周四</div>
-															<div class="status-line"></div>
-														</li>
-														<li>
-															<div class="status-content-before">卖家发货</div>
-															<div class="status-time-before">2017-08-18 09:11 周五</div>
-															<div class="status-line"></div>
-														</li >
-														<li>
-															<div class="status-content-before">发往北京中转站</div>
-															<div class="status-time-before">2017-08-19 01:21 周六</div>
-															<div class="status-line"></div>
-														</li>
-														<li>
-															<div class="status-content-before">到达北京</div>
-															<div class="status-time-before">2017-08-19 06:21 周六</div>
-															<div class="status-line"></div>
-														</li>
-														<li>
-															<div class="status-content-before">发往青岛中心</div>
-															<div class="status-time-before">2017-08-19 09:21 周六</div>
-															<div class="status-line"></div>
-														</li>
-														<li class="latest">
-															<div class="status-content-latest">快件到达 青岛中心</div>
-															<div class="status-time-latest">2017-08-20 14:16 周日</div>
-															<div class="status-line"></div>
-														</li>
-													</ul>
-												</div>
-										    </div> 
-							    </div>
-							 </div><!-- .register-account -->
-						</div><!-- .section-my-acount -->
-                    </main> <!-- #main -->
-                  </div> <!-- #primary -->
-                </div> <!-- #inner-wrapper -->
-              </div><!-- .container -->
-			</div> <!-- #content-->
-
-				 <!-- main---------------------------------------------------------------------------------------------- -->
-		
-			
-			
-			
-				 <div class="footer-container">
-					<footer id="colophon" class="site-footer">
-						<div class="container">
-							<div class="inner-wrapper">
-								<a href="http://www.bootstrapmb.com/">  团队介绍 </a>
-								<p> (+86) 008 400 123 &nbsp&nbsp database@tongji.edu.cn &nbsp&nbsp 4800 Changan Street, China </p>
-								<p> Copyright © 2019 SequoiaBook . All rights reserved. </p>
-							</div><!-- .inner-wrapper -->
-						</div> <!-- .container -->
-					</footer> <!-- footer ends here -->
-				</div><!-- footer-container -->
-		
+				<div class="section-my-account">
+					<div class="login-account">
+						<img src="images/blog-single/code.jpg" alt="" width=369 height=354>
+						<div class="user-acc-footer">
+							<p>扫描二维码并完成付款</p>
+						</div>
+						<div class="form-row form-row-last">
+							<label>商家名称</label>
+							<p>好运来面包蛋糕甜点饮料店</p>
+						</div>
+						<div class="form-row form-row-first">
+							<label>结算金额</label>
+							<p>1000元</p>
+						</div>
+					</div> <!-- .section-my-account -->
+				</div><!-- .section-my-account -->
+            </div> <!-- #content-->
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="footer-container">
+				<footer id="colophon" class="site-footer">
+					<div class="container">
+						<div class="inner-wrapper">
+							<a href="1-intro.html">  团队介绍 </a>
+							<p> (+86) 008 400 123 &nbsp&nbsp database@tongji.edu.cn &nbsp&nbsp 4800 Changan Street, China </p>
+							<p> Copyright © 2019 SequoiaBook . All rights reserved. </p>
+						</div><!-- .inner-wrapper -->
+					</div> <!-- .container -->
+				</footer> <!-- footer ends here -->
+			</div><!-- footer-container -->
 		</div> <!--#page-->
-
-		
+		<div id="btn-scrollup">
+			<a  title="Go Top"  class="scrollup button-circle" href="#"><i class="fas fa-angle-up"></i></a>
+		</div><!-- #btn-scrollup -->
+		<!--<div class="ad-wrapper">
+		   <div class="ad-header">
+		   20% Off <a class="close"><i class="fa fa-times"></i></a>
+		   </div>
+		   <div class="ad-body">
+		     <a href="#"><img alt="img" src="images/shop/product-1.jpg"></a>
+		   </div>
+		</div> .ad-wrapper -->
 		<div class="quick-view-content white-popup-block mfp-hide" id="quick-view-content-wrappr">
 			<div class="product-single">
 				<div class="inner-wrapper">
 					<div class="col-grid-6">
-							<div class="single-thumb-detail clear-fix">
+												<div class="single-thumb-detail clear-fix">
 							<div class="single-main-thumb clear-fix">
 								<div class="single-thumb"><span class="ribbon-rotated onsale">-16%</span><a href="#"><img alt="product" src="images/shop/product-1.jpg"></a></div>
 								<div class="single-thumb"><span class="ribbon-rotated onsale">-16%</span><a href="#"><img alt="product" src="images/shop/product-2.jpg"></a></div>
@@ -291,8 +324,8 @@
 							</div>
 							<form class="single-cart" method="post">
 								<input type="number" class="input-text" step="1" min="1" value="1">
-								<button type="submit" name="add-ro-cart" class="custom-button button-small"> Add To Cart </button>
-								<button type="submit" name="add-ro-cart" class="custom-button custom-secondary-button button-small"> Wishlist </button>
+								<button type="button" name="add-ro-cart" class="custom-button button-small"> Add To Cart </button>
+								<button type="button" name="add-ro-cart" class="custom-button custom-secondary-button button-small"> Wishlist </button>
 							</form><!-- .single-cart -->
 							<div class="entry-meta product-meta">
 								<h4>CATEGORY :</h4>
@@ -329,7 +362,7 @@
         					<form>
         						<input type="email" placeholder="Username OR Email address">
         						<input type="password" placeholder="Password">
-        						<input type="submit" class="custom-button button-small" value="Login">
+        						<input type="button" class="custom-button button-small" value="Login">
         					</form>
         				</div>
         			</div> <!-- .login-account -->
@@ -354,7 +387,7 @@
         						<input type="text" placeholder="Mobile number">
         						<input type="email" placeholder="Email address">
         						<input type="password" placeholder="Password">
-        						<input type="submit" class="btn btn-custom2" value="Register">
+        						<input type="button" class="btn btn-custom2" value="Register">
         					</form>
         				</div>
         			</div><!-- .register-account -->
@@ -385,3 +418,5 @@
 		<script  src="js/color-switcher.js"></script>
 	</body>
 </html>
+
+

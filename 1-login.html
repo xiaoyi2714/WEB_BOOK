@@ -50,7 +50,6 @@
 		<script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
 	</head>
 	<body class="home header-v1">
 		<!--<div class="color-switcher" id="choose_color">
@@ -163,7 +162,7 @@
 						<div class="hearder-min-cart">
 							<ul>
 								<li class="cart-button mini-cart-wrap">
-									<a href="1-cart.html"><i class=" icon-basket"></i>	</a>
+									<a href="1-pay.html"><i class=" icon-basket"></i>	</a>
 								</li>
 								<li class="cart-button">
 									<a href="1-wishlist.html"  title="wishlist"><i class=" icon-heart"></i>	</a>
@@ -220,15 +219,16 @@
 							       <img src="images/blog-single/author1.png" alt="">
 							       <h3>登录</h3>
 							    </div>
+
 							    <div class="content-body">
 							       <form>
 							          <p><label>用户名</label><input type="email" placeholder="用户名或邮箱地址"></p>
 							          <p><label>密码</label><input type="password" placeholder="密码"></p>
-							          <p><input type="submit" class="custom-button button-small" value="登录"></p>
+							          <p><input type="button" class="custom-button button-small" onclick="loadXMLDoc()" value="登录"></p>
 							       </form>
 							    </div>
 							    <div class="user-acc-footer">
-							       <p>新用户? <a class="register-account-link" href="1-info.html">注册</a></p>
+							       <p>新用户? <a class="register-account-link" href="1-register.html">注册</a></p>
 							    </div>
 							 </div> <!-- .section-my-account -->
 						</div><!-- .section-my-account -->
@@ -335,8 +335,8 @@
 							</div>
 							<form class="single-cart" method="post">
 								<input type="number" class="input-text" step="1" min="1" value="1">
-								<button type="submit" name="add-ro-cart" class="custom-button button-small"> Add To Cart </button>
-								<button type="submit" name="add-ro-cart" class="custom-button custom-secondary-button button-small"> Wishlist </button>
+								<button type="button" name="add-ro-cart" class="custom-button button-small"> Add To Cart </button>
+								<button type="button" name="add-ro-cart" class="custom-button custom-secondary-button button-small"> Wishlist </button>
 							</form><!-- .single-cart -->
 							<div class="entry-meta product-meta">
 								<h4>CATEGORY :</h4>
@@ -373,7 +373,7 @@
         					<form>
         						<input type="email" placeholder="Username OR Email address">
         						<input type="password" placeholder="Password">
-        						<input type="submit" class="custom-button button-small" value="Login">
+        						<input type="button" class="custom-button button-small" value="Login">
         					</form>
         				</div>
         			</div> <!-- .login-account -->
@@ -398,7 +398,7 @@
         						<input type="text" placeholder="Mobile number">
         						<input type="email" placeholder="Email address">
         						<input type="password" placeholder="Password">
-        						<input type="submit" class="btn btn-custom2" value="Register">
+        						<input type="button" class="btn btn-custom2" value="Register">
         					</form>
         				</div>
         			</div><!-- .register-account -->

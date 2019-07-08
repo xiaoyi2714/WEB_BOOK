@@ -517,6 +517,9 @@ table {
 /*--------------------------------------------------------------
 4. Forms
 --------------------------------------------------------------*/
+.content label { float:left; text-align:left; }  
+
+.content input {  padding:1px 1px; border:1px solid #ccc; }
 
 input[type="button"], input[type="reset"], input[type="submit"], button {
 	background: #ce1648;
@@ -7840,4 +7843,7 @@ div#login-popup {
 						Style End
 =============================================================*/
 
-
+.frameless-table th, td{
+	border: 0px;
+	text-align: left;
+}

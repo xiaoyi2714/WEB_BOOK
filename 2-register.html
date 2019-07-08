@@ -44,12 +44,23 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	<script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	<script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
+	<script language="javascript" type="text/javascript">
+	function change(){
+		var div1=document.getElementById("div3");
+		if(div3.style.display=="none"){
+          div3.style.display = "block";
+          div4.style.display = "none";
+		  div6.style.display = "none";
+		  div5.style.display = "block";
+      }else{
+          div3.style.display = "none";
+          div4.style.display = "block";
+		  div5.style.display = "none";
+		  div6.style.display = "block";
+      }
+	}
+	</script>
+	
 	<script>
 		function submitFormData() {
 			console.log($("#user").text());
@@ -228,10 +239,16 @@
 							    <div class="user-acc-header">
 									<a href="2-login.html"><h3>注册</h3></a>
 							    </div>
-							    <div class="content-body">
+							    <div class="content-body" id="div3">
 							       <form>
-							          <p><label>商家名</label><input type="text" placeholder="商家名"></p>
 							          <p><label>电话号码</label><input type="text" placeholder="电话号码"></p>
+							          <p><label>密码</label><input id="password" type="password" placeholder="密码"></p>
+							          <p><input type="button" value="注册" onclick="submitFormData()"></p>
+
+							       </form>
+							    </div>
+								  <div class="content-body" id="div4" style="display: none">
+							       <form>
 							          <p><label>电子邮箱</label><input id="email" type="email" placeholder="电子邮箱"></p>
 							          <p><label>密码</label><input id="password" type="password" placeholder="密码"></p>
 							          <p><input type="button" value="注册" onclick="submitFormData()"></p>
@@ -240,6 +257,9 @@
 							    </div>
 							    <div class="user-acc-footer">
 							       <p>已有账号? <a class="login-account-link" href="2-login.html">登录</a></p>
+								<div id="div5"><p><a href="javascript:void(0);" onclick="change()">使用邮箱注册</a></p></div>
+								<div id="div6" style="display:none"><p><a href="javascript:void(0);" onclick="change()">使用电话号码注册</a></p></div>
+
 							    </div>
 							 </div><!-- .register-account -->
 						</div><!-- .section-my-acount -->

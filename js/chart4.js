@@ -25,10 +25,6 @@ function displayChart4(){
     otherChart.clear();
     document.getElementById("chart7").style.display="none";
 
-    var otherChart = echarts.init(document.getElementById('chart8'));
-    otherChart.clear();
-    document.getElementById("chart8").style.display="none";
-
     //关闭其他表格
     
     document.getElementById("chart4").style.display="block";

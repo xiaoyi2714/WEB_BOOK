@@ -54,11 +54,11 @@
 			function search() {
 				pagenum = 0;
 				$.ajax({
-					url: 'http://106.52.66.141:8080/api/BookSearch/',
+					url: 'http://192.168.1.178:5000/api/BookSearch/',
 					type: 'post',
 					contentType: 'application/json;charset=UTF-8',
 					data: JSON.stringify({
-						'searchinfo': $("#search").val()
+						'Title': $("#search").val()
 					}),
 					success: function(data){
 						var pages = ["#page1", "#page2", "#page3", "#page4", "#page5", "#page6", "#page7", "#page8", "#page9"];

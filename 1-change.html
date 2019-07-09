@@ -191,9 +191,9 @@
 							    </div>
 							    <div class="content-body">
 							       <form>
-							          <p><label>姓名</label><input id="name" name="name" onblur="checkName()" required="required"
-																 type="text" placeholder="姓名"></p>
-							          <p><label>旧密码</label><input type="password" placeholder="旧密码"></p>
+									   <p><label>电子邮箱</label><input type="password" placeholder="电子邮箱"></p>
+									   <p><input type="button" value="点击发送验证码" onclick="submitFormData()"></p>
+							          <p><label>邮箱验证码</label><input type="password" placeholder="邮箱验证码"></p>
 							          <p><label>新密码</label><input id="password" name="password" onblur="checkPassword()"
 																  required="required" type="password" placeholder="新密码">
 									   <p id="passwordError" style="color:red;"></p>
@@ -203,9 +203,6 @@
 									   <p id="rePasswordError" style="color:red;"></p></p>
 							          <p><input type="submit" value="确认" onblur="checkRegister()"></p>
 							       </form>
-							    </div>
-							    <div class="user-acc-footer">
-							       <p> 已有账户？ <a class="login-account-link" href="">登录</a></p>
 							    </div>
 							 </div><!-- .register-account -->
 						</div><!-- .section-my-acount -->

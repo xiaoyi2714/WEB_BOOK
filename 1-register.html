@@ -69,15 +69,33 @@
 	</script>
 
 	<script>
-		function submitFormData() {
+		function SendMail() {
 			console.log($("#user").text());
 			$.ajax({
-				url: 'http://www.sparkxyf.cn:8080/api/sendMail/',
+				url: 'http://www.sparkxyf.cn:8080/api/SendMail/',
 				type: 'post',
 				contentType: 'application/json;charset=UTF-8',
 				data: JSON.stringify({
 					'Email': $("#email").val(),
-					'Password': $("#password").val()
+					'EmailStatus':'0',
+				}),
+				success: function(msg){
+					console.log("success");
+				},
+				error: function(err){
+					console.log('fail');
+				}
+			});
+		}
+		function RegisterByEmail() {
+			console.log($("#user").text());
+			$.ajax({
+				url: 'http://www.sparkxyf.cn:8080/api/SendMail/',
+				type: 'post',
+				contentType: 'application/json;charset=UTF-8',
+				data: JSON.stringify({
+					'Email': $("#email").val(),
+					'EmailStatus':'0',
 				}),
 				success: function(msg){
 					console.log("success");

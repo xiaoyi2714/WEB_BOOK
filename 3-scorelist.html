@@ -30,22 +30,6 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
-		<script language="javascript" type="text/javascript">
-			function change(){
-				var div1=document.getElementById("div1");
-				if(div1.style.display=="none"){
-					div1.style.display = "block";
-					div2.style.display = "none";
-					div6.style.display = "none";
-					div5.style.display = "block";
-				}else{
-					div1.style.display = "none";
-					div2.style.display = "block";
-					div5.style.display = "none";
-					div6.style.display = "block";
-				}
-			}
-		</script>
 	</head>
 	<body class="home header-v1">
 		<div id="page" class="site">
@@ -69,58 +53,90 @@
 				</div> <!-- .container -->
 			</header> <!-- .site-header -->
             <div id="custom-header">
-			  <div class="custom-header-content">
-			    <div class="container">
-					<h1 class="page-title">登录</h1>
-			    </div> <!-- .container -->
-			  </div>  <!-- .custom-header-content -->
-			</div> <!-- .custom-header -->
-			<br>
-			<br>
-			<br>
-			<br>
-			<div id="content" class="site-content default-full-width">
-				<div class="container">
-					<div class="inner-wrapper">
-						<div id="primary" class="content-area">
-							<main id="main" class="site-main">
-								<div class="section-my-account">
-									<div class="login-account">
-										<div class="user-acc-header">
-											<img src="images/blog-single/author1.png" alt="">
-											<h3>登录</h3>
-										</div>
-										<div class="content-body" id="div1">
-											<form>
-												<p><label>手机号</label><input type="text" placeholder="手机号"></p>
-												<p><input type="button" value="发送验证码" onclick="submitFormData()"></p>
-												<p><label>验证码</label><input id="code1" type="password" placeholder="验证码"></p>
-												<a href="1-home.html"><p><input type="button" value="登录" onclick="submitFormData()"></p></a>
-											</form>
-										</div>
-										<div class="content-body" id="div2" style="display: none">
-											<form>
-												<p><label>手机号/邮箱</label><input id="email" type="email" placeholder="手机号/邮箱"></p>
-												<p><label>密码</label><input id="password2" type="password" placeholder="密码"></p>
-												<a href="1-home.html"><p><input type="button" value="登录" onclick="submitFormData()"></p></a>
-											</form>
-										</div>
-										<div class="user-acc-footer">
-											<p>新用户? <a class="register-account-link" href="1-register.html">注册</a></p>
-											<div id="div5"><p><a href="javascript:void(0);" onclick="change()">使用密码登录</a></p></div>
-											<div id="div6" style="display:none"><p><a href="javascript:void(0);" onclick="change()">使用手机验证码登录</a></p></div>
-										</div>
-									</div> <!-- .section-my-account -->
-								</div><!-- .section-my-account -->
-							</main> <!-- #main -->
-						</div> <!-- #primary -->
-					</div> <!-- #inner-wrapper -->
-				</div><!-- .container -->
-			</div> <!-- #content-->
-			<br>
-			<br>
-			<br>
-			<br>			
+			<div class="custom-header-content">
+                <div class="container">
+                  <h1 class="page-title">后台管理系统</h1>
+<!-- #breadcrumb -->
+                </div> <!-- .container -->
+              </div>  <!-- .custom-header-content -->
+            </div> <!-- .custom-header -->
+			<div id="content" class="site-content global-layout-left-sidebar">
+              <div class="container">
+                <div class="inner-wrapper">
+                  <div id="primary" class="content-area">
+                    <main id="main" class="site-main"> <!-- .post -->
+					<div class="view-information">
+						<div class="title">
+							<h3>会员列表</h3>
+						</div>
+						<div class="content" style="padding-top: 30px;">
+							
+						</div>	
+					</div>
+                    </main> <!-- #main -->
+                  </div> <!-- #primary -->
+                  <div id="sidebar-primary" class="sidebar widget-area" >
+                    <div class="sidebar-widget-wrapper"> <!-- .widget -->
+                      <!-- .widget-archive -->
+                     <aside class="widget widget-category">
+						 <h3 class="widget-title">管理</h3>
+						<ul>
+							<li class="has-child"><a href="#">商家管理</a>
+                        <ul class="sub-menu">
+                          <li><a href="3-shoplist.html" >店铺列表</a> </li>
+                          <li><a href="3-shopchart.html" >店铺图表</a> </li>
+                        </ul>
+							</li>
+							<li class="has-child"><a href="#">用户管理</a>
+                        <ul class="sub-menu">
+                          <li><a href="3-userlist.html" >用户列表</a> </li>
+                          <li><a href="3-userchart.html" >用户图表</a> </li>
+                        </ul>
+							</li>
+							<li class="has-child"><a href="#">购物车管理</a>
+                        <ul class="sub-menu">
+                          <li><a href="3-cartlist.html" >购物车列表</a> </li>
+                          <li><a href="3-cartchart.html" >购物车图表</a> </li>
+                        </ul>
+							</li>
+							<li class="has-child"> <a href="#">收藏管理</a>
+                        <ul class="sub-menu">
+                          <li><a href="3-wishlist.html" >收藏列表</a> </li>
+                          <li><a href="3-wishchart.html" >收藏图表</a> </li>
+                        </ul>
+							</li>
+							<li class="has-child">
+						   <a href="#">商品管理</a>
+						   <ul class="sub-menu">
+                          <li><a href="3-commodity.html" >商品列表</a> </li>
+                          <li><a href="3-book.html" >书本列表</a> </li>
+                          <li><a href="3-commoditychart.html" >商品图表</a> </li>
+								</ul></li>
+						  <li class="has-child"><a href="#">订单管理</a>
+						   <ul class="sub-menu">
+                          <li><a href="3-orderlist.html" >订单列表</a> </li>
+                          <li><a href="3-orderchart.html" >订单图表</a> </li>
+							  </ul></li>
+						  <li class="has-child"><a href="#">会员管理</a>
+						   <ul class="sub-menu">
+                          <li><a href="3-scorelist.html" >会员列表</a> </li>
+                          <li><a href="3-scorechart.html" >会员图表</a> </li>
+							  </ul></li>
+						  <li class="has-child"><a href="#">优惠券管理</a>
+						   <ul class="sub-menu">
+                          <li><a href="3-couponlist.html" >优惠券列表</a> </li>
+                          <li><a href="3-couponchart.html" >优惠券图表</a> </li>
+							  </ul></li>
+						</ul>
+                      </aside>
+<!-- .widget-recent-entries -->                      <!-- .widget-tag-cloud -->
+                    </div> 
+                    <!-- .sidebar-widget-wrapper -->
+                  </div> <!-- .sidebar -->
+                </div> <!-- #inner-wrapper -->
+              </div><!-- .container -->
+            </div> <!-- #content-->
+			<!-- 页脚 -->
 			<div class="footer-container">
 				<footer id="colophon" class="site-footer">
 					<div class="colophon-bottom">

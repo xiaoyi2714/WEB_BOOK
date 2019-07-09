@@ -30,6 +30,11 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
+
+		<script src="third-party/incubator-echarts-4.2.1/dist/echarts.min.js"></script>
+		<script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.js"></script>
+
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 	</head>
 	<body class="home header-v1">
 		<div id="page" class="site">
@@ -70,6 +75,15 @@
 						<div class="title">
 							<h3>用户图表</h3>
 						</div>
+
+
+						<div style="position:relative;left:170px;">
+						<br><br>
+						<div id="3-userchart" style="width:500px;height:500px;"></div>
+						<script type="text/javascript" src="js/3-userchart.js"></script>	
+
+						</div>
+
 						<div class="content" style="padding-top: 30px;">
 							
 						</div>	
@@ -97,35 +111,36 @@
 							<li class="has-child"><a href="#">购物车管理</a>
                         <ul class="sub-menu">
                           <li><a href="3-cartlist.html" >购物车列表</a> </li>
+                          <li><a href="3-cartchart.html" >购物车图表</a> </li>
                         </ul>
 							</li>
 							<li class="has-child"> <a href="#">收藏管理</a>
                         <ul class="sub-menu">
                           <li><a href="3-wishlist.html" >收藏列表</a> </li>
+                          <li><a href="3-wishchart.html" >收藏图表</a> </li>
                         </ul>
 							</li>
 							<li class="has-child">
 						   <a href="#">商品管理</a>
 						   <ul class="sub-menu">
                           <li><a href="3-commodity.html" >商品列表</a> </li>
-                          <li><a href="3-sort.html" >商品分类</a> </li>
+                          <li><a href="3-book.html" >书本列表</a> </li>
+                          <li><a href="3-commoditychart.html" >商品图表</a> </li>
 								</ul></li>
 						  <li class="has-child"><a href="#">订单管理</a>
 						   <ul class="sub-menu">
-                          <li><a href="3-order.html" >订单列表</a> </li>
-                          <li><a href="3-pendingorder.html" >待发货订单</a> </li>
-					 	  <li><a href="3-filledorder.html" >已成交订单</a> </li>
+                          <li><a href="3-orderlist.html" >订单列表</a> </li>
+                          <li><a href="3-orderchart.html" >订单图表</a> </li>
 							  </ul></li>
 						  <li class="has-child"><a href="#">会员管理</a>
 						   <ul class="sub-menu">
                           <li><a href="3-scorelist.html" >会员列表</a> </li>
-                          <li><a href="3-scorelevel.html" >会员等级</a> </li>
+                          <li><a href="3-scorechart.html" >会员图表</a> </li>
 							  </ul></li>
 						  <li class="has-child"><a href="#">优惠券管理</a>
 						   <ul class="sub-menu">
                           <li><a href="3-couponlist.html" >优惠券列表</a> </li>
-                          <li><a href="3-unusedcoupon.html" >未使用的优惠券</a> </li>
-						  <li><a href="3-publishedcoupon.html" >已发布的优惠券</a> </li>
+                          <li><a href="3-couponchart.html" >优惠券图表</a> </li>
 							  </ul></li>
 						</ul>
                       </aside>

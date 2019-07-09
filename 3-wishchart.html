@@ -30,6 +30,11 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
+
+		<script src="third-party/incubator-echarts-4.2.1/dist/echarts.min.js"></script>
+		<script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.js"></script>
+
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 	</head>
 	<body class="home header-v1">
 		<div id="page" class="site">
@@ -48,7 +53,7 @@
 						<ul>
 							<li><a href="3-home.html">首页</a></li>
 							<li><a href="3-info.html">个人主页</a></li>
-							<li><a href="3-login" >安全退出</a></li>
+							<li><a href="3-login.html" >安全退出</a></li>
 						</ul>
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
@@ -56,103 +61,98 @@
             <div id="custom-header">
 			<div class="custom-header-content">
                 <div class="container">
-                  <h1 class="page-title">个人主页</h1>
+                  <h1 class="page-title">后台管理系统</h1>
 <!-- #breadcrumb -->
                 </div> <!-- .container -->
               </div>  <!-- .custom-header-content -->
             </div> <!-- .custom-header -->
-			<div id="content" class="site-content default-full-width">
+			<div id="content" class="site-content global-layout-left-sidebar">
               <div class="container">
                 <div class="inner-wrapper">
                   <div id="primary" class="content-area">
-                    <main id="main" class="site-main">
-						<div class="section-checkout">
-							<form name="checkout" class="checkout product-checkout">
-							    <div class="col2-set" id="customer_details">
-							        <div class="col-1">
-							            <div class="product-billing-fields">
-							                <h3>管理员信息</h3>
-							                <div class="product-billing-fields_field-wrapper">
-												<div class="form-row form-row-first">
-													<label>管理员头像</label>
-													<tr>
-														<td><label>(点击按键以初始化或更新管理员头像)</label></td>
-														<td><input type="file" style="width:300px; height:35px;" /></td>
-													</tr>
-												</div>
-												<div class="form-row form-row-last">
-													<img src="images/blog-single/author1.png" alt="" width="110" height="110">
-												</div>
-							                    <div class="form-row form-row-first">
-							                        <label>管理员ID</label>
-													<p>772192398</p>
-							                    </div>
-							                    <div class="form-row form-row-last">
-							                        <label>管理员昵称</label>
-													<p>12345678</p>
-							                    </div>
-												<div class="form-row form-row-first">
-													<label>账户密码</label>
-													<p>18717787656</p>
-												</div>
-												<div class="form-row form-row-last">
-													<label>账户积分</label>
-													<p>3000</p>
-												</div>
-							                </div>
-							            </div>
-							        </div>
-							        <div class="col-2">
-							            <div class="product-additional-fields">
-											<h3>个人信息</h3>
-											<div class="form-row form-row-first">
-												<label>真实姓名</label>
-												<p>洪欣鹏</p>
-											</div>
-											<div class="form-row form-row-last">
-												<label>默认地址</label>
-												<p>江西南昌洪都大道12号</p>
-											</div>
-											<div class="form-row form-row-first">
-												<label>出生日期</label>
-												<p>1998年3月8日</p>
-											</div>
-											<div class="form-row form-row-last">
-												<label>身份证号</label>
-												<p>360103199803085915</p>
-											</div>
-											<div class="form-row form-row-first">
-												<label>手机号码</label>
-												<p>18717787656</p>
-											</div>
-											<div class="form-row form-row-last">
-												<label>个人邮箱</label>
-												<p>hongxinpeng@tongji.edu.cn</p>
-											</div>
-							            </div>
-								        <!--<div id="payment" class="product-checkout-payment">
-								             <div class="form-row-first place-order">
-												 <a href="1-changeinfo.html"><input type="button" class="button alt" name="product-checkout-place-order" id="place_order" value="编辑个人信息" data-value="Place order"></a>
-								             </div>
-											<div class="form-row-last place-order">
-												<a href="1-change.html"><input type="button" class="button alt" name="product-checkout-place-order" id="place_order" value="修改账户密码" data-value="Place order"></a>
-											</div>
-								        </div>-->
-							        </div>
+                    <main id="main" class="site-main"> <!-- .post -->
+					<div class="view-information">
+						<div class="title">
+							<h3>收藏图表</h3>
+						</div>
 
-							    </div> <!-- #customer_details -->
-							</form><!-- .checkout product-checkout -->
-						</div><!-- .section-checkout -->
+
+						<div style="position:relative;left:170px;">
+						<br><br>
+						<div id="3-wishchart" style="width:500px;height:500px;"></div>
+						<script type="text/javascript" src="js/3-wishchart.js"></script>	
+
+						</div>
+
+						<div class="content" style="padding-top: 30px;">
+							
+						</div>	
+					</div>
                     </main> <!-- #main -->
                   </div> <!-- #primary -->
+                  <div id="sidebar-primary" class="sidebar widget-area" >
+                    <div class="sidebar-widget-wrapper"> <!-- .widget -->
+                      <!-- .widget-archive -->
+                     <aside class="widget widget-category">
+						 <h3 class="widget-title">管理</h3>
+						<ul>
+							<li class="has-child"><a href="#">商家管理</a>
+                        <ul class="sub-menu">
+                          <li><a href="3-shoplist.html" >店铺列表</a> </li>
+                          <li><a href="3-shopchart.html" >店铺图表</a> </li>
+                        </ul>
+							</li>
+							<li class="has-child"><a href="#">用户管理</a>
+                        <ul class="sub-menu">
+                          <li><a href="3-userlist.html" >用户列表</a> </li>
+                          <li><a href="3-userchart.html" >用户图表</a> </li>
+                        </ul>
+							</li>
+							<li class="has-child"><a href="#">购物车管理</a>
+                        <ul class="sub-menu">
+                          <li><a href="3-cartlist.html" >购物车列表</a> </li>
+                          <li><a href="3-cartchart.html" >购物车图表</a> </li>
+                        </ul>
+							</li>
+							<li class="has-child"> <a href="#">收藏管理</a>
+                        <ul class="sub-menu">
+                          <li><a href="3-wishlist.html" >收藏列表</a> </li>
+                          <li><a href="3-wishchart.html" >收藏图表</a> </li>
+                        </ul>
+							</li>
+							<li class="has-child">
+						   <a href="#">商品管理</a>
+						   <ul class="sub-menu">
+                          <li><a href="3-commodity.html" >商品列表</a> </li>
+                          <li><a href="3-book.html" >书本列表</a> </li>
+                          <li><a href="3-commoditychart.html" >商品图表</a> </li>
+								</ul></li>
+						  <li class="has-child"><a href="#">订单管理</a>
+						   <ul class="sub-menu">
+                          <li><a href="3-orderlist.html" >订单列表</a> </li>
+                          <li><a href="3-orderchart.html" >订单图表</a> </li>
+							  </ul></li>
+						  <li class="has-child"><a href="#">会员管理</a>
+						   <ul class="sub-menu">
+                          <li><a href="3-scorelist.html" >会员列表</a> </li>
+                          <li><a href="3-scorechart.html" >会员图表</a> </li>
+							  </ul></li>
+						  <li class="has-child"><a href="#">优惠券管理</a>
+						   <ul class="sub-menu">
+                          <li><a href="3-couponlist.html" >优惠券列表</a> </li>
+                          <li><a href="3-couponchart.html" >优惠券图表</a> </li>
+							  </ul></li>
+						</ul>
+                      </aside>
+<!-- .widget-recent-entries -->                      <!-- .widget-tag-cloud -->
+                    </div> 
+                    <!-- .sidebar-widget-wrapper -->
+                  </div> <!-- .sidebar -->
                 </div> <!-- #inner-wrapper -->
               </div><!-- .container -->
             </div> <!-- #content-->
-
-			<br>
-			<br>
-			<br>
-			<br>			<div class="footer-container">
+			<!-- 页脚 -->
+			<div class="footer-container">
 				<footer id="colophon" class="site-footer">
 					<div class="colophon-bottom">
 						<div class="container">

@@ -29,34 +29,6 @@ pre {
 }
 
 
-/*底部版权*/
-
-footer {
-    margin: 100px 0 50px 300px;
-    padding: 0 20px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-footer p {
-    border-top: 1px solid #ebebeb;
-    opacity: .5;
-    filter: alpha(opacity=50);
-    text-align: right;
-    font-size: 12px;
-    line-height: 3;
-    font-family: "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", tahoma, arial, simsun, "\5B8B\4F53";
-}
-
-footer p a {
-    color: #000;
-}
-
-footer p .spe {
-    padding: 0 5px;
-}
 
 .right-bg {
     position: fixed;

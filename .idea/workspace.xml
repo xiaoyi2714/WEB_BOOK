@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeedf143-ee31-4473-be74-1893162cbf94" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/1-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0-root.html" beforeDir="false" afterPath="$PROJECT_DIR$/0-root.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -14,12 +14,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/1-add.html">
+        <entry file="file://$PROJECT_DIR$/0-root.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="55" column="11" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
+            <state relative-caret-position="164">
+              <caret line="788" column="71" lean-forward="true" selection-start-line="788" selection-start-column="71" selection-end-line="788" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -44,6 +44,7 @@
         <option value="$PROJECT_DIR$/1-login.html" />
         <option value="$PROJECT_DIR$/2-login.html" />
         <option value="$PROJECT_DIR$/1-add.html" />
+        <option value="$PROJECT_DIR$/0-root.html" />
       </list>
     </option>
   </component>
@@ -58,6 +59,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -69,7 +71,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -103,11 +104,12 @@
       <workItem from="1562639187351" duration="958000" />
       <workItem from="1562640300312" duration="248000" />
       <workItem from="1562640716222" duration="595000" />
+      <workItem from="1562644234061" duration="173000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2971000" />
+    <option name="totallyTimeSpent" value="3144000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -217,8 +219,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/1-add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="55" column="11" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
+        <state relative-caret-position="132">
+          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0-root.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="788" column="71" lean-forward="true" selection-start-line="788" selection-start-column="71" selection-end-line="788" selection-end-column="71" />
         </state>
       </provider>
     </entry>

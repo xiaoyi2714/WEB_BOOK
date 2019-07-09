@@ -116,13 +116,16 @@ function pageNine() {
     display();
 }
 function display(){
+    var num;
     if(searchData[pagenum + 8] != null) {
 
         $("#product0").html(searchData[pagenum + 0].Title);
         $("#shop0").html(searchData[pagenum + 0].ShopName);
         $("#price0").html(searchData[pagenum + 0].Price);
         $("#product0").click(function(){
-            window.location.href="1-product.html?MerchandiseId=searchData[pagenum + 0].MerchandiseId"
+            num = searchData[pagenum + 0].MerchandiseId;
+            console.log(num);
+            window.location.href='1-product.html?MerchandiseId=num';
         });
 
         $("#product1").html(searchData[pagenum + 1].Title);

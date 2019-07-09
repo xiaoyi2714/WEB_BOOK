@@ -1,6 +1,6 @@
 function displayChart6(){
-	
-	//关闭其他表格
+    
+    //关闭其他表格
     var otherChart = echarts.init(document.getElementById('chart1'));
     otherChart.clear();
     document.getElementById("chart1").style.display="none";
@@ -25,36 +25,55 @@ function displayChart6(){
     otherChart.clear();
     document.getElementById("chart7").style.display="none";
 
-    var otherChart = echarts.init(document.getElementById('chart8'));
-    otherChart.clear();
-    document.getElementById("chart8").style.display="none";
-
     //关闭其他表格
-	
-	document.getElementById("chart6").style.display="block";
+    
+    document.getElementById("chart6").style.display="block";
     var myChart = echarts.init(document.getElementById('chart6'));
-    var option = {
-		title:{
-            text: '年龄与购买量'
-        },
-		xAxis:{
-            type:'category',
-            data:['10岁以下', '10-20', '20-30', '30-40','40岁以上']
-        },
-        yAxis:{
-            type:'value'
-        },
-        series:[{
-            type: 'line',
-            name:'购买量',
-            data:[3.5, 6, 13, 20, 15]
-        }]
-    };
-    myChart.setOption(option);
+var option = {        
+    title : {
+        	text: '评价占比',
+        	x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: ['好评','中评','差评']
+    },
+            series:[
+                {
+                    name:'评价类别',
+                    type: 'pie',
+                    radius: '55%',
+					center: ['50%', '60%'],
+                    data:[
+                        {value:235, name:'好评'},
+                        {value:274, name:'中评'},
+                        {value:310, name:'差评'},
+                    ],
+                itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+                }
+            ]
+       };
+myChart.setOption(option);
+
 }
+
 function closeChart6(){
     var myChart = echarts.init(document.getElementById('chart6'));
     myChart.clear();
     document.getElementById("chart6").style.display="none";
 }
+
+
+
 

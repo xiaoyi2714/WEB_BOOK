@@ -49,6 +49,9 @@
     <script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="js/answer.js"></script>
+    <script src="js/search.js"></script>
+
 </head>
 <body class="home header-v1">
 <div class="color-switcher" id="choose_color">
@@ -80,7 +83,8 @@
                     <h1 class="site-title"><a href="1-home.html" rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
                 </div><!-- #site-identity -->
             </div><!-- .site-branding -->
-            <a href="1-search.html"><input type="button" value="搜索" class="pull-right quick-link-button" ><input type="text" Class="pull-right quick-link-button"></a>
+            <input type="button" value="搜索" class="pull-right quick-link-button" onclick="search()">
+            <input id="search" type="text" Class="pull-right quick-link-button">
             <div id="header-right" class="pull-right">
                 <div class="hearder-min-cart">
                     <ul>
@@ -219,18 +223,15 @@
                                                         <form  id="commentform" class="comment-form" >
                                                             <div class="comment-form-rating">
                                                                 <label>问题描述</label>
-                                                                <br/>
-                                                                <br/>
-                                                                <br/>
-                                                                <br/>
-                                                                <br/>
+                                                                <br>
+                                                                <a id="question">这是一个问题</a >
                                                             </div>
                                                             <p class="comment-form-comment">
-                                                                <label for="comment">回答内容</label>
-                                                                <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
+                                                                <label for="answer">回答内容</label>
+                                                                <textarea id="answer" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
                                                             </p>
                                                             <p class="form-submit">
-                                                                <a href="1-product.html"><input name="submit" type="button" id="submit" class="submit" value="提交"></a>
+                                                                <input name="submit" type="button" id="submit" class="submit" value="提交" onclick="Answer()">
                                                                 <input type="hidden" name="comment_post_ID" value="4819" id="comment_post_ID">
                                                                 <input type="hidden" name="comment_parent" id="comment_parent" value="0">
                                                             </p>

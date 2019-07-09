@@ -1,11 +1,13 @@
-var MerchandiseId, searchData, comment, question, answer;
+window.location.href;
 function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg);  //匹配目标参数
     if (r != null) return unescape(r[2]); return null; //返回参数值
 }
+var MerchandiseId=getUrlParam('MerchandiseId');
+var searchData, comment, question, answer;
 function GetMerchandise() {
-    MerchandiseId = getUrlParam('MerchandiseId');
+    console.log(MerchandiseId);
     $.ajax({
         url: 'http://192.168.1.178:5000/api/GetMerchandise/',
         type: 'post',

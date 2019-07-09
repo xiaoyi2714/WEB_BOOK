@@ -28,6 +28,7 @@ function change(){
             success: function(msg){
                 console.log(msg);
                 console.log("success");
+                window.location.href='1-home.html';
                 console.log(document.cookie);
             },
             error: function(err){

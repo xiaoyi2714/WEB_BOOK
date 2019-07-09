@@ -65,7 +65,7 @@
 
 
 		<script>
-			var ReceiverName, ReceiverPhone, SourceProvince, SourceCity, SourceBlock, SOurceDetailAddress,
+			var ReceiverName, ReceiverPhone, SourceProvince, SourceCity, SourceBlock, SourceDetailAddress,
 					SoureceZipCode, SellerPhone, DestinationProvince, DestinationProvince, DEstinationBlock, LogisticTrackNum;
 			function show_logistics() {
 				$.ajax({
@@ -73,7 +73,7 @@
 					type: 'post',
 					contentType: 'application/json;charset=UTF-8',
 					data: JSON.stringify({
-						'TransactAddressInfo': $("#search").val()
+						'TransactId': $("#search").val()
 					}),
 					success: function(data){
 						var pages = ["#page1", "#page2", "#page3", "#page4", "#page5", "#page6", "#page7", "#page8", "#page9"];

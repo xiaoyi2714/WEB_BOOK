@@ -277,22 +277,24 @@
 								<div class="content-body" id="div1">
 									<form>
 										<p><label>电话号码</label><input type="text" placeholder="电话号码"></p>
-										<p><label>密码</label><input id="password" type="password" placeholder="密码"></p>
+										<p><input type="button" value="发送验证码" onclick="submitFormData()"></p>
+										<p><label>验证码</label><input id="code1" type="password" placeholder="验证码"></p>
+										<p><label>密码</label><input id="password1" type="password" placeholder="密码"></p>
 										<a href="1-login.html"><p><input type="button" value="注册" onclick="submitFormData()"></p></a>
-
 									</form>
 								</div>
 								<div class="content-body" id="div2" style="display: none">
 									<form>
 										<p><label>电子邮箱</label><input id="email" type="email" placeholder="电子邮箱"></p>
-										<p><label>密码</label><input id="password" type="password" placeholder="密码"></p>
+										<p><input type="button" value="发送验证码" onclick="submitFormData()"></p>
+										<p><label>验证码</label><input id="code2" type="password" placeholder="验证码"></p>
+										<p><label>密码</label><input id="password2" type="password" placeholder="密码"></p>
 										<a href="1-login.html"><p><input type="button" value="注册" onclick="submitFormData()"></p></a>
-
 									</form>
 								</div>
 								<div class="user-acc-footer">
 									<p>已有账号? <a class="login-account-link" href="1-login.html">登录</a></p>
-									<div id="div5"><p><a href="javascript:void(0);" onclick="change()">使用邮箱注册</a></p></div>
+									<div id="div5"><p><a href="javascript:void(0);" onclick="change()">使用电子邮箱注册</a></p></div>
 									<div id="div6" style="display:none"><p><a href="javascript:void(0);" onclick="change()">使用电话号码注册</a></p></div>
 								</div>
 							</div><!-- .register-account -->

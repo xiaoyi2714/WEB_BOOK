@@ -15,7 +15,7 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
 		<link rel="stylesheet" type="text/css" href="third-party/sidr/css/jquery.sidr.dark.css">
 		<link rel="stylesheet" type="text/css" href="third-party/slick/css/slick.css">
-		
+
 		<link rel="stylesheet" type="text/css" href="third-party/wow/css/animate.min.css">
         <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 		<link rel="stylesheet" type="text/css" href="third-party/magnific-popup-master/css/magnific-popup.css">
@@ -25,18 +25,7 @@
 		<link rel="stylesheet" type="text/css" href="css/custom.css">
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
 		<link rel="stylesheet" id="color" href="css/default.css">
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/lite-green.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/dark-green.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/black.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/orange.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/brown.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/lite-green.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/dark-purple.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/cyan.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/dark-blue.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/purple.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/sky-blue.css"> -->
-		
+
 
 		<link rel="stylesheet" href="third-party/fontawesome/releases/v5.2.0/css/all.css" >
 
@@ -49,6 +38,62 @@
 		<script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+
+		<script>
+			function checkPassword(){
+				if($.trim($('#password').val()).length == 0){
+					$('#passwordError').html('密码没有输入');
+					$('#password').focus();
+					return false;
+				}else{
+					$('#passwordError').html('');
+					const rePass = $.trim($('#rePassword').val());
+					const pass = $.trim($('#password').val());
+					if (rePass.length != 0) {
+						if (rePass != pass) {
+							$('#rePasswordError').html('两次密码不一致');
+							return false;
+						} else {
+							$('#rePasswordError').html('');
+							return true;
+						}
+					}
+				}
+			}
+
+			function checkRePassword(){
+				const rePass = $.trim($('#rePassword').val());/*去除字符串两端空白*/
+				if(rePass.length == 0){
+					$('#rePasswordError').html("密码没有输入");
+					$('#rePassword').focus();
+					return false;
+				}else{
+					$('#rePasswordError').html('');
+					const pass=$.trim($('#password').val());
+					if(pass.length==0){
+						$('#rePassword').val('');
+						$('#passwordError').html("密码没有输入");
+						$('#password').focus();
+						return false;
+					}else if(rePass != pass){
+						$('#rePasswordError').html('两次密码不一致');
+						return false;
+					}else{
+						$('#rePasswordError').html('');
+						return true;
+					}
+				}
+			}
+
+			function checkRegister(){
+				if(checkPassword()==false){
+					return false;
+				}
+				if(checkRePassword()==false){
+					return false;
+				}
+			}
+		</script>
 
 	</head>
 	<body class="home header-v1">
@@ -99,24 +144,32 @@
 									<input type="button" style="width:220px; height:35px;" value="点击获取验证码"/>
 								</p>
 							     <p><label style="width: 130px;height:35px;">输入验证码</label><input type="text" style="width:220px; height:35px;" /></p>
-							     <p><label style="width: 130px;height:35px;">输入新密码</label><input type="password" style="width:220px; height:35px;" /></p>
-							     <p><label style="width: 130px;height:35px;">再次输入新密码</label><input type="password" style="width:220px; height:35px;" /></p>
+							     <p><label style="width: 130px;height:35px;">输入新密码</label>
+									 <input id="password" name="password" onblur="checkPassword()" required="required" type="password" style="width:220px; height:35px;" />
+								<p id="passwordError" style="color:red;"></p>
+								 </p>
+							     <p><label style="width: 130px;height:35px;">再次输入新密码</label>
+									 <input id="rePassword" name="rePassword" onblur="checkRePassword()" required="required" type="password" style="width:220px; height:35px;" />
+								<p id="rePasswordError" style="color:red"></p>
+								 </p>
 							<div style="width: 1000px;height:100px;">
 								<div style="padding-left: 130px;width:300px; height:35px;float:left;margin-right:10px;">
-									<input type="button" onclick="show()" style="width: 220px;height:35px;" value="修改密码">
+									<input type="button" onblur="checkRegister()" onclick="show()" style="width: 220px;height:35px;" value="修改密码">
 								</div>
 								<script>
 								function show()
 								{
-									document.getElementById("success2").innerHTML="恭喜您，修改成功！";
+									if(checkRePassword()==true&&checkPassword()==true) {
+										document.getElementById("success2").innerHTML = "恭喜您，修改成功！";
+									}
 								}
 								</script>
-								
-									<div id="show" style="padding-left: 410px;"><p id="success2" style="width:220px;height:35px;text-align:center;color:#1AFA29"></p></div>	
+
+									<div id="show" style="padding-left: 410px;"><p id="success2" style="width:220px;height:35px;text-align:center;color:#1AFA29"></p></div>
 							</div>
 						</form>
 						</div>
-					</div>	
+					</div>
                     </main> <!-- #main -->
                   </div> <!-- #primary -->
                   <div id="sidebar-primary" class="sidebar widget-area" >
@@ -154,7 +207,7 @@
 						</ul>
                       </aside>
 <!-- .widget-recent-entries -->                      <!-- .widget-tag-cloud -->
-                    </div> 
+                    </div>
                     <!-- .sidebar-widget-wrapper -->
                   </div> <!-- .sidebar -->
                 </div> <!-- #inner-wrapper -->
@@ -166,9 +219,7 @@
 					<div class="colophon-bottom">
 						<div class="container">
 							<div class="inner-wrapper">
-								<a href="1-intro.html">  团队介绍 </a>
-								<br>
-								<a href="http://www.miitbeian.gov.cn"> 互联网ICP备案：沪ICP备19023316号-1 </a>
+								<a href="http://www.bootstrapmb.com/">  团队介绍 </a>
 								<p> (+86) 008 400 123 &nbsp&nbsp database@tongji.edu.cn &nbsp&nbsp 4800 Changan Street, China </p>
 								<p> Copyright © 2019 SequoiaBook . All rights reserved. </p>
 							</div><!-- .inner-wrapper -->

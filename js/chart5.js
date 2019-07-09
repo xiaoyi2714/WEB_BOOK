@@ -25,12 +25,17 @@ function displayChart5(){
     otherChart.clear();
     document.getElementById("chart7").style.display="none";
 
+    var otherChart = echarts.init(document.getElementById('chart8'));
+    otherChart.clear();
+    document.getElementById("chart8").style.display="none";
+
     //关闭其他表格
+    
     document.getElementById("chart5").style.display="block";
     var myChart = echarts.init(document.getElementById('chart5'));
-    var option = {
-            title : {
-        	text: '折扣率占比',
+var option = {        
+    title : {
+        	text: '用户好评分布',
         	x:'center'
     },
     tooltip : {
@@ -40,7 +45,7 @@ function displayChart5(){
     legend: {
         orient: 'vertical',
         left: 'left',
-        data: ['0.5','0.6','0.8']
+        data: ['好评','中评','差评']
     },
             series:[
                 {
@@ -49,9 +54,9 @@ function displayChart5(){
                     radius: '55%',
 					center: ['50%', '60%'],
                     data:[
-                        {value:35, name:'0.5'},
-                        {value:174, name:'0.6'},
-                        {value:210, name:'0.8'},
+                        {value:235, name:'好评'},
+                        {value:274, name:'中评'},
+                        {value:310, name:'差评'},
                     ],
                 itemStyle: {
                 emphasis: {
@@ -63,7 +68,8 @@ function displayChart5(){
                 }
             ]
        };
-       myChart.setOption(option);
+myChart.setOption(option);
+
 }
 
 function closeChart5(){
@@ -71,3 +77,7 @@ function closeChart5(){
     myChart.clear();
     document.getElementById("chart5").style.display="none";
 }
+
+
+
+

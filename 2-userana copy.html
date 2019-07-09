@@ -121,23 +121,19 @@
 
 						<h2>用户行为分析</h2>
 
-						<div class="dropdown">
-							<button class="dropbtn">可视化维度</button>
-							<div class="dropdown-content">
-								<input type=button value="销量榜单分析" onclick="displayChart1()"/>
-								<input type=button value="交易量变化量" onclick="displayChart2()"/>
-								<input type=button value="畅销商品词云" onclick="displayChart3()"/>
-								<input type=button value="用户地域分布" onclick="displayChart4()"/>
-								<input type=button value="用户好评分布" onclick="displayChart5()"/>
-								<input type=button value="年龄与购买量" onclick="displayChart6()"/>
-								<input type=button value="用户年龄分布" onclick="displayChart7()"/>
-								<input type=button value="收藏书目榜单" onclick="displayChart8()"/>
-							</div>
-						</div>
-
+						<input type=button value="销量榜单分析" onclick="displayChart1()"/>
+						<input type=button value="交易量变化量" onclick="displayChart2()"/>
+						<input type=button value="畅销商品词云" onclick="displayChart3()"/>
+						<input type=button value="用户地域分布" onclick="displayChart4()"/>
+						<br><br>
+						<input type=button value="用户好评分布" onclick="displayChart5()"/>
+						<input type=button value="年龄与购买量" onclick="displayChart6()"/>
+						<input type=button value="用户年龄分布" onclick="displayChart7()"/>
+						<input type=button value="收藏书目榜单" onclick="displayChart8()"/>
+						<br><br>
 						<button onclick="download()">生成报告</button>
 						<br><br>
-						<br><br>
+
 
 						<div style="position:relative;left:170px;">
 
@@ -145,6 +141,7 @@
 						<!-- 第一幅图——销量榜单 -->				
 						<div id="chart1" style="width:600px; height:400px; display:none;"></div>
 						<script type="text/javascript" src="js/chart1.js"></script>
+						<button onclick="download1()">生成报告</button>
 						
 
 						<!-- 第二幅图——GMV变化量 -->

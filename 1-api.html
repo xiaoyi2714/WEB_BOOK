@@ -62,6 +62,108 @@
 		<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 		<title>根据起终点名称查看物流</title>
 
+
+
+		<script>
+			var ReceiverName, ReceiverPhone, SourceProvince, SourceCity, SourceBlock, SourceDetailAddress,
+					SoureceZipCode, SellerPhone, DestinationProvince, DestinationProvince, DEstinationBlock, LogisticTrackNum;
+			function show_logistics() {
+				$.ajax({
+					url: 'http://106.52.66.141:8080/api/GetLogistics/',
+					type: 'post',
+					contentType: 'application/json;charset=UTF-8',
+					data: JSON.stringify({
+						'TransactId': $("#search").val()
+					}),
+					success: function(data){
+						var pages = ["#page1", "#page2", "#page3", "#page4", "#page5", "#page6", "#page7", "#page8", "#page9"];
+						console.log(pages);
+						searchData = data;
+						page = data.length / 9;
+						if (page != 0){
+							$("#unfind").hide();
+						}
+						if (page == 0){
+							$("#unfind").show();
+						}
+						for(i = page; i <= 9; i++){
+							console.log(pages[i]);
+							$(pages[i]).hide();
+						}
+						sortByTitle();
+						display();
+						console.log(page);
+						console.log('search success');
+						console.info(searchData);
+					},
+					error: function(err){
+						console.log('fail');
+						$(".product-title").html("title");
+					}
+				});
+			}
+			function sortByPriceDown(){
+				searchData.sort(function (a, b) {
+					if (a.Price > b.Price){
+						return 1;
+					}
+					if (a.Price < b.Price){
+						return -1;
+					}
+					return 0;
+				});
+				display();
+			}
+			function display(){
+				if(searchData[pagenum + 8] != null) {
+
+					$("#product0").html(searchData[pagenum + 0].Title);
+					$("#shop0").html(searchData[pagenum + 0].ShopName);
+					$("#price0").html(searchData[pagenum + 0].Price);
+
+					$("#product1").html(searchData[pagenum + 1].Title);
+					$("#shop1").html(searchData[pagenum + 1].ShopName);
+					$("#price1").html(searchData[pagenum + 1].Price);
+
+					$("#product2").html(searchData[pagenum + 2].Title);
+					$("#shop2").html(searchData[pagenum + 2].ShopName);
+					$("#price2").html(searchData[pagenum + 2].Price);
+
+					$("#product3").html(searchData[pagenum + 3].Title);
+					$("#shop3").html(searchData[pagenum + 3].ShopName);
+					$("#price3").html(searchData[pagenum + 3].Price);
+
+					$("#product4").html(searchData[pagenum + 4].Title);
+					$("#shop4").html(searchData[pagenum + 4].ShopName);
+					$("#price4").html(searchData[pagenum + 4].Price);
+
+					$("#product5").html(searchData[pagenum + 5].Title);
+					$("#shop5").html(searchData[pagenum + 5].ShopName);
+					$("#price5").html(searchData[pagenum + 5].Price);
+
+					$("#product6").html(searchData[pagenum + 6].Title);
+					$("#shop6").html(searchData[pagenum + 6].ShopName);
+					$("#price6").html(searchData[pagenum + 6].Price);
+
+					$("#product7").html(searchData[pagenum + 7].Title);
+					$("#shop7").html(searchData[pagenum + 7].ShopName);
+					$("#price7").html(searchData[pagenum + 7].Price);
+
+					$("#product8").html(searchData[pagenum + 8].Title);
+					$("#shop8").html(searchData[pagenum + 8].ShopName);
+					$("#price8").html(searchData[pagenum + 8].Price);
+				}
+				else{
+					if(pagenum > 0)
+						pagenum -= 9;
+					else
+						pagenum += 9;
+				}
+			}
+		</script>
+
+
+
 	</head>
 	<body class="home header-v1">
 		<div id="page" class="site">
@@ -184,12 +286,12 @@
 							<h1 class="site-title"><a href="1-home.html"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
-					<a href="1-search.html"><input type="button" value="搜索" class="pull-right quick-link-button"><input type="text" Class="pull-right quick-link-button">
+					<a href="1-search.html"><input type="button" value="搜索" class="pull-right quick-link-button"><input type="text" Class="pull-right quick-link-button"></a>
 					<div id="header-right" class="pull-right">
 						<div class="hearder-min-cart">
 							<ul>
 								<li class="cart-button mini-cart-wrap">
-									<a href="1-pay.html"><i class=" icon-basket"></i>	</a>
+									<a href="1-pay.html"><i class=" icon-basket"></i></a>
 								</li>
 			       				<li class="cart-button">
 				       				<a href="1-wishlist.html"  title="wishlist"><i class=" icon-heart"></i>	</a>
@@ -234,7 +336,7 @@
 			  </div>  <!-- .custom-header-content -->
 			</div> <!-- .custom-header -->
 
-			<div id="content" class="site-content default-full-width" style="width:300px; z-index:100; position:fixed; left:0px; top:100px; float:right; background:#ff000; ">
+			<div id="content" class="site-content default-full-width" style="width:300px; z-index:100; position:fixed; left:0px; top:100px; float:right; ">
 				<div class="container">
 					<div class="inner-wrapper">
 						<div id="primary" class="content-area">
@@ -249,27 +351,27 @@
 											<table class="shop-table shop-table-responsive">
 												<tbody>
 												<th>物流 ID</th>
-												<td>
+												<th>
 													Log-1
-												</td>
+												</th>
 												</tbody>
 												<tbody>
 												<th>商品 ID</th>
-												<td>
+												<th>
 													Com-1
-												</td>
+												</th>
 												</tbody>
 												<tbody>
 												<th>始发地</th>
-												<td>
+												<th>
 													北京，东城
-												</td>
+												</th>
 												</tbody>
 												<tbody>
 												<th>目的地</th>
-												<td>
+												<th>
 													上海，静安
-												</td>
+												</th>
 												</tbody>
 											</table>
 

@@ -30,6 +30,9 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
+		<script  src="third-party/jquery/jquery-3.2.1.min.js"></script>
+
+		
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,6 +40,31 @@
 		<script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		<script>
+			$.ajax({
+				url: 'http://192.168.1.178:5000/api/GetSeller',	
+				type: 'post',
+				contentType: 'application/json; charset=UTF-8',
+				xhrFields:{
+					withCredentials: true
+				},
+				data: JSON.stringify({}),
+				success: function(data){
+					console.log("success");
+					console.log(data);
+					//展示信息
+					$("#id").val(data.SellerId);
+					$("#name").val(data.ShopName);
+					$("#phone").val(data.SellerPhone);
+					$("#email").val(data.SellerEmail);
+					$("#city").val("上海");
+					$("#description").html(data.ShopDescription);
+				},
+				error: function(err){
+					console.log(err.statusText);
+				}
+			});
+		</script>
 
 	</head>
 	<body class="home header-v1">
@@ -50,14 +78,34 @@
 				<div class="container">
 					<div class="site-branding pull-left">
 						<div id="site-identity">
-							<h1 class="site-title"><a href="1-home.html"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
+							<h1 class="site-title"><a href="#"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
 					<nav class="main-navigation pull-right">
 						<ul>
-							<li><a href="1-home.html">网站首页</a></li>
 							<li><a href="2-information.html">我的店铺</a></li>
-							<li><a href="#" >安全退出</a></li>
+							<a href="2-login.html">登录</a>
+							<a href="#" onclick="logout()" >安全退出</a>
+							<script>
+								function logout(){
+									$.ajax({
+										url: 'http://192.168.1.178:5000/api/SellerLogout',
+										type: 'post',
+										contentType: 'application/json; charset=UTF-8',
+										xhrFields: {	//发送cookie
+										withCredentials: true
+										},
+										data: JSON.stringify({}),
+										success: function(msg){
+											console.log("success");
+											window.location = '2-login.html';
+										},
+										error: function(err){
+											//理论上不可能
+										}
+									});
+								}
+							</script>
 						</ul>
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
@@ -81,12 +129,12 @@
 						</div>
 						<div class="content" style="padding-left: 50px;padding-top: 30px">
 							<form role="form">
-	                             <p><label style="width: 130px;height:35px;">ID</label><input type="text" style="width:220px; height:35px;" readonly /></p>
-								 <p><label style="width: 130px;height:35px;" >店铺名称</label><input type="text" style="width:220px; height:35px;" readonly /></p>
-							     <p><label style="width: 130px;height:35px;" readonly>联系电话</label><input type="tel" style="width:220px; height:35px;" /></p>
-							     <p><label style="width: 130px;height:35px;" readonly>邮箱地址</label><input type="email" style="width:220px; height:35px;" /></p>
-							     <p><label style="width: 130px;height:35px;" readonly>所在城市</label><input type="text" style="width:220px; height:35px;"/></p>
-								 <p><label style="width: 130px;height:35px;" readonly>店铺简介</label><textarea rows="3" cols="20" style="width:220px; height:105px;"></textarea></p>
+	                             <p><label style="width: 130px;height:35px;">ID</label><input id="id" type="text" style="width:220px; height:35px;" readonly /></p>
+								 <p><label style="width: 130px;height:35px;" >店铺名称</label><input id="name" type="text" style="width:220px; height:35px;" readonly /></p>
+							     <p><label style="width: 130px;height:35px;" >联系电话</label><input id="phone" type="tel" style="width:220px; height:35px;" readonly/></p>
+							     <p><label style="width: 130px;height:35px;" >邮箱地址</label><input id="email" type="email" style="width:220px; height:35px;" readonly/></p>
+							     <p><label style="width: 130px;height:35px;" >所在城市</label><input id="city" type="text" style="width:220px; height:35px;" readonly/></p>
+								 <p><label style="width: 130px;height:35px;" >店铺简介</label><textarea id="description" rows="3" cols="20" style="width:220px; height:105px;" readonly></textarea></p>
 								 <p><lable style="width: 130px;height:35px;">信用等级</lable>
 									 <img src="images/star.png" alt="star" style="padding-left: 70px">
 									 <img src="images/star.png" alt="star" style="padding-left: 17px">

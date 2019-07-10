@@ -185,27 +185,34 @@
 		<div class="container">
 			<div class="site-branding pull-left">
 				<div id="site-identity">
-					<h1 class="site-title"><a href="1-home.html" rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
+					<h1 class="site-title"><a href="#" rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 				</div><!-- #site-identity -->
 			</div><!-- .site-branding -->
-			<a href="1-search.html"><input type="button" value="搜索" class="pull-right quick-link-button" ><input type="text" Class="pull-right quick-link-button"></a>
-			<div id="header-right" class="pull-right">
-				<div class="hearder-min-cart">
-					<ul>
-						<li class="cart-button mini-cart-wrap">
-							<a href="1-pay.html"><i class=" icon-basket"></i>	</a>
-						</li>
-						<li class="cart-button">
-							<a href="1-wishlist.html"  title="wishlist"><i class=" icon-heart"></i>	</a>
-						</li>
-					</ul>
-				</div><!-- #quick-link-buttons -->
-			</div>
 			<nav class="main-navigation pull-right">
 				<ul>
-					<a href="1-home.html" >网站首页&nbsp&nbsp&nbsp</a>
 					<a href="2-information.html" >我的店铺&nbsp&nbsp&nbsp</a>
-					<a href="#" >安全退出</a>
+					<a href="2-login.html">登录</a>
+					<a href="#" onclick="logout()" >安全退出</a>
+					<script>
+						function logout(){
+							$.ajax({
+								url: 'http://192.168.1.178:5000/api/SellerLogout',
+								type: 'post',
+								contentType: 'application/json; charset=UTF-8',
+								xhrFields: {	//发送cookie
+								withCredentials: true
+								},
+								data: JSON.stringify({}),
+								success: function(msg){
+									console.log("success");
+									window.location = '2-login.html';
+								},
+								error: function(err){
+									//理论上不可能
+								}
+							});
+						}
+					</script>
 				</ul>
 			</nav> <!-- .site-navigation -->
 		</div> <!-- .container -->
@@ -217,7 +224,6 @@
 			      <div id="breadcrumb">
 			        <div  aria-label="Breadcrumbs" class="breadcrumbs breadcrumb-trail">
 			          <ul class="trail-items">
-						  <li class="trail-item trail-begin"><a href="1-home.html" rel="home"><span>主页</span></a></li>
 			            <li class="trail-item trail-end"><span>注册</span></li>
 			          </ul>
 			        </div> <!-- .breadcrumbs -->
@@ -241,20 +247,104 @@
 							    </div>
 							    <div class="content-body" id="div3">
 									<form>
-										<p><label>电话号码</label><input type="text" placeholder="电话号码"></p>
-										<p><input type="button" value="发送验证码" onclick="submitFormData()"></p>
+										<p><label>电话号码</label><input id="phone1" type="text" placeholder="电话号码"></p>
+										<p><input type="button" value="发送验证码" onclick="getPhoneCode()"></p>
+										<script>
+											function getPhoneCode(){
+												$.ajax({
+													url: 'http://192.168.1.178:5000/api/SellerSMS',
+													type: 'post',
+													contentType: 'application/json; charset=UTF-8',
+													xhrFields: {	//发送cookie
+														withCredentials: true
+													},
+													data: JSON.stringify({
+														'Phone': $("#phone1").val(),
+														'Password': 
+														"123456",
+														'PhoneStatus': '0'
+													}),
+													success: function(msg){
+														console.log("success");
+													},
+													error: function(err){
+														console.log(err.statusText);
+														//显示手机号已存在
+													}
+												});
+											}
+										</script>
 										<p><label>验证码</label><input id="code1" type="password" placeholder="验证码"></p>
+										<p><label>邮箱</label><input id="email1" type="password" placeholder="邮箱"></p>
 										<p><label>密码</label><input id="password1" type="password" placeholder="密码"></p>
-										<a href="1-login.html"><p><input type="button" value="注册" onclick="submitFormData()"></p></a>
+										<p><label>店铺名称</label><input id="name1" type="password" placeholder="店铺名称"></p>
+										<a href="1-login.html"><p><input type="button" value="注册" onclick="RegisterWithPhone()"></p></a>
 									</form>
 							    </div>
 								  <div class="content-body" id="div4" style="display: none">
 									  <form>
-										  <p><label>电子邮箱</label><input id="email" type="email" placeholder="电子邮箱"></p>
-										  <p><input type="button" value="发送验证码" onclick="submitFormData()"></p>
+										  <p><label>电子邮箱</label><input id="email2" type="email" placeholder="电子邮箱"></p>
+										  <p><input type="button" value="发送验证码" onclick="getEmailCode()"></p>
+										  <script>
+											  function getEmailCode(){
+												  $.ajax({
+													  url: 'http://192.168.1.178:5000/api/SellerSendMail',
+													  type: 'post',
+													  contentType: 'application/json; charset=UTF-8',
+													  xhrFields: {	//发送cookie
+													  	withCredentials: true
+													  },
+													  data: JSON.stringify({
+														  'Email': $("#email2").val(),
+														  'Password': "123456",
+														  'EmailStatusCode': '0'
+													  }),
+													success: function(msg){
+														console.log("success");
+													},
+													error: function(err){
+														console.log(err.statusText);
+														//显示邮箱已存在
+													}
+												  });
+											  }
+										  </script>
 										  <p><label>验证码</label><input id="code2" type="password" placeholder="验证码"></p>
+										  <p><label>手机号</label><input id="phone2" type="password" placeholder="手机号"></p>
 										  <p><label>密码</label><input id="password2" type="password" placeholder="密码"></p>
-										  <a href="1-login.html"><p><input type="button" value="注册" onclick="submitFormData()"></p></a>
+										  <p><label>店铺名称</label><input id="name2" type="password" placeholder="店铺名称"></p>
+										  <a href="#"><p><input type="button" value="注册" onclick="RegisterWithEmail()"></p></a>
+										  <script>
+											  function RegisterWithEmail(){
+												  $.ajax({
+													  url: 'http://192.168.1.178:5000/api/Seller',
+													  type: 'post',
+													  contentType: 'application/json; charset=UTF-8',
+													  xhrFields: {	//发送cookie
+													  	withCredentials: true
+													  },
+													  data: JSON.stringify({			//注册信息不足
+														  "ValidateCode": $("#code2").val(),
+														  "SellerData": JSON.stringify({
+																'Password': $("#password2").val(),
+																'ShopName': $("#name2").val(),
+																'CreditLevel': 5,
+																'ShopDescription': 'fuck',
+																'AvatarPath': 'mmp',
+																'DefaultSellerAddressIndex': 0,
+																'SellerEmail': $("#email2").val(),
+																'SellerPhone': $("#phone2").val()
+														  })
+													  }),
+													  success: function(msg){
+														  console.log("success");
+													  },
+													  error: function(err){
+														  console.log(err.statusText);
+													  }
+												  });
+											  }
+										  </script>
 									  </form>
 							    </div>
 							    <div class="user-acc-footer">

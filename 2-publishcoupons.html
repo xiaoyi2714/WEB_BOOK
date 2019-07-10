@@ -61,14 +61,35 @@
 				<div class="container">
 					<div class="site-branding pull-left">
 						<div id="site-identity">
-							<h1 class="site-title"><a href="1-home.html"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
+							<h1 class="site-title"><a href="#"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
 					<nav class="main-navigation pull-right">
 						<ul>
-							<li><a href="1-home.html">网站首页</a></li>
+
 							<li><a href="2-information.html">我的店铺</a></li>
-							<li><a href="#" >安全退出</a></li>
+							<a href="2-login.html">登录</a>
+							<a href="#" onclick="logout()" >安全退出</a>
+							<script>
+								function logout(){
+									$.ajax({
+										url: 'http://192.168.1.178:5000/api/SellerLogout',
+										type: 'post',
+										contentType: 'application/json; charset=UTF-8',
+										xhrFields: {	//发送cookie
+										withCredentials: true
+										},
+										data: JSON.stringify({}),
+										success: function(msg){
+											console.log("success");
+											window.location = '2-login.html';
+										},
+										error: function(err){
+											//理论上不可能
+										}
+									});
+								}
+							</script>
 						</ul>
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
@@ -94,7 +115,7 @@
 							<ul style="overflow:hidden;margin:0;padding:0;">
 								<li style="display:inline;float:left;padding:8px 15px;"><a href="2-coupons.html">已发布的优惠卷</a></li>
 								<li style="display:inline;float:left;padding:8px 15px;background-color:#ffffff;"><a href="2-publishcoupons.html">发布优惠卷</a></li>
-								<li style="display:inline;float:left;padding:8px 15px;"><a href="2-unusedcoupon.html">未使用的优惠卷</a></li>
+								<!-- <li style="display:inline;float:left;padding:8px 15px;"><a href="2-unusedcoupon.html">未使用的优惠卷</a></li> -->
 
 							</ul>
 						</nav>
@@ -102,10 +123,10 @@
 							<form action="" type="post">
 							<div style="width: 800px;height:70px;">
 								<div style="width:350px; height:35px; float:left;margin-right:10px;">
-									<label style="width:100px;">折扣金额</label><input type="text" style="width:150px;" autofocus/>
+									<label style="width:100px;">折扣金额</label><input id="discount" type="text" style="width:150px;" autofocus/>
 								</div>
 								<div style="width:350px; height:35px; float:left">
-									<label style="width:100px;">使用条件价格</label><input type="text" style="width:150px;"/>
+									<label style="width:100px;">使用条件价格</label><input id="limit" type="text" style="width:150px;"/>
 								</div>
 							</div>
 							<div style="width: 1000px;height:70px;">
@@ -113,16 +134,41 @@
 									<form class="content" action="/example/html5/demo_form.asp" method="get">
 										<p>
 										<label style="width:100px;height:35px">截止时间</label>
-										<input type="date" name="user_date" style="width:150px; height:35px;" />
+										<input id="time" type="date" name="user_date" style="width:150px; height:35px;" />
 										</p>
 									</form> 
 								</div>
 							</div>
 							<div style="width: 1000px;height:100px;">
 								<div style="padding-left: 100px;width:300px; height:35px;float:left;margin-right:10px;">
-									<input type="button" onclick="show1()" style="width: 150px;height:35px;" value="发布">
+									<input type="button" onclick="publish()" style="width: 150px;height:35px;" value="发布">
 								</div>
 								<script>
+								function publish(){
+									console.log($("#discount").val(), $("#time").val(), $("#limit").val())
+									$.ajax({
+										url: 'http://192.168.1.178:5000/api/Coupon',
+										type: 'post',
+										contentType: 'application/json; charset=UTF-8',
+										xhrFields: {	//发送cookie
+											withCredentials: true
+										},
+										data: JSON.stringify({
+											"DiscountAmount": $("#discount").val(),
+											"ValidThrough": $("#time").val(),
+											"PriceLimit": $("#limit").val()
+										}),
+										success: function(msg){
+											console.log("success");
+											console.log(msg);
+											document.getElementById("success3").innerHTML="恭喜您，发布成功！";
+										},
+										error: function(err){
+											console.log(err.statusText);
+											document.getElementById("success3").innerHTML="FUCK，发布失败！";
+										}
+									});
+								}
 								function show1()
 								{
 									document.getElementById("success3").innerHTML="恭喜您，发布成功！";

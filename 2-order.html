@@ -15,7 +15,7 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
 		<link rel="stylesheet" type="text/css" href="third-party/sidr/css/jquery.sidr.dark.css">
 		<link rel="stylesheet" type="text/css" href="third-party/slick/css/slick.css">
-		
+
 		<link rel="stylesheet" type="text/css" href="third-party/wow/css/animate.min.css">
         <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 		<link rel="stylesheet" type="text/css" href="third-party/magnific-popup-master/css/magnific-popup.css">
@@ -25,18 +25,6 @@
 		<link rel="stylesheet" type="text/css" href="css/custom.css">
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
 		<link rel="stylesheet" id="color" href="css/default.css">
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/lite-green.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/dark-green.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/black.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/orange.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/brown.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/lite-green.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/dark-purple.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/cyan.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/dark-blue.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/purple.css"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="css/colors/sky-blue.css"> -->
-		
 
 		<link rel="stylesheet" href="third-party/fontawesome/releases/v5.2.0/css/all.css" >
 
@@ -50,6 +38,116 @@
 		<script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		<script src="third-party/incubator-echarts-4.2.1/dist/echarts.min.js"></script>
+
+
+
+		<script  src="third-party/jquery/jquery-3.2.1.min.js"></script>
+		<script  src="third-party/jquery/jquery-migrate-3.0.0.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			var jQuery_New = $.noConflict();
+		</script>
+		<script src="js/lib/jquery.pagination.js"></script>
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="js/lib/pagination.css">
+		<script>
+			var orderData;
+			function loadData(){
+				$.ajax({
+					url: 'http://192.168.1.178:5000/api/SellerGetAllTransacts/',
+					type: 'post',
+					async:false,
+					contentType: 'application/json; charset=UTF-8',
+					xhrFields: {	//发送cookie
+						withCredentials: true
+					},
+					data: JSON.stringify({}),
+					success: function(msg){
+						console.log("success");
+						console.log(msg);
+						orderData = msg;
+					},
+					error: function(err){
+						console.log(err.statusText);
+					}
+				});
+			}
+			loadData();
+			console.log(orderData);
+
+				var pageSize = 20;
+				function pagination(){
+					jQuery_New('.M-box').pagination(orderData.length,{
+						jump: true,
+						coping: true,
+						num_display_entries: 4,
+						num_edge_entries: 1,
+						callback: PageCallback,
+						items_per_page: pageSize,
+						homePage: '首页',
+						endPage: '末页',
+						current: 0,
+						prevContent: '<<上页',
+						nextContent: '下页>>'
+					});
+				}
+				function PageCallback(index,jq) {
+					jQuery_New(".PageTable").hide();
+					LoadData(index);
+				}
+				var flag = 0;
+				function LoadData(pageIndex){
+					var items_per_page = pageSize;
+					var max_elem = Math.min((pageIndex+1)*items_per_page,orderData.length);
+					if(flag==0){
+						jQuery_New('.tbody').append(`<tr><th>商品ID</th><th>书籍名称</th><th>单价</th>
+						<th>数量</th><th>成交金额</th><th>创建时间</th><th>物流单号</th><th>顾客编号</th><th>评价</th></tr>`);
+						flag = 1
+					}
+					var bookname
+					for(var i=pageIndex*items_per_page;i<max_elem;i++) {
+						$.ajax({
+							url: 'http://192.168.1.178:5000/api/GetBook/',
+							type: 'post',
+							async:false,
+							contentType: 'application/json; charset=UTF-8',
+							xhrFields: {	//发送cookie
+								withCredentials: true
+							},
+							data: JSON.stringify({
+								'ISBN': orderData[i].Merchandise.ISBN
+							}),
+							success: function(msg){
+								console.log("success");
+								console.log(msg);
+								bookname = msg.Title;
+							},
+							error: function(err){
+								console.log(err.statusText);
+							}
+						});
+						jQuery_New('.tbody').append(`
+					<tr class="PageTable">
+						<td>${orderData[i].Merchandise.MerchandiseId}</td>
+						<td>${bookname}</td>
+						<td>${orderData[i].Merchandise.Price}</td>
+						<td>${orderData[i].Amount}</td>
+						<td>${orderData[i].ActualPrice}</td>
+						<td>${orderData[i].CreateTime}</td>
+						<td>${orderData[i].LogisticTrackNum}</td>
+						<td>${orderData[i].CustomerId}</td>
+						<td>${orderData[i].Comment}</td>
+						</tr>
+					`)
+					}
+				}
+				jQuery_New(function(){
+					pagination();
+				})
+
+
+			</script>
+
 	</head>
 	<body class="home header-v1">
 		<div id="page" class="site">
@@ -60,14 +158,35 @@
 				<div class="container">
 					<div class="site-branding pull-left">
 						<div id="site-identity">
-							<h1 class="site-title"><a href="1-home.html"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
+							<h1 class="site-title"><a href="#"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
 					<nav class="main-navigation pull-right">
 						<ul>
-							<li><a href="1-home.html">网站首页</a></li>
+
 							<li><a href="2-information.html">我的店铺</a></li>
-							<li><a href="#" >安全退出</a></li>
+							<a href="2-login.html">登录</a>
+							<a href="#" onclick="logout()" >安全退出</a>
+							<script>
+								function logout(){
+									$.ajax({
+										url: 'http://192.168.1.178:5000/api/SellerLogout',
+										type: 'post',
+										contentType: 'application/json; charset=UTF-8',
+										xhrFields: {	//发送cookie
+										withCredentials: true
+										},
+										data: JSON.stringify({}),
+										success: function(msg){
+											console.log("success");
+											window.location = '2-login.html';
+										},
+										error: function(err){
+											//理论上不可能
+										}
+									});
+								}
+							</script>
 						</ul>
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
@@ -91,66 +210,107 @@
 						</div>
 						<div class="content">
 							<form>
-								<table class="frameless-table">
+								<table class="frameless-table" style="border-style:none;">
 									<tr>
-										<td><label>商品ID</label></td>
-										<td><input type="text" style="width:250px; height:35px;" /></td>
-										<td><label>创建时间</label></td>
-										<td><input type="date" style="width:130px; height:35px;"/><label>——</label><input type="date" style="width:130px; height:35px;"/></td>
+										<td style="border-style:none;"><label>商品ID</label></td>
+										<td style="border-style:none;"><input id="id" type="text" style="width:150px; height:35px;" /></td>
+										<td style="border-style:none;"><label>创建时间</label></td>
+										<td style="border-style:none;"><input id="mintime" type="date" style="width:100px; height:35px;"/><lable>—</lable><input id="maxtime" type="date" style="width:100px; height:35px;"/></td>
 									</tr>
 									<tr>
-										<td><label>书籍名称</label></td>
-										<td><input type="text" style="width:250px; height:35px;" /></td>
-										<td><label>成交金额</label></td>
-										<td><input type="number" style="width:100px; height:35px;"/><label>——</label><input type="number" style="width:100px; height:35px;"/></td>
+										<td style="border-style:none;"><label>书籍名称</label></td>
+										<td style="border-style:none;"><input id="name" type="text" style="width:150px; height:35px;" /></td>
+										<td style="border-style:none;"><label>成交金额</label></td>
+										<td style="border-style:none;"><input id="minprice" type="number" style="width:100px; height:35px;"/><lable>—</lable><input id="maxprice" type="number" style="width:100px; height:35px;"/></td>
 									</tr>
 									<tr>
-										<td><label>ISBN号码</label></td>
-										<td><input type="text" style="width:250px; height:35px;" /></td>
-										<td><label>物流单号</label></td>
-										<td><input type="number" style="width:250px; height: 35px;"/></td>
-									</tr>
-									<tr>
-										<td><label>顾客昵称</label></td>
-										<td><input type="text" style="width:250px; height:35px;" /></td>
-										<td><label>评价状态</label></td>
-										<td><select style="width:250px; height:40px;">
-												<option value="全部">全部</option>
-												<option value="好评">好评</option>
-												<option value="中评">中评</option>
-												<option value="差评">差评</option>
-												<option value="尚未评价">尚未评价</option></select></td>
-									</tr>
-									<tr>
-										<td><label>顾客ID</label></td>
-										<td><input type="text" style="width:250px; height:35px;" /></td>
-										<td><label>交易状态</label></td>
-										<td><select style="width:250px; height:40px;">
-												<option value="全部">全部</option>
-												<option value="等待买家付款">等待买家付款</option>
-												<option value="买家已付款">买家已付款</option>
-												<option value="卖家已发货">卖家已发货</option>
-												<option value="交易成功">交易成功</option>
-												<option value="交易关闭">交易关闭</option>
-												<option value="退款中">退款中</option></select></td>
+										<td style="border-style:none;"><label>顾客编号</label></td>
+										<td style="border-style:none;"><input id="ISBN" type="text" style="width:150px; height:35px;" /></td>
+										<td style="border-style:none;"><label>物流单号</label></td>
+										<td style="border-style:none;"><input id="transact" type="number" style="width:200px; height: 35px;"/></td>
 									</tr>
 								</table>
 							</form>
 						</div>
 						<br>
 						<div>
-							<p><input type="button" value="订单查询" onlick="show();"/></p>
+							<p><input type="button" value="订单查询" onclick="query()"/></p>
 						</div>
+						<script>
+							function query(){
+								loadData();
+								console.log(orderData);
+								if($("#id").val() != ""){
+									for(var i = 0; i< orderData.length; i++){
+										if(orderData[i].Merchandise.MerchandiseId != $("#id").val()){
+											orderData.splice(i, 1);
+											i--;
+										}
+									}
+								}
+								if($("#mintime").val() != "" && $("#maxtime").val() != ""){
+									for(var i = 0; i< orderData.length; i++){
+										if(orderData[i].CreateTime < $("#mintime").val() || orderData[i].CreateTime > $("#maxtime").val()){
+											orderData.splice(i, 1);
+											i--;
+										}
+									}
+								}
+								if($("#name").val() != ""){			//todo*******************************************************
+									for(var i = 0; i< orderData.length; i++){
+										if(orderData[i].DiscountAmount != $("#discount").val()){
+											orderData.splice(i, 1);
+											i--;
+										}
+									}
+								}
+								if($("#minprice").val() != "" && $("#maxprice").val()){
+									for(var i = 0; i< orderData.length; i++){
+										if(orderData[i].ActualPrice < $("#minprice").val() || orderData[i].ActualPrice > $("#maxprice").val()){
+											orderData.splice(i, 1);
+											i--;
+										}
+									}
+								}
+								if($("#ISBN").val() != ""){
+									for(var i = 0; i< orderData.length; i++){
+										if(orderData[i].Merchandise.ISBN != $("#ISBN").val()){
+											orderData.splice(i, 1);
+											i--;
+										}
+									}
+								}
+								if($("#transact").val() != ""){
+									for(var i = 0; i< orderData.length; i++){
+										if(orderData[i].TransactId != $("#transact").val()){
+											orderData.splice(i, 1);
+											i--;
+										}
+									}
+								}
+								if($("#nick").val() != ""){
+									for(var i = 0; i< orderData.length; i++){
+										if(orderData[i].Customer.NickName != $("#nick").val()){
+											orderData.splice(i, 1);
+											i--;
+										}
+									}
+								}
+								console.log(orderData);
+								jQuery_New(function(){
+									pagination();
+								});
+							}
+						</script>
 
 
+
+						<br><br>
 						<div>
-							<table>
-								<tr>
-									<th>商品ID</th><th>书籍名称</th><th>单价</th><th>数量</th><th>成交金额</th><th>创建时间</th><th>物流单号</th><th>顾客昵称</th><th>评价</th>
-								</tr>
-							</table>
+							<div class="M-box" ></div>
+							<table class="tbody"></table>
 						</div>
-					</div>	
+					</div>
                     </main> <!-- #main -->
                   </div> <!-- #primary -->
                   <div id="sidebar-primary" class="sidebar widget-area" >
@@ -188,7 +348,7 @@
 						</ul>
                       </aside>
 <!-- .widget-recent-entries -->                      <!-- .widget-tag-cloud -->
-                    </div> 
+                    </div>
                     <!-- .sidebar-widget-wrapper -->
                   </div> <!-- .sidebar -->
                 </div> <!-- #inner-wrapper -->
@@ -208,14 +368,14 @@
 						</div> <!-- .container -->
 					</div> <!-- .colophon-bottom -->
 				</footer> <!-- footer ends here -->
-			</div><!-- footer-container -->		
+			</div><!-- footer-container -->
 		</div> <!--#page-->
 		<div id="btn-scrollup">
 			<a  title="Go Top"  class="scrollup button-circle" href="#"><i class="fas fa-angle-up"></i></a>
 		</div><!-- #btn-scrollup -->
 		<div class="ad-wrapper">
-		<script  src="third-party/jquery/jquery-3.2.1.min.js"></script>
-		<script  src="third-party/jquery/jquery-migrate-3.0.0.min.js"></script>
+		<!--script  src="third-party/jquery/jquery-3.2.1.min.js"></script-->
+<!--		<script  src="third-party/jquery/jquery-migrate-3.0.0.min.js"></script>-->
 		<!--Include all compiled plugins (below), or include individual files as needed-->
 		<script  src="third-party/sidr/js/jquery.sidr.js"></script>
 		<script  src="third-party/cycle2/jquery.cycle2.js"></script>

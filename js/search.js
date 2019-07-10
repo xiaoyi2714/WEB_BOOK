@@ -1,4 +1,4 @@
-var searchData, pagenum, page;
+var searchData, pagenum, page, searchTitle;
 function search() {
     pagenum = 0;
     $.ajax({
@@ -124,41 +124,72 @@ function display(){
         $("#price0").html(searchData[pagenum + 0].Price);
         $("#product0").click(function(){
             num = searchData[pagenum + 0].MerchandiseId;
-            console.log(num);
-            window.location.href='1-product.html?MerchandiseId=num';
+            window.location.href='1-product.html?MerchandiseId='+num.toString();
         });
 
         $("#product1").html(searchData[pagenum + 1].Title);
         $("#shop1").html(searchData[pagenum + 1].ShopName);
         $("#price1").html(searchData[pagenum + 1].Price);
+        $("#product1").click(function(){
+            num = searchData[pagenum + 1].MerchandiseId;
+            window.location.href='1-product.html?MerchandiseId='+num.toString();
+        });
 
         $("#product2").html(searchData[pagenum + 2].Title);
         $("#shop2").html(searchData[pagenum + 2].ShopName);
         $("#price2").html(searchData[pagenum + 2].Price);
+        $("#product2").click(function(){
+            num = searchData[pagenum + 2].MerchandiseId;
+            window.location.href='1-product.html?MerchandiseId='+num.toString();
+        });
 
         $("#product3").html(searchData[pagenum + 3].Title);
         $("#shop3").html(searchData[pagenum + 3].ShopName);
         $("#price3").html(searchData[pagenum + 3].Price);
+        $("#product3").click(function(){
+            num = searchData[pagenum + 3].MerchandiseId;
+            window.location.href='1-product.html?MerchandiseId='+num.toString();
+        });
 
         $("#product4").html(searchData[pagenum + 4].Title);
         $("#shop4").html(searchData[pagenum + 4].ShopName);
         $("#price4").html(searchData[pagenum + 4].Price);
+        $("#product4").click(function(){
+            num = searchData[pagenum + 4].MerchandiseId;
+            window.location.href='1-product.html?MerchandiseId='+num.toString();
+        });
 
         $("#product5").html(searchData[pagenum + 5].Title);
         $("#shop5").html(searchData[pagenum + 5].ShopName);
         $("#price5").html(searchData[pagenum + 5].Price);
+        $("#product5").click(function(){
+            num = searchData[pagenum + 5].MerchandiseId;
+            window.location.href='1-product.html?MerchandiseId='+num.toString();
+        });
 
         $("#product6").html(searchData[pagenum + 6].Title);
         $("#shop6").html(searchData[pagenum + 6].ShopName);
         $("#price6").html(searchData[pagenum + 6].Price);
+        $("#product6").click(function(){
+            num = searchData[pagenum + 6].MerchandiseId;
+            window.location.href='1-product.html?MerchandiseId='+num.toString();
+        });
 
         $("#product7").html(searchData[pagenum + 7].Title);
         $("#shop7").html(searchData[pagenum + 7].ShopName);
         $("#price7").html(searchData[pagenum + 7].Price);
+        $("#product7").click(function(){
+            num = searchData[pagenum + 7].MerchandiseId;
+            window.location.href='1-product.html?MerchandiseId='+num.toString();
+        });
 
         $("#product8").html(searchData[pagenum + 8].Title);
         $("#shop8").html(searchData[pagenum + 8].ShopName);
         $("#price8").html(searchData[pagenum + 8].Price);
+        $("#product8").click(function(){
+            num = searchData[pagenum + 8].MerchandiseId;
+            window.location.href='1-product.html?MerchandiseId='+num.toString();
+        });
     }
     else{
         if(pagenum > 0)

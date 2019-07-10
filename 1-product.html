@@ -51,7 +51,7 @@
 		<script src="js/product.js"></script>
 
 	</head>
-	<body class="home header-v1" onload="GetMerchandise">
+	<body class="home header-v1" onload="GetMerchandise()">
 		<div id="page" class="site">
 		
 			<header id="masthead" class="site-header sticky-enabled">
@@ -61,7 +61,7 @@
 							<h1 class="site-title"><a href="1-home.html" rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
-					<input type="button" value="搜索" class="pull-right quick-link-button"><input type="text" Class="pull-right quick-link-button">
+					<a href="1-search.html"><input type="button" value="进入搜索" class="pull-right quick-link-button"></a>
 					<div id="header-right" class="pull-right">
 						<div class="hearder-min-cart">
 							<ul>
@@ -127,46 +127,33 @@
 						  	<div class="col-grid-6">
 								<div class="summary entry-summary">
 									<div class="product-item-details">
-										<h2 class="product-title"><a href="#" title="title">阿特拉斯耸耸肩</a></h2>
+										<h2 class="product-title"><a href="#" title="title" id="title">阿特拉斯耸耸肩</a></h2>
 										<div class="product-price-container">
-											<span class="fix-price">商品ID&nbsp</span>
-											<span class="fix-price">123456</span>
+											<span class="fix-price">ISBN</span>
+											<a id="ISBN">123456</a>
 										</div><!-- .商品唯一ID -->
 										<div class="product-price-container">
 											<span class="fix-price">店铺名称&nbsp</span>
-											<span class="fix-price">上海书城</span>
+											<a id="shopname">上海书城</a>
 										</div><!-- .商品唯一ID -->
 										<div class="product-price-container">
-											<span class="fix-price">发货地点&nbsp</span>
-											<span class="fix-price">上海</span>
+											<span class="fix-price">作者&nbsp</span>
+											<a id="author">张三</a>
 										</div><!-- .商品发售地点 -->
-										<div class="rating-wrapper clear-fix">
-											<div class="product-ratings">
-												 <span class="star active"></span>
-												 <span class="star active"></span>
-												 <span class="star active"></span>
-												 <span class="star"></span>
-												 <span class="star"></span>
-											</div>
-											<ul class="info-links">
-												<li><a href="#">(3.5) 54 评价数 </a> </li>
-											</ul>
-											</div><!-- .rating-wrapper -->
 										<div class="product-price-container">
-											<del class="dis-price">$65.99</del>
-											<span class="fix-price">$45.99</span>
+											<a>￥</a><a class="fix-price" id="price">45.99</a>
 										</div><!-- .product-price-container -->
 									</div><!-- .product-item-details -->
 									<div class="item-content">
-											<p>《阿特拉斯耸耸肩》一书是客观主义哲学之母安·兰德的代表作。它是一本小说，但同时也渗透着安·兰德的哲学思想，篇幅巨大，背景恢弘，气势磅礴。书中展示了如果人类的思想开始罢工——如果每一行业具有创造能力的人都停止工作，消失不见——世界将会怎样的图景。通过描写经济危机背景下几位商界大亨的不同应对方式，传达了作者的个人主义思想。</p>
+											<p id="description1">《阿特拉斯耸耸肩》一书是客观主义哲学之母安·兰德的代表作。它是一本小说，但同时也渗透着安·兰德的哲学思想，篇幅巨大，背景恢弘，气势磅礴。书中展示了如果人类的思想开始罢工——如果每一行业具有创造能力的人都停止工作，消失不见——世界将会怎样的图景。通过描写经济危机背景下几位商界大亨的不同应对方式，传达了作者的个人主义思想。</p>
 									</div><!-- .item-content -->
 									<div class="availability">
 						                <i class="fas fa-check-circle"></i>
 						                <span>库存：200</span>
 						            </div><!-- .availability -->
 								   <form class="single-cart" method="post">
-								        <input type="number" class="input-text" step="1" min="1" value="1">
-								        <button type="button" name="add-ro-cart" class="custom-button button-small"> 加入购物车 </button>
+								        <input type="number" class="input-text" step="1" min="1" value="1" id="amount">
+								        <button type="button" name="add-ro-cart" class="custom-button button-small" onclick="ShoppingCart()"> 加入购物车 </button>
 								        <button type="button" name="add-ro-cart" class="custom-button custom-secondary-button button-small"> 愿望清单 </button>
 								   </form><!-- .single-cart -->
 								   <div class="share-on">
@@ -198,7 +185,7 @@
 						 	</ul>
 						 	<div class="tab-content">
 						 		<div class="tab-pane active" id="description">
-						 			<p>《阿特拉斯耸耸肩》编辑推荐：我以我的生命以及我对它的热爱发誓，我永远不会为别人而活，也不会要求别人为我而活。安•兰德：美国精神的奠基人，金融大鳄乔治•索罗斯、美联储前主席格林斯潘，美国前总统罗纳德•里根、建筑师兰克•劳埃德•赖特，维基百科创始人吉米•威尔士、《花花公子》创办人休•海夫纳，埃克森美孚CEO雷克斯•蒂尔纳森、吉列公司CEO詹姆斯•基尔茨……无数世界 人物的精神偶像。</p>
+						 			<p id="description2">《阿特拉斯耸耸肩》编辑推荐：我以我的生命以及我对它的热爱发誓，我永远不会为别人而活，也不会要求别人为我而活。安•兰德：美国精神的奠基人，金融大鳄乔治•索罗斯、美联储前主席格林斯潘，美国前总统罗纳德•里根、建筑师兰克•劳埃德•赖特，维基百科创始人吉米•威尔士、《花花公子》创办人休•海夫纳，埃克森美孚CEO雷克斯•蒂尔纳森、吉列公司CEO詹姆斯•基尔茨……无数世界 人物的精神偶像。</p>
 						 		</div>
 								 
 								<!-- 评论列表 -->
@@ -220,15 +207,13 @@
 																</a>
 																<div class="product-info">
 																	<h3>夏宇宁</h3>
-																	<ul>
-																		<li>评价时间：2019.05.27   05:27</li>
-																	</ul>
+																	<a id="time1">评价时间：2019.05.27   05:27</a>
 																</div>
 															</td>
 															<td class="product-price" data-title="Price">
-															   <span class="product-Price-amount amount">
+															   <a class="product-Price-amount amount" id="comment1">
 																《阿特拉斯耸耸肩》一书是客观主义哲学之母安·兰德的代表作。它是一本小说，但同时也渗透着安·兰德的哲学思想，篇幅巨大，背景恢弘，气势磅礴。
-															   </span>
+															   </a>
 															</td>
 														</tr>
 														<!-- .unit end---------------------------------------------------------------------------- -->
@@ -240,15 +225,13 @@
 																</a>
 																<div class="product-info">
 																	<h3>夏宇宁</h3>
-																	<ul>
-																		<li>评价时间：2019.05.27   05:27</li>
-																	</ul>
+																	<a id="time2">评价时间：2019.05.27   05:27</a>
 																</div>
 															</td>
 															<td class="product-price" data-title="Price">
-															   <span class="product-Price-amount amount">
+															   <a class="product-Price-amount amount" id="comment2">
 																《阿特拉斯耸耸肩》一书是客观主义哲学之母安·兰德的代表作。它是一本小说，但同时也渗透着安·兰德的哲学思想，篇幅巨大，背景恢弘，气势磅礴。
-															   </span>
+															   </a>
 															</td>
 														</tr>
 														<!-- .unit end---------------------------------------------------------------------------- -->
@@ -260,15 +243,13 @@
 																</a>
 																<div class="product-info">
 																	<h3>夏宇宁</h3>
-																	<ul>
-																		<li>评价时间：2019.05.27   05:27</li>
-																	</ul>
+																	<a id="time3">评价时间：2019.05.27   05:27</a>
 																</div>
 															</td>
 															<td class="product-price" data-title="Price">
-															   <span class="product-Price-amount amount">
+															   <a class="product-Price-amount amount" id="comment3">
 																《阿特拉斯耸耸肩》一书是客观主义哲学之母安·兰德的代表作。它是一本小说，但同时也渗透着安·兰德的哲学思想，篇幅巨大，背景恢弘，气势磅礴。
-															   </span>
+															   </a>
 															</td>
 														</tr>
 														<!-- .unit end---------------------------------------------------------------------------- -->
@@ -280,15 +261,13 @@
 																</a>
 																<div class="product-info">
 																	<h3>夏宇宁</h3>
-																	<ul>
-																		<li>评价时间：2019.05.27   05:27</li>
-																	</ul>
+																	<a id="time4">评价时间：2019.05.27   05:27</a>
 																</div>
 															</td>
 															<td class="product-price" data-title="Price">
-															   <span class="product-Price-amount amount">
+															   <a class="product-Price-amount amount" id="comment4">
 																《阿特拉斯耸耸肩》一书是客观主义哲学之母安·兰德的代表作。它是一本小说，但同时也渗透着安·兰德的哲学思想，篇幅巨大，背景恢弘，气势磅礴。
-															   </span>
+															   </a>
 															</td>
 														</tr>
 														<!-- .unit end---------------------------------------------------------------------------- -->

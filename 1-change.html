@@ -118,6 +118,24 @@
         }
 
     </script>
+
+    <script language="javascript" type="text/javascript">
+        function change(){
+            var div1=document.getElementById("div1");
+            if(div1.style.display=="none"){
+                div1.style.display = "block";
+                div2.style.display = "none";
+                div6.style.display = "none";
+                div5.style.display = "block";
+            }else{
+                div1.style.display = "none";
+                div2.style.display = "block";
+                div5.style.display = "none";
+                div6.style.display = "block";
+            }
+        }
+    </script>
+
     <script src="js/change.js"></script>
 </head>
 <body class="home header-v1">
@@ -189,20 +207,40 @@
                                 <div class="user-acc-header">
                                     <h3>修改密码</h3>
                                 </div>
-                                <div class="content-body">
+                                <div class="content-body" id="div1">
                                     <form>
-                                        <p><label>电子邮箱</label><input type="text" placeholder="电子邮箱" id="Email"></p>
+                                        <p><label>电子邮箱</label><input type="text" placeholder="电子邮箱" id="Email1"></p>
                                         <p><input type="button" value="点击发送验证码" onclick="SendMail()"></p>
-                                        <p><label>邮箱验证码</label><input type="text" placeholder="邮箱验证码" id="ValidateCode"></p>
-                                        <p><label>新密码</label><input id="password" name="password" onblur="checkPassword()"
+                                        <p><label>邮箱验证码</label><input type="text" placeholder="邮箱验证码" id="ValidateCode1"></p>
+                                        <p><label>新密码</label><input id="password1" name="password" onblur="checkPassword()"
                                                                     required="required" type="password" placeholder="新密码">
-                                        <p id="passwordError" style="color:red;"></p>
+                                        <p id="passwordError1" style="color:red;"></p>
                                         </p>
-                                        <p><label>再次输入新密码</label><input id="rePassword" name="rePassword" onblur="checkRePassword()"
+                                        <p><label>再次输入新密码</label><input id="rePassword1" name="rePassword" onblur="checkRePassword()"
                                                                         required="required" type="password" placeholder="再次输入新密码">
-                                        <p id="rePasswordError" style="color:red;"></p></p>
+                                        <p id="rePasswordError1" style="color:red;"></p></p>
                                         <p><input type="button" value="确认" onblur="checkRegister()" onclick="MailChangePassword()"></p>
                                     </form>
+                                </div>
+                                <div class="content-body" id="div2" style="display: none">
+                                    <form>
+                                        <p><label>手机号码</label><input type="text" placeholder="手机号码" id="Email2"></p>
+                                        <p><input type="button" value="点击发送验证码" onclick="SendMail()"></p>
+                                        <p><label>手机验证码</label><input type="text" placeholder="手机验证码" id="ValidateCode2"></p>
+                                        <p><label>新密码</label><input id="password2" name="password" onblur="checkPassword()"
+                                                                    required="required" type="password" placeholder="新密码">
+                                        <p id="passwordError2" style="color:red;"></p>
+                                        </p>
+                                        <p><label>再次输入新密码</label><input id="rePassword2" name="rePassword" onblur="checkRePassword()"
+                                                                        required="required" type="password" placeholder="再次输入新密码">
+                                        <p id="rePasswordError2" style="color:red;"></p></p>
+                                        <p><input type="button" value="确认" onblur="checkRegister()" onclick="MailChangePassword()"></p>
+                                    </form>
+                                </div>
+                                <div class="user-acc-footer">
+                                    <p>已有账号? <a class="login-account-link" href="1-login.html">登录</a></p>
+                                    <div id="div5"><p><a href="javascript:void(0);" onclick="change()">使用电子邮箱修改密码</a></p></div>
+                                    <div id="div6" style="display:none"><p><a href="javascript:void(0);" onclick="change()">使用手机号码修改密码</a></p></div>
                                 </div>
                             </div><!-- .register-account -->
                         </div><!-- .section-my-acount -->

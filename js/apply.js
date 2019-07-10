@@ -8,6 +8,7 @@ function VipMember() {
         },
         data: JSON.stringify({
             'ShopName': $("#shopname").val(),
+            'DiscountRatio': 1,
         }),
         success: function(msg){
             console.log(msg);

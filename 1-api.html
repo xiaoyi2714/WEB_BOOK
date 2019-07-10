@@ -65,16 +65,35 @@
 
 
 		<script>
-			var SourceCity, DestinationCity, LogisticTrackNum;
-			var searchData;
-			function show_logistics() {
+			var TransactId, SourceCity, DestinationCity, searchData;
+			function get_transactid() {
 				$.ajax({
-					url: 'http://192.168.1.178:5000/api/CustomerGetAllTransacts/',
+					url: 'http://192.168.1.178:5000/api/GetTransacts/',
 					type: 'post',
 					contentType: 'application/json;charset=UTF-8',
-					xhrFields: {
-						withCredentials: true
+					data: JSON.stringify({
+						'Title': $("#search").val()
+					}),
+					data: {},
+					success: function(data){
+						searchData = data;
+						console.log('search success');
+						console.info(searchData);
+						TransactId = searchData[0].TransactId;
 					},
+					error: function(err){
+						console.log('fail');
+					}
+				});
+			}
+			function get_citynames() {
+				$.ajax({
+					url: 'http://192.168.1.178:5000/api/GetLogistics/',
+					type: 'post',
+					contentType: 'application/json;charset=UTF-8',
+					data: JSON.stringify({
+						'Title': $("TransactId").val()
+					}),
 					data: {},
 					success: function(data){
 						searchData = data;

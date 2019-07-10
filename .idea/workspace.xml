@@ -2,8 +2,184 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeedf143-ee31-4473-be74-1893162cbf94" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/WEB_BOOK.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/0-root.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1-api.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1-pay.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-addlogisticsinfo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-change.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-changeinfo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-coupons.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-evaluation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-information.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-logistics.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-member.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-onshelves.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-order.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-publishcoupons.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-sale.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-unusedcoupon.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2-userana.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e-pay.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/code.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/commodity.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/customer-service.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/logistics.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/shop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/slider/slide-1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/slider/slide-2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/slider/slide-4.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/transaction.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/chart1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/chart2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/chart3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/chart4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/chart5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/chart6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/chart7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/pie-discount.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/pie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/third-party/incubator-echarts-4.2.1/dist/echarts-wordcloud.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-address.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-address.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-answer.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-answer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-apply.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-apply.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-change.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-change.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-changeinfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-changeinfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-comment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-coupon.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-coupon.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-intro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-logistics.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-code.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-order.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-register.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-score.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-score.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-shop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-wishlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/1-wishlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404-error.html" beforeDir="false" afterPath="$PROJECT_DIR$/404-error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/apple-touch-icon-114x114.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/apple-touch-icon-114x114.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/apple-touch-icon-72x72.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/apple-touch-icon-72x72.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blog-single/author-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/blog-single/author-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blog-single/author-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/blog-single/author-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blog-single/author-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/blog-single/author-3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blog-single/author1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/blog-single/author1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blog/blog-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/blog/blog-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blog/blog-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/blog/blog-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blog/blog-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/blog/blog-3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blog/blog-4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/blog/blog-4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blog/blog-5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/blog/blog-5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-lite-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-lite-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-lite-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-lite-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-lite-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-lite-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-lite-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-lite-4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-lite-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-lite-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-logo/client-new-lite-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/client-logo/client-new-lite-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/coupon.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/coupon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cta/cta-bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/cta/cta-bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/instagram/post-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram/post-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/instagram/post-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram/post-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/instagram/post-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram/post-3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/instagram/post-4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram/post-4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/instagram/post-5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram/post-5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/instagram/post-6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram/post-6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/instagram/post-7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/instagram/post-7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/intro_1.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/intro_1.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/intro_10.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/intro_10.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/intro_2.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/intro_2.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/intro_3.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/intro_3.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/intro_4.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/intro_4.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/intro_5.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/intro_5.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/intro_6.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/intro_6.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/intro_7.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/intro_7.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/intro_8.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/intro_8.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/intro_9.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/intro_9.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/language/en.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/language/en.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/language/la.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/language/la.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/language/nl.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/language/nl.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/latest-posts/latest-post-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/latest-posts/latest-post-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/latest-posts/latest-post-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/latest-posts/latest-post-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/latest-posts/latest-post-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/latest-posts/latest-post-3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/payment-getway.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/payment-getway.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/paypal-card.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/paypal-card.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/recent-post/recent-post-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/recent-post/recent-post-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/recent-post/recent-post-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/recent-post/recent-post-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/recent-post/recent-post-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/recent-post/recent-post-3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/recent-post/recent-post-4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/recent-post/recent-post-4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/ad-banner-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/ad-banner-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/ad-banner-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/ad-banner-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/ad-banner3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/ad-banner3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/ad-banner4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/ad-banner4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/ad-banner5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/ad-banner5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/ad-banner6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/ad-banner6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/cat1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/cat1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/cat2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/cat2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/cat3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/cat3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/cat4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/cat4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/cat5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/cat5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/cat6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/cat6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/megamenu-product.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/megamenu-product.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/pormo-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/pormo-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/pormo-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/pormo-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/pormo-5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/pormo-5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/pormo-6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/pormo-6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/pormo-7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/pormo-7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/pormo-8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/pormo-8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-11.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-12.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-13.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-13.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-14.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-14.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-15.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-15.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/shop/product-9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/shop/product-9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/slider/slide-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/slider/slide-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/slider/slide-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/slider/slide-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/slider/slide-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/slider/slide-3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/slider/slide-4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/slider/slide-4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/slider/slide-5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/slider/slide-5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/slider/slide-7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/slider/slide-7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/slider/slide-8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/slider/slide-8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/slider/slide-9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/slider/slide-9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/testimonials/testimonial1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/testimonials/testimonial1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/testimonials/testimonial2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/testimonials/testimonial2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/typo/typo-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/typo/typo-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/typo/typo-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/typo/typo-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/incubator-echarts-4.2.1/dist/echarts.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/incubator-echarts-4.2.1/dist/echarts.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/color-switcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/color-switcher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/contact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery-ui.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/jquery-ui.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,10 +193,14 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/1-home.html">
+        <entry file="file://$PROJECT_DIR$/1-change.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="152" column="64" lean-forward="true" selection-start-line="152" selection-start-column="64" selection-end-line="152" selection-end-column="64" />
+            <state relative-caret-position="354">
+              <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
+              <folding>
+                <element signature="n#style#0;n#p#3;n#form#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#5;n#form#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -36,6 +216,13 @@
       <find>优惠券管理</find>
       <find>优惠券</find>
       <find>明细商品</find>
+      <find>物流</find>
+      <find>ho</find>
+      <find>去购买</find>
+      <find>id=&quot;search&quot;</find>
+      <find>choose</find>
+      <find>结账</find>
+      <find>小计</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -48,18 +235,20 @@
         <option value="$PROJECT_DIR$/1-change.html" />
         <option value="$PROJECT_DIR$/1-login.html" />
         <option value="$PROJECT_DIR$/2-login.html" />
-        <option value="$PROJECT_DIR$/1-add.html" />
         <option value="$PROJECT_DIR$/0-root.html" />
-        <option value="$PROJECT_DIR$/1-register.html" />
         <option value="$PROJECT_DIR$/2-coupons.html" />
-        <option value="$PROJECT_DIR$/1-pay.html" />
-        <option value="$PROJECT_DIR$/1-cart.html" />
         <option value="$PROJECT_DIR$/1-coupon.html" />
         <option value="$PROJECT_DIR$/1-home.html" />
+        <option value="$PROJECT_DIR$/1-add.html" />
+        <option value="$PROJECT_DIR$/1-register.html" />
+        <option value="$PROJECT_DIR$/1-api.html" />
+        <option value="$PROJECT_DIR$/1-cart.html" />
+        <option value="$PROJECT_DIR$/1-product.html" />
+        <option value="$PROJECT_DIR$/1-pay.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="1" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
@@ -71,7 +260,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -83,9 +271,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -100,6 +290,16 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="1-change.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WEB_BOOK/1-change.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.1-change.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -119,17 +319,22 @@
       <workItem from="1562644234061" duration="173000" />
       <workItem from="1562644469989" duration="3350000" />
       <workItem from="1562657036675" duration="72000" />
+      <workItem from="1562657170781" duration="2058000" />
+      <workItem from="1562660895960" duration="1147000" />
+      <workItem from="1562662137150" duration="1140000" />
+      <workItem from="1562664124624" duration="3602000" />
+      <workItem from="1562675248059" duration="306000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6566000" />
+    <option name="totallyTimeSpent" value="15013000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16772375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22692037" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -151,14 +356,23 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/1-search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2-userana.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -170,20 +384,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1-changeinfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2-register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="226" column="42" lean-forward="true" selection-start-line="226" selection-start-column="42" selection-end-line="226" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -207,45 +407,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1-address.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1-add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1-change.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="128" column="48" lean-forward="true" selection-start-line="128" selection-start-column="48" selection-end-line="128" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#p#3;n#form#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#5;n#form#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/0-root.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
           <caret line="178" column="76" lean-forward="true" selection-start-line="178" selection-start-column="76" selection-end-line="178" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1-register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="282" column="56" lean-forward="true" selection-start-line="282" selection-start-column="56" selection-end-line="282" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -263,31 +428,164 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1-pay.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="204" column="48" selection-start-line="204" selection-start-column="48" selection-end-line="204" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1-cart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="239" column="45" selection-start-line="239" selection-start-column="45" selection-end-line="239" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2-coupons.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="237" column="48" selection-start-line="237" selection-start-column="48" selection-end-line="237" selection-end-column="48" />
+        <state relative-caret-position="330">
+          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/1-home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="152" column="64" lean-forward="true" selection-start-line="152" selection-start-column="64" selection-end-line="152" selection-end-column="64" />
+        <state relative-caret-position="-11097">
+          <caret line="155" column="85" lean-forward="true" selection-start-line="155" selection-start-column="85" selection-end-line="155" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/5d244b2de663b/demo.html" />
+    <entry file="file://$PROJECT_DIR$/css/cityLayout.css" />
+    <entry file="file://$PROJECT_DIR$/1-add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="324" column="47" lean-forward="true" selection-start-line="324" selection-start-column="47" selection-end-line="324" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-address.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-changeinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="286" column="58" selection-start-line="286" selection-start-column="58" selection-end-line="286" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2-register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="241" column="59" lean-forward="true" selection-start-line="241" selection-start-column="59" selection-end-line="241" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2-logistics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="240" column="41" lean-forward="true" selection-start-line="240" selection-start-column="41" selection-end-line="240" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-product.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="73" column="58" lean-forward="true" selection-start-line="73" selection-start-column="58" selection-end-line="73" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="15" lean-forward="true" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-code.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2-order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-701" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e-pay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-pay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="253" column="20" lean-forward="true" selection-start-line="253" selection-start-column="20" selection-end-line="253" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-api.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="96" column="30" lean-forward="true" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/chart2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/table.json" />
+    <entry file="file://$PROJECT_DIR$/2-member.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-494" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1-change.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#p#3;n#form#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#5;n#form#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,14 +1,19 @@
-function UpdateCustomer() {
+function CustomerAddress() {
     $.ajax({
-        url: 'http://192.168.1.178:5000/api/UpdateCustomer/',
+        url: 'http://192.168.1.178:5000/api/CustomerAddress/',
         type: 'post',
         contentType: 'application/json;charset=UTF-8',
         xhrFields: {
             withCredentials: true,
         },
         data: JSON.stringify({
-            'NickName': $("#NickName").val(),
-            'DateOfBirth': $("#DateOfBirth").val(),
+            'ReceiverName': $("#ReceiverName").val(),
+            'ReceivePhone': $("#ReceivePhone").val(),
+            'Province': $("#Province").val(),
+            'City': $("#City").val(),
+            'Block': $("#Block").val(),
+            'DetailAddress': $("#DetailAddress").val(),
+            'ZipCode': $("#ZipCode").val(),
         }),
         success: function(data){
             console.log(data);

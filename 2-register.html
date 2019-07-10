@@ -249,6 +249,7 @@
 									<form>
 										<p><label>电话号码</label><input id="phone1" type="text" placeholder="电话号码"></p>
 										<p><input type="button" value="发送验证码" onclick="getPhoneCode()"></p>
+										<p id="error4" style="color: red"></p>
 										<script>
 											function getPhoneCode(){
 												$.ajax({
@@ -268,7 +269,7 @@
 													},
 													error: function(err){
 														console.log(err.statusText);
-														//显示手机号已存在
+														$("#error4").html("该手机号已被注册");
 													}
 												});
 											}
@@ -278,6 +279,7 @@
 										<p><label>密码</label><input id="password1" type="password" placeholder="密码"></p>
 										<p><label>店铺名称</label><input id="name1" type="password" placeholder="店铺名称"></p>
 										<a href="#"><p><input type="button" value="注册" onclick="RegisterWithPhone()"></p></a>
+										<p id="error1" style="color: red"></p>
 										<script>
 											/////////////////////TODO
 												function RegisterWithPhone(){
@@ -316,6 +318,7 @@
 									  <form>
 										  <p><label>电子邮箱</label><input id="email2" type="email" placeholder="电子邮箱"></p>
 										  <p><input type="button" value="发送验证码" onclick="getEmailCode()"></p>
+										  <p id="error3" style="color:red"></p>
 										  <script>
 											  function getEmailCode(){
 												  $.ajax({
@@ -336,6 +339,7 @@
 													error: function(err){
 														console.log(err.statusText);
 														//显示邮箱已存在
+														$("#error3").html("该邮箱已被注册！");
 													}
 												  });
 											  }
@@ -345,6 +349,7 @@
 										  <p><label>密码</label><input id="password2" type="password" placeholder="密码"></p>
 										  <p><label>店铺名称</label><input id="name2" type="password" placeholder="店铺名称"></p>
 										  <a href="#"><p><input type="button" value="注册" onclick="RegisterWithEmail()"></p></a>
+										  <p id="error2" style="color:red"></p>
 										  <script>
 											  function RegisterWithEmail(){
 												  $.ajax({
@@ -369,9 +374,11 @@
 													  }),
 													  success: function(msg){
 														  console.log("success");
+														  $("#error2").html("恭喜您，注册成功！");
 													  },
 													  error: function(err){
 														  console.log(err.statusText);
+														  $("#error2").html("很抱歉，注册失败！");
 													  }
 												  });
 											  }

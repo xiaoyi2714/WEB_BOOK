@@ -30,6 +30,74 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
+		<script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script src="third-party/incubator-echarts-4.2.1/dist/echarts.min.js"></script>
+
+		<script  src="third-party/jquery/jquery-3.2.1.min.js"></script>
+		<script  src="third-party/jquery/jquery-migrate-3.0.0.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			var jQuery_New = $.noConflict();
+		</script>
+		<script src="js/lib/jquery.pagination.js"></script>
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="js/lib/pagination.css">
+		<script>
+			var pageSize = 10;
+			function pagination(){
+				jQuery_New('.M-box').pagination(14,{
+					jump: true,
+					coping: true,
+					num_display_entries: 4,
+					num_edge_entries: 1,
+					callback: PageCallback,
+					items_per_page: pageSize,
+					homePage: '首页',
+					endPage: '末页',
+					current: 0,
+					prevContent: '<<上页',
+					nextContent: '下页>>'
+				});
+			}
+			function PageCallback(index,jq) {
+				jQuery_New(".PageTable").hide();
+				LoadData(index);
+			}
+			var flag = 0;
+			function LoadData(pageIndex) {
+				$.ajax({
+					url: 'data/VipMembers.json',
+					type: 'post',
+					contentType: 'application/json; charset=UTF-8',
+					data: JSON.stringify({}),
+					success: function (data) {
+						console.log(data);
+						var items_per_page = pageSize;
+						var max_elem = Math.min((pageIndex + 1) * items_per_page, data.VipMembers.length);
+						if (flag == 0) {
+							jQuery_New('.tbody').append(`<tr><th>会员ID</th><th>会员昵称</th><th>折扣率</th>
+							<th>有效期</th></tr>`);
+							flag = 1;
+						}
+						for (var i = pageIndex * items_per_page; i < max_elem; i++) {
+							jQuery_New('.tbody').append(`
+							<tr class="PageTable">
+							<td>${data.VipMembers[i].CustomerId}</td>
+							<td>${data.VipMembers[i].SellerId}</td>
+							<td>${data.VipMembers[i].DiscountRatio}</td>
+							<td>${data.VipMembers[i].ValidThrough}</td>
+							</tr>
+							`)
+						}
+					}
+				})
+			}
+			jQuery_New(function(){
+				pagination();
+			})
+		</script>
 	</head>
 	<body class="home header-v1">
 		<div id="page" class="site">
@@ -70,7 +138,8 @@
 							<h3>购物车列表</h3>
 						</div>
 						<div class="content" style="padding-top: 30px;">
-							
+							<div class="M-box" ></div>
+							<table class="tbody"></table>
 						</div>	
 					</div>
                     </main> <!-- #main -->
@@ -156,19 +225,16 @@
 			<a  title="Go Top"  class="scrollup button-circle" href="#"><i class="fas fa-angle-up"></i></a>
 		</div><!-- #btn-scrollup -->
 		<div class="ad-wrapper">
-		<script  src="third-party/jquery/jquery-3.2.1.min.js"></script>
-		<script  src="third-party/jquery/jquery-migrate-3.0.0.min.js"></script>
-		<!--Include all compiled plugins (below), or include individual files as needed-->
-		<script  src="third-party/sidr/js/jquery.sidr.js"></script>
-		<script  src="third-party/cycle2/jquery.cycle2.js"></script>
-		<script  src="third-party/slick/js/slick.min.js"></script>
-		<script  src="third-party/wow/js/wow.min.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-		<script  src="third-party/magnific-popup-master/js/jquery.magnific-popup.js"></script>
-		<script  src="third-party/accordionjs/js/accordion.min.js"></script>
-		<script  src="js/contact.js"></script>
-		<script  src="js/custom.js"></script>
-		<script  src="js/color-switcher.js"></script>
+			<script  src="third-party/sidr/js/jquery.sidr.js"></script>
+			<script  src="third-party/cycle2/jquery.cycle2.js"></script>
+			<script  src="third-party/slick/js/slick.min.js"></script>
+			<script  src="third-party/wow/js/wow.min.js"></script>
+			<script src="js/jquery-ui.min.js"></script>
+			<script  src="third-party/magnific-popup-master/js/jquery.magnific-popup.js"></script>
+			<script  src="third-party/accordionjs/js/accordion.min.js"></script>
+			<script  src="js/contact.js"></script>
+			<script  src="js/custom.js"></script>
+			<script  src="js/color-switcher.js"></script>
 		</div>
 		</div>
 	</body>

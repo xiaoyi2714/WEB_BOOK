@@ -291,7 +291,7 @@ seajs.config({
 function clock(){i=i-1
 document.title="本窗口将在"+i+"秒后自动关闭!";
 if(i>0)setTimeout("clock();",1000);
-else self.close();}
+else {self.close();window.open("1-home.html");}}
 var i=15
 clock();
 //-->

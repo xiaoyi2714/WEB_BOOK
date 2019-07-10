@@ -30,6 +30,16 @@ pre {
 
 
 
+.right-bg {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    margin-top: -215px;
+    width: 215px;
+    height: 430px;
+    background: url('../../image/right_bg.png') no-repeat;
+}
+
 
 /*组件样式*/
 

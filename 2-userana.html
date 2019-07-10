@@ -68,7 +68,6 @@
 		<link rel="stylesheet" type="text/css" href="css/custom.css">
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
 		<link rel="stylesheet" id="color" href="css/default.css">
-		
 		<link rel="stylesheet" href="third-party/fontawesome/releases/v5.2.0/css/all.css" >
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700" rel="stylesheet">
@@ -88,34 +87,14 @@
 				<div class="container">
 					<div class="site-branding pull-left">
 						<div id="site-identity">
-							<h1 class="site-title"><a href="#"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
+							<h1 class="site-title"><a href="1-home.html"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
 					<nav class="main-navigation pull-right">
 						<ul>
+							<li><a href="1-home.html">网站首页</a></li>
 							<li><a href="2-information.html">我的店铺</a></li>
-							<a href="2-login.html">登录</a>
-							<a href="#" onclick="logout()" >安全退出</a>
-							<script>
-								function logout(){
-									$.ajax({
-										url: 'http://192.168.1.178:5000/api/SellerLogout',
-										type: 'post',
-										contentType: 'application/json; charset=UTF-8',
-										xhrFields: {	//发送cookie
-										withCredentials: true
-										},
-										data: JSON.stringify({}),
-										success: function(msg){
-											console.log("success");
-											window.location = '2-login.html';
-										},
-										error: function(err){
-											//理论上不可能
-										}
-									});
-								}
-							</script>
+							<li><a href="#" >安全退出</a></li>
 						</ul>
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
@@ -137,70 +116,37 @@
 					<!-- 图表分割线 -->
 
 						<!-- 选择框测试 -->
-						
 
 						<h2>用户行为分析</h2>
+
+                        <button type=button value="模拟商家登录" onclick="Shop_Login()">模拟商家登录</button>
+						<button onclick="download1()">生成报告一</button>
+						<button onclick="download2()">生成报告二</button>
+                        <script type="text/javascript" src="js/login_pic.js"></script>
+                        <br><br>
 
 						<div class="dropdown">
 							<button class="dropbtn">可视化维度</button>
 							<div class="dropdown-content">
-								<input type=button value="销量榜单分析" onclick="displayChart1()"/>
-								<input type=button value="交易量变化量" onclick="displayChart2()"/>
-								<input type=button value="畅销商品词云" onclick="displayChart3()"/>
-								<input type=button value="用户地域分布" onclick="displayChart4()"/>
-								<input type=button value="用户好评分布" onclick="displayChart5()"/>
-								<input type=button value="年龄与购买量" onclick="displayChart6()"/>
-								<input type=button value="用户年龄分布" onclick="displayChart7()"/>
-								<input type=button value="收藏书目榜单" onclick="displayChart8()"/>
+                                <!-- <button type=button value="测试API" onclick="Test_Api1()">测试API</button> 得到商家名称-->
+                                <!-- <button type=button value="测试API" onclick="Test_Api2()">测试API</button> 得到Merchandize的ID-->
+                                <!-- <button type=button value="测试API" onclick="Test_Api3()">测试API</button> 得到Merchandize的ISBN和Price-->
+                                <button type=button value="价格分布——直方图" onclick="Test_Api4()">本书店价格分布</button>
+                                <button type=button value="价格分布——折线图" onclick="Test_Api5()">本书店价格分布</button>
 							</div>
 						</div>
 
-						<button onclick="download()">生成报告</button>
 						<br><br>
 						<br><br>
 
 						<div style="position:relative;left:170px;">
+                            <!-- 第一幅图——本书点价格分布 -->
+                            <div id="bar" style="width:600px; height:400px;display:none;"></div>
+                            <script type="text/javascript" src="js/testApi.js"></script>
 
-						
-						<!-- 第一幅图——销量榜单 -->				
-						<div id="chart1" style="width:600px; height:400px; display:none;"></div>
-						<script type="text/javascript" src="js/chart1.js"></script>
-						
-
-						<!-- 第二幅图——GMV变化量 -->
-						<div id="chart2" style="width:600px; height:400px;display:none;"></div>
-						<script type="text/javascript" src="js/chart2.js"></script>
-						<!-- 第三幅图——畅销商品词云 -->
-						<!-- word-cloud-style -->
-						<style>
-								html, body, #main {
-									width: 100%;
-									height: 100%;
-									margin: 0;
-								}
-						</style>
-						<div id="chart3" style="width:500px;height:500px; display:none;"></div>
-						<script type="text/javascript" src="js/chart3.js"></script>	
-
-						<!-- 第四幅图——用户地域分布 -->
-						<div id="chart4" style="width:600px; height:400px; display:none;"></div>
-						<script type="text/javascript" src="js/chart4.js"></script>
-
-						<!-- 第五幅图——用户好评分布 -->
-						<div id="chart5" style="width: 600px;height:280px; display:none;"></div>
-						<script type="text/javascript" src="js/chart5.js"></script>
-
-						<!-- 第六幅图——年龄与购买量 -->
-						<div id="chart6" style="width: 600px;height:280px; display:none;"></div>
-						<script type="text/javascript" src="js/chart6.js"></script>
-
-						<!-- 第七幅图——用户年龄分布 -->
-						<div id="chart7" style="width: 600px;height:280px; display:none;"></div>
-						<script type="text/javascript" src="js/chart7.js"></script>
-
-						<!-- 第八幅图——每年用户收藏书目榜单 -->
-						<div id="chart8" style="width: 600px;height:280px; display:none;"></div>
-						<script type="text/javascript" src="js/chart8.js"></script>
+                            <!-- 第二幅图——销量榜单 -->
+                            <div id="line" style="width:600px; height:400px;display:none;"></div>
+							<script type="text/javascript" src="js/testApi.js"></script>
 
 						<br>
 						<!-- 图表分割线 -->
@@ -259,7 +205,7 @@
 								<a href="1-intro.html">  团队介绍 </a>
 								<br>
 								<a href="http://www.miitbeian.gov.cn"> 互联网ICP备案：沪ICP备19023316号-1 </a>
-								<p> (+86) 008 400 123 &nbsp&nbsp database@tongji.edu.cn &nbsp&nbsp 4800 Cao'an Street, China </p>
+								<p> (+86) 008 400 123 &nbsp&nbsp database@tongji.edu.cn &nbsp&nbsp 4800 Changan Street, China </p>
 								<p> Copyright © 2019 SequoiaBook . All rights reserved. </p>
 							</div><!-- .inner-wrapper -->
 						</div> <!-- .container -->

@@ -61,7 +61,7 @@
 							<h1 class="site-title"><a href="1-home.html" rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
-					<input type="button" value="搜索" class="pull-right quick-link-button"><input type="text" Class="pull-right quick-link-button">
+					<a href="1-search.html"><input type="button" value="进入搜索" class="pull-right quick-link-button"></a>
 					<div id="header-right" class="pull-right">
 						<div class="hearder-min-cart">
 							<ul>
@@ -489,9 +489,9 @@
 														<form  id="commentform" class="comment-form" >
 															<p class="comment-form-comment">
 																<label for="comment">问题详述</label>
-																<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
+																<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required" id="question"></textarea>
 															</p>
-															<p class="form-submit"><input name="submit" type="button" id="submit" class="submit" value="提交">
+															<p class="form-submit"><input name="submit" type="button" id="submit" class="submit" value="提交" onclick="Question()">
 																<input type="hidden" name="comment_post_ID" value="4819" id="comment_post_ID">
 																<input type="hidden" name="comment_parent" id="comment_parent" value="0">
 															</p>

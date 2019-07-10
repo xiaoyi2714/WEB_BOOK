@@ -128,27 +128,107 @@
 				}
 			}
 
-			window.onload = function(){
-				loadTab();
-				document.getElementById("CouponIDSelected").onclick = function(){
-					if(document.getElementById("CouponIDSelected").checked == true){
-						selectAll(tab,true);
-					}else{
-						selectAll(tab,false);
-					}
-				}
-				document.getElementById("button1").onclick = function(){
-					var chks = document.getElementsByName("CouponID");
-					for(var i = chks.length-1; i >= 0; i--){
-						var chk =chks[i];
-						if(chk.checked == true) {
-							var rowNow = chk.parentNode.parentNode;
-							rowNow.parentNode.removeChild(rowNow);
-						}
-						}
-					}
-			}
+			// window.onload = function(){
+			// 	loadTab();
+			// 	document.getElementById("CouponIDSelected").onclick = function(){
+			// 		if(document.getElementById("CouponIDSelected").checked == true){
+			// 			selectAll(tab,true);
+			// 		}else{
+			// 			selectAll(tab,false);
+			// 		}
+			// 	}
+			// 	document.getElementById("button1").onclick = function(){
+			// 		var chks = document.getElementsByName("CouponID");
+			// 		for(var i = chks.length-1; i >= 0; i--){
+			// 			var chk =chks[i];
+			// 			if(chk.checked == true) {
+			// 				var rowNow = chk.parentNode.parentNode;
+			// 				rowNow.parentNode.removeChild(rowNow);
+			// 			}
+			// 			}
+			// 		}
+			// }
 
+
+
+		</script>
+
+		<script  src="third-party/jquery/jquery-3.2.1.min.js"></script>
+		<script  src="third-party/jquery/jquery-migrate-3.0.0.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			var jQuery_New = $.noConflict();
+		</script>
+		<script src="js/lib/jquery.pagination.js"></script>
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="js/lib/pagination.css">
+		<script>
+			var couponData;
+			function loadData(){
+				$.ajax({
+					url: 'http://192.168.1.178:5000/api/GetAllCoupons/',
+					async:false,
+					type: 'post',
+					contentType: 'application/json; charset=UTF-8',
+					xhrFields: {	//发送cookie
+						withCredentials: true
+					},
+					data: JSON.stringify({}),
+					success: function(msg){
+						console.log("success");
+						console.log(msg);
+						couponData= msg;
+					},
+					error: function(err){
+						console.log(err.statusText);
+					}
+				});
+			}
+			loadData();
+			console.log(couponData);
+			var pageSize = 20;
+			function pagination(){
+				jQuery_New('.M-box').pagination(couponData.length,{
+					jump: true,
+					coping: true,
+					num_display_entries: 4,
+					num_edge_entries: 1,
+					callback: PageCallback,
+					items_per_page: pageSize,
+					homePage: '首页',
+					endPage: '末页',
+					current: 0,
+					prevContent: '<<上页',
+					nextContent: '下页>>'
+				});
+			}
+			function PageCallback(index,jq) {
+				jQuery_New(".PageTable").hide();
+				LoadData(index);
+			}
+			var flag = 0;
+			function LoadData(pageIndex){
+				var items_per_page = pageSize;
+				var max_elem = Math.min((pageIndex+1)*items_per_page,couponData.length);
+				if(flag==0){
+					jQuery_New('.tbody').append(`<tr><th>优惠券ID</th><th>折扣金额</th><th>使用条件</th>
+					<th>截止时间</th></tr>`);
+					flag = 1
+				}
+				for(var i=pageIndex*items_per_page;i<max_elem;i++) {
+					jQuery_New('.tbody').append(`
+				<tr class="PageTable">
+					<td>${couponData[i].CouponId}</td>
+					<td>${couponData[i].DiscountAmount}</td>
+					<td>${couponData[i].PriceLimit}</td>
+					<td>${couponData[i].ValidThrough}</td>
+					</tr>
+				`)
+				}
+			}
+			jQuery_New(function(){
+				pagination();
+			})
 
 
 		</script>
@@ -165,14 +245,34 @@
 				<div class="container">
 					<div class="site-branding pull-left">
 						<div id="site-identity">
-							<h1 class="site-title"><a href="1-home.html"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
+							<h1 class="site-title"><a href="#"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
 					<nav class="main-navigation pull-right">
 						<ul>
-							<li><a href="1-home.html">网站首页</a></li>
 							<li><a href="2-information.html">我的店铺</a></li>
-							<li><a href="#" >安全退出</a></li>
+							<a href="2-login.html">登录</a>
+							<a href="#" onclick="logout()" >安全退出</a>
+							<script>
+								function logout(){
+									$.ajax({
+										url: 'http://192.168.1.178:5000/api/SellerLogout',
+										type: 'post',
+										contentType: 'application/json; charset=UTF-8',
+										xhrFields: {	//发送cookie
+										withCredentials: true
+										},
+										data: JSON.stringify({}),
+										success: function(msg){
+											console.log("success");
+											window.location = '2-login.html';
+										},
+										error: function(err){
+											//理论上不可能
+										}
+									});
+								}
+							</script>
 						</ul>
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
@@ -197,7 +297,7 @@
 							<ul style="overflow:hidden;margin:0;padding:0;">
 								<li style="display:inline;float:left;padding:8px 15px;background-color:#ffffff;"><a href="2-coupons.html">已发布的优惠卷</a></li>
 								<li style="display:inline;float:left;padding:8px 15px;"><a href="2-publishcoupons.html">发布优惠卷</a></li>
-								<li style="display:inline;float:left;padding:8px 15px;"><a href="2-unusedcoupon.html">未使用的优惠卷</a></li>
+								<!-- <li style="display:inline;float:left;padding:8px 15px;"><a href="2-unusedcoupon.html">未使用的优惠卷</a></li> -->
 
 							</ul>
 						</nav>
@@ -210,8 +310,8 @@
 															style="width:150px;height:35px;top:400px; left:580px; position:absolute;">
 										<span id="out" style="color:red; font-size: 10px; top:400px;left:750px;position:absolute;"></span>
 									</td>
-									<td style="border-style:none;top:400px; left:850px; position:absolute;width:150px;height:35px;">使用条件价格</td>
-									<td><input type="text" id="price" name="memberSurName" size="20"
+									<td  style="border-style:none;top:400px; left:850px; position:absolute;width:150px;height:35px;">使用条件价格</td>
+									<td><input id="limit" type="text" id="price" name="memberSurName" size="20"
 											   style="width:150px;height:35px;top:400px; left:1000px; position:absolute;">
 										<span id="out1" style="color:red;font-size:10px;top:400px;left:750px;position:relative;"></span>
 									</td>
@@ -223,17 +323,62 @@
 										<span id="out2" style="color:red;font-size:10px;top:450px;left:750px;position:absolute;"></span>
 									</td>
 									<td style="border-style:none;top:450px; left:850px; position:absolute;width:150px;height:35px;">截止时间</td>
-									<td><input type="date" name="cutOffTime" size="20"
+									<td><input id="enddate" type="date" name="cutOffTime" size="20"
 											   style="width:150px;height:35px;top:450px; left:1000px; position:absolute;">
 									</td>
 								</tr>
 							</table>
-							<input type="button" value="查询" class="search-submit" style="width:150px;height:40px;top:530px;left:580px;position:absolute;">
-						</form>
+							<input type="button" value="查询" class="search-submit" style="width:150px;height:40px;top:530px;left:580px;position:absolute;" onclick="query()">
+							<script>
+								function query(){
+									loadData();
+									console.log(couponData);
+									if($("#id").val() != ""){
+										for(var i = 0; i< couponData.length; i++){
+											if(couponData[i].CouponId != $("#id").val()){
+												couponData.splice(i, 1);
+												i--;
+											}
+										}
+									}
+									if($("#limit").val() != ""){
+										for(var i = 0; i< couponData.length; i++){
+											if(couponData[i].PriceLimit != $("#limit").val()){
+												couponData.splice(i, 1);
+												i--;
+											}
+										}
+									}
+									if($("#discount").val() != ""){
+										for(var i = 0; i< couponData.length; i++){
+											if(couponData[i].DiscountAmount != $("#discount").val()){
+												couponData.splice(i, 1);
+												i--;
+											}
+										}
+									}
+									if($("#enddate").val() != ""){
+										for(var i = 0; i< couponData.length; i++){
+											console.log(couponData[i].ValidThrough, $("#enddate").val())
+											if(couponData[i].ValidThrough < $("#enddate").val()){
+												couponData.splice(i, 1);
+												i--;
+											}
+										}
+									}
+									console.log(couponData);
+									jQuery_New(function(){
+										pagination();
+									});
+								}
+							</script>
+
+							<br><br><br><br><br><br>
+						<!-- </form>
 												<form style="top:220px;left:20px; position:relative;">
 							<input type="button" id="button1" style="background-color:#ffffff;border:1px solid #e4e4e4;color:black;padding:2px 15px;text-align:center;
-							text-decoration:none;display:inline-block;font-size:11px;" value="删除">
-						</form>
+							text-decoration:none;display:inline-block;font-size:11px;" value="删除"> -->
+						<!-- </form>
 						<form style="top:195px;left:500px;position:relative">
 							<input type="button" style="background-color:#ffffff;border:1px solid #e4e4e4;color:black;padding:2px 15px;text-align:center;
 							text-decoration:none;display:inline-block;font-size:11px;" value="上一页">
@@ -263,8 +408,13 @@
 								<td>300</td>
 								<td>2017-09-09</td>
 							</tr>
-						</table>
+						</table> -->
 					</div>
+					<div>
+							<div class="M-box" ></div>
+							<table class="tbody"></table>
+						</div>
+
                     </main> <!-- #main -->
                   </div> <!-- #primary -->
                   <div id="sidebar-primary" class="sidebar widget-area" >

@@ -20,7 +20,7 @@
         <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 		<link rel="stylesheet" type="text/css" href="third-party/magnific-popup-master/css/magnific-popup.css">
 		<link rel="stylesheet" type="text/css" href="third-party/accordionjs/css/accordion.min.css">
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="style.css">f
 		<link rel="stylesheet" type="text/css" href="icons/icons.css">
 		<link rel="stylesheet" type="text/css" href="css/custom.css">
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
@@ -106,14 +106,34 @@
 				<div class="container">
 					<div class="site-branding pull-left">
 						<div id="site-identity">
-							<h1 class="site-title"><a href="1-home.html"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
+							<h1 class="site-title"><a href="#"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
 					<nav class="main-navigation pull-right">
 						<ul>
-							<li><a href="1-home.html">网站首页</a></li>
 							<li><a href="2-information.html">我的店铺</a></li>
-							<li><a href="#" >安全退出</a></li>
+							<a href="2-login.html">登录</a>
+							<a href="#" onclick="logout()" >安全退出</a>
+							<script>
+								function logout(){
+									$.ajax({
+										url: 'http://192.168.1.178:5000/api/SellerLogout',
+										type: 'post',
+										contentType: 'application/json; charset=UTF-8',
+										xhrFields: {	//发送cookie
+										withCredentials: true
+										},
+										data: JSON.stringify({}),
+										success: function(msg){
+											console.log("success");
+											window.location = '2-login.html';
+										},
+										error: function(err){
+											//理论上不可能
+										}
+									});
+								}
+							</script>
 						</ul>
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
@@ -141,9 +161,34 @@
 									<label style="width: 130px;height:35px;">邮箱地址</label><input type="email" style="width:220px; height:35px;" />
 								</p>
 								<p style="padding-left: 130px">
-									<input type="button" style="width:220px; height:35px;" value="点击获取验证码"/>
+									<input type="button" style="width:220px; height:35px;" value="点击获取验证码" onclick="getEmailCode()"/>
+									<script>
+										function getEmailCode(){
+											$.ajax({
+												url: 'http://192.168.1.178:5000/api/SellerSendMail',
+												type: 'post',
+												contentType: 'application/json; charset=UTF-8',
+												xhrFields: {	//发送cookie
+												withCredentials: true
+												},
+												data: JSON.stringify({
+													'Email': $("#email").val(),
+													'Password': "123456",
+													'EmailStatusCode': '1'
+												}),
+												success: function(msg){
+													console.log("success");
+												},
+												error: function(err){
+													console.log(err.statusText);
+													//显示邮箱已存在
+												}
+											});
+
+										}
+									</script>
 								</p>
-							     <p><label style="width: 130px;height:35px;">输入验证码</label><input type="text" style="width:220px; height:35px;"></p>
+							     <p><label style="width: 130px;height:35px;">输入验证码</label><input id="code" type="text" style="width:220px; height:35px;" /></p>
 							     <p><label style="width: 130px;height:35px;">输入新密码</label>
 									 <input id="password" name="password" onblur="checkPassword()" required="required" type="password" style="width:220px; height:35px;" />
 								<p id="passwordError" style="color:red;"></p>
@@ -154,9 +199,34 @@
 								 </p>
 							<div style="width: 1000px;height:100px;">
 								<div style="padding-left: 130px;width:300px; height:35px;float:left;margin-right:10px;">
-									<input type="button" onblur="checkRegister()" onclick="show()" style="width: 220px;height:35px;" value="修改密码">
+									<input type="button" onblur="checkRegister()" onclick="changePasswordWithEmail()" style="width: 220px;height:35px;" value="修改密码">
 								</div>
 								<script>
+								function changePasswordWithEmail(){
+									if(checkRePassword()==true&&checkPassword()==true) {
+										$.ajax({
+											url: 'http://192.168.1.178:5000/api/SellerMailChangePassword',
+											type: 'post',
+											contentType: 'application/json; charset=UTF-8',
+											xhrFields: {	//发送cookie
+												withCredentials: true
+											},
+											data: JSON.stringify({
+												'Email': $("#email").val(),
+												'Password': $("#password").val(),
+												'EmailStatusCode': '1',
+												'ValidateCode': $("#code").val()
+											}),
+											success: function(){
+												console.log("success");
+												document.getElementById("success2").innerHTML = "恭喜您，修改成功！";
+											},
+											error: function(){
+												document.getElementById("success2").innerHTML = "FUCK，修改失败！";
+											}
+										})
+									}
+								}
 								function show()
 								{
 									if(checkRePassword()==true&&checkPassword()==true) {

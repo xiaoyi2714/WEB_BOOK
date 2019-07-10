@@ -49,14 +49,35 @@
 				<div class="container">
 					<div class="site-branding pull-left">
 						<div id="site-identity">
-							<h1 class="site-title"><a href="1-home.html"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
+							<h1 class="site-title"><a href="#"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
 					<nav class="main-navigation pull-right">
 						<ul>
-							<li><a href="1-home.html">网站首页</a></li>
+
 							<li><a href="2-information.html">我的店铺</a></li>
-							<li><a href="#" >安全退出</a></li>
+							<a href="2-login.html">登录</a>
+							<a href="#" onclick="logout()" >安全退出</a>
+							<script>
+								function logout(){
+									$.ajax({
+										url: 'http://192.168.1.178:5000/api/SellerLogout',
+										type: 'post',
+										contentType: 'application/json; charset=UTF-8',
+										xhrFields: {	//发送cookie
+										withCredentials: true
+										},
+										data: JSON.stringify({}),
+										success: function(msg){
+											console.log("success");
+											window.location = '2-login.html';
+										},
+										error: function(err){
+											//理论上不可能
+										}
+									});
+								}
+							</script>
 						</ul>
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
@@ -84,32 +105,38 @@
 								<table class="frameless-table">
 									<tr>
 										<td style="width: 30px"><label>ISBN号码</label></td>
-										<td><input type="text" style="width:300px; height:35px;" /></td>
+										<td><input id="ISBN" type="text" style="width:300px; height:35px;" /></td>
 									</tr>
 									<tr></tr>
 									<tr>
-										<td><input type="button" value="查询" onclick="show();"/></td>
+										<td><input type="button" value="查询" onclick="query();"/></td>
+										<script>
+											function query(){
+												$.ajax({
+												});
+											}
+										</script>
 									</tr>
 									<tr></tr>
 									<tr>
 										<td><label>书籍名称</label></td>
-										<td><input type="text" style="width:300px; height:35px;" /></td>
+										<td><input type="text" style="width:300px; height:35px;" readonly/></td>
 									</tr>
 									<tr>
 										<td><label>作者姓名</label></td>
-										<td><input type="text" style="width:300px; height:35px;" /></td>
+										<td><input type="text" style="width:300px; height:35px;" readonly/></td>
 									</tr>
 									<tr>
 										<td><label>出版商</label></td>
-										<td><input type="text" style="width:300px; height:35px;" /></td>
+										<td><input type="text" style="width:300px; height:35px;" readonly/></td>
 									</tr>
 									<tr>
 										<td><label>出版年份</label></td>
-										<td><input type="text" style="width:300px; height:35px;" /></td>
+										<td><input type="text" style="width:300px; height:35px;" readonly/></td>
 									</tr>
 									<tr>
 										<td><label>定价</label></td>
-										<td><input type="number" style="width:300px; height:35px;" /></td>
+										<td><input id="price" type="number" style="width:300px; height:35px;" /></td>
 									</tr>
 									<tr>
 										<td><label>上传照片</label></td>
@@ -117,11 +144,34 @@
 									</tr>
 									<tr>
 										<td><label>概述</label></td>
-										<td><textarea rows="3" cols="20" style="width:300px; height:105px;"></textarea></td>
+										<td><textarea id="description" rows="3" cols="20" style="width:300px; height:105px;"></textarea></td>
 									</tr>
 									<tr></tr>
 									<tr>
-										<td><input type="button" value="上架" onclick="show();"/></td>
+										<td><input type="button" value="上架" onclick="newBook();"/></td>
+										<script>
+											function newBook(){
+												$.ajax({
+													url: 'http://192.168.1.178:5000/api/Merchandise',
+													type: 'post',
+													contentType: 'application/json; charset=UTF-8',
+													xhrFields: {	//发送cookie
+													withCredentials: true
+													},
+													data: JSON.stringify({
+														'ISBN': $("#ISBN").val(),
+														'Description': $("#description").val(),
+														'Price': $("#price").val()
+													}),
+													success: function(msg){
+														console.log("success");
+													},
+													error: function(err){
+														console.log(err.statusText);
+													}
+												});
+											}
+										</script>
 									</tr>
 								</table>
 							</form>

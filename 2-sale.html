@@ -40,6 +40,133 @@
 		<![endif]-->
 		<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.js"></script>
+
+		<script  src="third-party/jquery/jquery-3.2.1.min.js"></script>
+		<script  src="third-party/jquery/jquery-migrate-3.0.0.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			var jQuery_New = $.noConflict();
+		</script>
+		<script src="js/lib/jquery.pagination.js"></script>
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="js/lib/pagination.css">
+		<script>
+			var saleData;
+			function loadData(){
+				$.ajax({
+					url: 'http://192.168.1.178:5000/api/GetSeller',	
+					async: false,
+					type: 'post',
+					contentType: 'application/json; charset=UTF-8',
+					xhrFields:{
+						withCredentials: true
+					},
+					data: JSON.stringify({}),
+					success: function(data){
+						console.log("success");
+						console.log(data);
+						$.ajax({
+							url: 'http://192.168.1.178:5000/api/GetMerchandisesOfSeller',
+							type: 'post',
+							async: false,
+							contentType: 'application/json; charset=UTF-8',
+							xhrFields: {	//发送cookie
+								withCredentials: true
+							},
+							data: JSON.stringify({
+								'sellerShopName': data.ShopName
+							}),
+							success: function(msg){
+								console.log("success");
+								saleData = msg;
+								console.log(msg);
+							},
+							error: function(err){
+								console.log(err.statusText);
+							}
+						});
+					},
+					error: function(err){
+						console.log(err.statusText);
+					}
+				});
+			}
+			loadData();
+			console.log(saleData);
+		</script>
+		<script>
+				var pageSize = 20;
+				function pagination(){
+					jQuery_New('.M-box').pagination(saleData.length,{
+						jump: true,
+						coping: true,
+						num_display_entries: 4,
+						num_edge_entries: 1,
+						callback: PageCallback,
+						items_per_page: pageSize,
+						homePage: '首页',
+						endPage: '末页',
+						current: 0,
+						prevContent: '<<上页',
+						nextContent: '下页>>'
+					});
+				}
+				function PageCallback(index,jq) {
+					jQuery_New(".PageTable").hide();
+					LoadData(index);
+				}
+				var flag = 0;
+				function LoadData(pageIndex){
+					var items_per_page = pageSize;
+					var bookname, authorname;
+					var max_elem = Math.min((pageIndex+1)*items_per_page,saleData.length);
+					if(flag==0){
+						jQuery_New('.tbody').append(`<tr><th>商品ID</th><th>书籍名称</th><th>ISBN号码</th>
+						<th>作者姓名</th><th>单价</th><th>描述</th></tr>`);
+						flag = 1;
+					}
+					for(var i=pageIndex*items_per_page;i<max_elem;i++) {
+						$.ajax({
+							url: 'http://192.168.1.178:5000/api/GetBook/',
+							type: 'post',
+							async:false,
+							contentType: 'application/json; charset=UTF-8',
+							xhrFields: {	//发送cookie
+								withCredentials: true
+							},
+							data: JSON.stringify({
+								'ISBN': saleData[i].ISBN
+							}),
+							success: function(msg){
+								console.log("success");
+								console.log(msg);
+								bookname = msg.Title;
+								authorname = msg.Author;
+							},
+							error: function(err){
+								console.log(err.statusText);
+							}
+						});
+						jQuery_New('.tbody').append(`
+					<tr class="PageTable">
+						<td>${saleData[i].MerchandiseId}</td>
+						<td>${bookname}</td>
+						<td>${saleData[i].ISBN}</td>
+						<td>${authorname}</td>
+						<td>${saleData[i].Price}</td>
+						<td>${saleData[i].Description}</td>
+						</tr>
+					`)
+					}
+				}
+				jQuery_New(function(){
+					pagination();
+				})
+	
+	
+			</script>
+			
+
 	</head>
 	<body class="home header-v1">
 		<div id="page" class="site">
@@ -50,14 +177,34 @@
 				<div class="container">
 					<div class="site-branding pull-left">
 						<div id="site-identity">
-							<h1 class="site-title"><a href="1-home.html"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
+							<h1 class="site-title"><a href="#"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
 					<nav class="main-navigation pull-right">
 						<ul>
-							<li><a href="1-home.html">网站首页</a></li>
 							<li><a href="2-information.html">我的店铺</a></li>
-							<li><a href="#" >安全退出</a></li>
+							<a href="2-login.html">登录</a>
+							<a href="#" onclick="logout()" >安全退出</a>
+							<script>
+								function logout(){
+									$.ajax({
+										url: 'http://192.168.1.178:5000/api/SellerLogout',
+										type: 'post',
+										contentType: 'application/json; charset=UTF-8',
+										xhrFields: {	//发送cookie
+										withCredentials: true
+										},
+										data: JSON.stringify({}),
+										success: function(msg){
+											console.log("success");
+											window.location = '2-login.html';
+										},
+										error: function(err){
+											//理论上不可能
+										}
+									});
+								}
+							</script>
 						</ul>
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
@@ -81,37 +228,82 @@
 						</div>
 						<div class="content">
 							<form>
-								<table class="frameless-table">
-									<tr>
-										<td><label>商品ID</label></td>
-										<td><input type="text" style="width:150px; height:35px;" /></td>
-										<td><label>书籍名称</label></td>
-										<td><input type="text" style="width:150px; height:35px;"/></td>
-										<td><label>ISBN号码</label></td>
-										<td><input type="text" style="width:150px; height:35px;"/></td>
+								<table style="border-style:none;" class="frameless-table">
+									<tr style="border-style:none;">
+										<td style="border-style:none;"><label>商品ID</label></td>
+										<td style="border-style:none;"><input id="id" type="text" style="width:100px; height:35px;" /></td>
+										<td style="border-style:none;"><label>书籍名称</label></td>
+										<td style="border-style:none;"><input id="name" type="text" style="width:100px; height:35px;"/></td>
+										<td style="border-style:none;"><label>ISBN号码</label></td>
+										<td style="border-style:none;"><input id="ISBN" type="text" style="width:100px; height:35px;"/></td>
 									</tr>
-									<tr>
-										<td><label>作者姓名</label></td>
-										<td><input type="text" style="width:150px; height:35px;" /></td>
-										<td><label>商品库存</label></td>
-										<td><input type="number" style="width:50px; height:35px;"/><label>—</label><input type="number" style="width:50px; height:35px;"/></td>
-										<td><label>商品价格</label></td>
-										<td><input type="number" style="width:50px; height:35px;"/><lable>—</lable><input type="number" style="width:50px; height:35px;"/></td>
+									<tr style="border-style:none;">
+										<td style="border-style:none;"><label>作者姓名</label></td>
+										<td style="border-style:none;"><input id="author" type="text" style="width:100px; height:35px;" /></td>
+										<td style="border-style:none;"><label>商品价格</label></td>
+										<td style="border-style:none;"><input id="minprice" type="number" style="width:50px; height:35px;"/><lable>—</lable><input id="maxprice" type="number" style="width:50px; height:35px;"/></td>
+										<td style="border-style:none;">&nbsp;</td><td style="border-style:none;">&nbsp;</td>
 									</tr>
-									<tr>
-										<td><input type="button" value="查询" onlick="show();"/></td>
-										<td><input type="button" value="重置" onclick="show();"/></td>
+									<tr style="border-style:none;">
+										<td style="border-style:none;"><input type="button" value="查询" onclick="query();"/></td>
+										<script>
+											function query(){
+												console.log("query");
+												loadData();
+												console.log(saleData);
+												if($("#id").val() != ""){
+													for(var i = 0; i< saleData.length; i++){
+														if(saleData[i].MerchandiseId != $("#id").val()){
+															saleData.splice(i, 1);
+															i--;
+														}
+													}
+												}
+												if($("#ISBN").val() != ""){
+													for(var i = 0; i< saleData.length; i++){
+														if(saleData[i].ISBN != $("#ISBN").val()){
+															saleData.splice(i, 1);
+															i--;
+														}
+													}
+												}
+												if($("#minprice").val() != "" && $("#maxprice").val() != ""){
+													for(var i = 0; i< saleData.length; i++){
+														if(saleData[i].Price < $("#minprice").val() || saleData[i].Price > $("#maxprice").val()){
+															saleData.splice(i, 1);
+															i--;
+														}
+													}
+												}
+												console.log(saleData);
+												jQuery_New(function(){
+													pagination();
+												});
+											}
+										</script>
+	
+										<td style="border-style:none;"><input type="button" value="重置" onclick="resetData();"/></td>
+										<script>
+											function resetData(){
+												console.log("reset");
+												loadData();
+												console.log(saleData);
+												jQuery_New(function(){
+													pagination();
+												});
+											}
+										</script>
+
 									</tr>
 								</table>
 							</form>
 						</div>
 						<br><br>
+						<div>
+							<div class="M-box" ></div>
+							<table class="tbody"></table>
+						</div>				
 
-						<table>
-							<tr>
-								<th>商品ID</th><th>书籍名称</th><th>ISBN号码</th><th>作者姓名</th><th>库存</th><th>单价</th><th>描述</th><th>操作</th>
-							</tr>
-						</table>
 					</div>
                     </main> <!-- #main -->
                   </div> <!-- #primary -->

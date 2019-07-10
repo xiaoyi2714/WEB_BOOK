@@ -49,7 +49,171 @@
 		<script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		<script>
+			var searchData, pagenum, page;
+			function search() {
+				pagenum = 0;
+				$.ajax({
+					url: 'http://106.52.66.141:8080/api/BookSearch/',
+					type: 'post',
+					contentType: 'application/json;charset=UTF-8',
+					data: JSON.stringify({
+						'searchinfo': $("#search").val()
+					}),
+					success: function(data){
+						var pages = ["#page1", "#page2", "#page3", "#page4", "#page5", "#page6", "#page7", "#page8", "#page9"];
+						console.log(pages);
+						searchData = data;
+						page = data.length / 9;
+						if (page != 0){
+							$("#unfind").hide();
+						}
+						if (page == 0){
+							$("#unfind").show();
+						}
+						for(i = page; i <= 9; i++){
+							console.log(pages[i]);
+							$(pages[i]).hide();
+						}
+						sortByTitle();
+						display();
+						console.log(page);
+						console.log('search success');
+						console.info(searchData);
+					},
+					error: function(err){
+						console.log('fail');
+						$(".product-title").html("title");
+					}
+				});
+			}
+			function sortByTitle(){
+				searchData.sort(function (a, b) {
+					if (a.Title < b.Title){
+						return 1;
+					}
+					if (a.Title > b.Title){
+						return -1;
+					}
+					return 0;
+				});
+				display();
+			}
+			function sortByPriceUp(){
+				searchData.sort(function (a, b) {
+					if (a.Price < b.Price){
+						return 1;
+					}
+					if (a.Price > b.Price){
+						return -1;
+					}
+					return 0;
+				});
+				display();
+			}
+			function sortByPriceDown(){
+				searchData.sort(function (a, b) {
+					if (a.Price > b.Price){
+						return 1;
+					}
+					if (a.Price < b.Price){
+						return -1;
+					}
+					return 0;
+				});
+				display();
+			}
+			function lastPage() {
+				pagenum -= 9;
+				display();
+			}
+			function nextPage() {
+				pagenum += 9;
+				display();
+			}
+			function pageOne() {
+				pagenum = 0;
+				display();
+			}
+			function pageTwo() {
+				pagenum = 9;
+				display();
+			}
+			function pageThree() {
+				pagenum = 18;
+				display();
+			}
+			function pageFour() {
+				pagenum = 27;
+				display();
+			}
+			function pageFive() {
+				pagenum = 36;
+				display();
+			}
+			function pageSix() {
+				pagenum = 45;
+				display();
+			}
+			function pageSeven() {
+				pagenum = 54;
+				display();
+			}
+			function pageEight() {
+				pagenum = 63;
+				display();
+			}
+			function pageNine() {
+				pagenum = 72;
+				display();
+			}
+			function display(){
+				if(searchData[pagenum + 8] != null) {
 
+					$("#product0").html(searchData[pagenum + 0].Title);
+					$("#shop0").html(searchData[pagenum + 0].ShopName);
+					$("#price0").html(searchData[pagenum + 0].Price);
+
+					$("#product1").html(searchData[pagenum + 1].Title);
+					$("#shop1").html(searchData[pagenum + 1].ShopName);
+					$("#price1").html(searchData[pagenum + 1].Price);
+
+					$("#product2").html(searchData[pagenum + 2].Title);
+					$("#shop2").html(searchData[pagenum + 2].ShopName);
+					$("#price2").html(searchData[pagenum + 2].Price);
+
+					$("#product3").html(searchData[pagenum + 3].Title);
+					$("#shop3").html(searchData[pagenum + 3].ShopName);
+					$("#price3").html(searchData[pagenum + 3].Price);
+
+					$("#product4").html(searchData[pagenum + 4].Title);
+					$("#shop4").html(searchData[pagenum + 4].ShopName);
+					$("#price4").html(searchData[pagenum + 4].Price);
+
+					$("#product5").html(searchData[pagenum + 5].Title);
+					$("#shop5").html(searchData[pagenum + 5].ShopName);
+					$("#price5").html(searchData[pagenum + 5].Price);
+
+					$("#product6").html(searchData[pagenum + 6].Title);
+					$("#shop6").html(searchData[pagenum + 6].ShopName);
+					$("#price6").html(searchData[pagenum + 6].Price);
+
+					$("#product7").html(searchData[pagenum + 7].Title);
+					$("#shop7").html(searchData[pagenum + 7].ShopName);
+					$("#price7").html(searchData[pagenum + 7].Price);
+
+					$("#product8").html(searchData[pagenum + 8].Title);
+					$("#shop8").html(searchData[pagenum + 8].ShopName);
+					$("#price8").html(searchData[pagenum + 8].Price);
+				}
+				else{
+					if(pagenum > 0)
+						pagenum -= 9;
+					else
+						pagenum += 9;
+				}
+			}
+		</script>
 	</head>
 	<body class="home header-v1">
 		<div id="page" class="site">
@@ -137,12 +301,13 @@
 							<h1 class="site-title"><a href="1-home.html" rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
-					<a href="1-search.html"><input type="button" value="搜索" class="pull-right quick-link-button" ><input type="text" Class="pull-right quick-link-button"></a>
+					<input type="button" value="搜索" class="pull-right quick-link-button" onclick="search()">
+					<input id="search" type="text" Class="pull-right quick-link-button">
 					<div id="header-right" class="pull-right">
 						<div class="hearder-min-cart">
 							<ul>
 								<li class="cart-button mini-cart-wrap">
-									<a href="1-cart.html"><i class=" icon-basket"></i>	</a>
+									<a href="1-pay.html"><i class=" icon-basket"></i>	</a>
 								</li>
 								<li class="cart-button">
 									<a href="1-wishlist.html"  title="wishlist"><i class=" icon-heart"></i>	</a>
@@ -195,21 +360,32 @@
 								<div class="sort-by">
 									<span class="sort-by-list">书名排序</span>
 									<ul>
-										<li><a href="1-search.html">书名排序</a></li>
-										<li><a href="1-search.html">价格升序</a></li>
-										<li><a href="1-search.html">价格降序</a></li>
+										<li><a type="button" onclick="sortByTitle()">书名排序</a></li>
+										<li><a type="button" onclick="sortByPriceUp()">价格升序</a></li>
+										<li><a type="button" onclick="sortByPriceDown()">价格降序</a></li>
 									</ul>
 								</div>
 							</div>
 							<nav class="filter-row-box navigation pagination  pull-right">
 	                        	<div class="nav-links">
-	                          <span class="page-numbers current">1</span>
-	                          <a class="page-numbers" href="1-search.html" >2</a>
-	                          <a class="page-numbers" href="1-search.html" >3</a>
-	                          <a class="next page-numbers" href="1-search.html" >下一页 »</a>
+									<a type="button" class="next page-numbers" onclick="lastPage()"><< 上一页</a>
+									<a id="page1" type="button" class="page-numbers" onclick="pageOne()" >1</a>
+									<a id="page2" type="button" class="page-numbers" onclick="pageTwo()" >2</a>
+									<a id="page3" type="button" class="page-numbers" onclick="pageThree()" >3</a>
+									<a id="page4" type="button" class="page-numbers" onclick="pageFour()" >4</a>
+									<a id="page5" type="button" class="page-numbers" onclick="pageFive()" >5</a>
+									<a id="page6" type="button" class="page-numbers" onclick="pageSix()" >6</a>
+									<a id="page7" type="button" class="page-numbers" onclick="pageSeven()" >7</a>
+									<a id="page8" type="button" class="page-numbers" onclick="pageEight()" >8</a>
+									<a id="page9" type="button" class="page-numbers" onclick="pageNine()" >9</a>
+									<a type="button" class="next page-numbers" onclick="nextPage()">下一页 >></a>
 	                        </div> <!-- .nav-links -->
 	                      </nav> <!-- .navigation.pagination -->
 						</div>
+						<br>
+						<br>
+						<br>
+						<a id="unfind">没找到相关书籍，请重新尝试</a>
 						<div class="inner-wrapper">
 							<div class="products-inner-wrapper clear-fix">
 								<div class="product-item col-grid-4 top-space">
@@ -224,9 +400,10 @@
 											<!-- .product-ratings -->
 										</div><!-- .product-thumb -->
 										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
+											<h4><a id="product0" class="product-title" href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h4>
+											<h4><a id="shop0" class="product-title" href="1-shop.html" title="title"><u>书店</u></a></h4>
 											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
+												<a>￥</a><span id="price0" class="fix-price">45.99</span>
 											</div><!-- .product-price-container -->
 										</div>
 									</div><!-- .product-item-wrapper -->
@@ -243,9 +420,10 @@
 											<!-- .product-ratings -->
 										</div><!-- .product-thumb -->
 										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
+											<h4><a id="product1" class="product-title" href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h4>
+											<h4><a id="shop1" class="product-title" href="1-shop.html" title="title"><u>书店</u></a></h4>
 											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
+												<a>￥</a><span id="price1" class="fix-price">45.99</span>
 											</div><!-- .product-price-container -->
 										</div>
 									</div><!-- .product-item-wrapper -->
@@ -262,9 +440,10 @@
 											<!-- .product-ratings -->
 										</div><!-- .product-thumb -->
 										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
+											<h4><a id="product2" class="product-title" href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h4>
+											<h4><a id="shop2" class="product-title" href="1-shop.html" title="title"><u>书店</u></a></h4>
 											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
+												<a>￥</a><span id="price2" class="fix-price">45.99</span>
 											</div><!-- .product-price-container -->
 										</div>
 									</div><!-- .product-item-wrapper -->
@@ -281,9 +460,10 @@
 											<!-- .product-ratings -->
 										</div><!-- .product-thumb -->
 										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
+											<h4><a id="product3" class="product-title" href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h4>
+											<h4><a id="shop3" class="product-title" href="1-shop.html" title="title"><u>书店</u></a></h4>
 											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
+												<a>￥</a><span id="price3" class="fix-price">45.99</span>
 											</div><!-- .product-price-container -->
 										</div>
 									</div><!-- .product-item-wrapper -->
@@ -300,9 +480,10 @@
 											<!-- .product-ratings -->
 										</div><!-- .product-thumb -->
 										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
+											<h4><a id="product4" class="product-title" href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h4>
+											<h4><a id="shop4" class="product-title" href="1-shop.html" title="title"><u>书店</u></a></h4>
 											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
+												<a>￥</a><span id="price4" class="fix-price">45.99</span>
 											</div><!-- .product-price-container -->
 										</div>
 									</div><!-- .product-item-wrapper -->
@@ -319,9 +500,10 @@
 											<!-- .product-ratings -->
 										</div><!-- .product-thumb -->
 										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
+											<h4><a id="product5" class="product-title" href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h4>
+											<h4><a id="shop5" class="product-title" href="1-shop.html" title="title"><u>书店</u></a></h4>
 											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
+												<a>￥</a><span id="price5" class="fix-price">45.99</span>
 											</div><!-- .product-price-container -->
 										</div>
 									</div><!-- .product-item-wrapper -->
@@ -338,9 +520,10 @@
 											<!-- .product-ratings -->
 										</div><!-- .product-thumb -->
 										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
+											<h4><a id="product6" class="product-title" href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h4>
+											<h4><a id="shop6" class="product-title" href="1-shop.html" title="title"><u>书店</u></a></h4>
 											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
+												<a>￥</a><span id="price6" class="fix-price">45.99</span>
 											</div><!-- .product-price-container -->
 										</div>
 									</div><!-- .product-item-wrapper -->
@@ -357,9 +540,10 @@
 											<!-- .product-ratings -->
 										</div><!-- .product-thumb -->
 										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
+											<h4><a id="product7" class="product-title" href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h4>
+											<h4><a id="shop7" class="product-title" href="1-shop.html" title="title"><u>书店</u></a></h4>
 											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
+												<a>￥</a><span id="price7" class="fix-price">45.99</span>
 											</div><!-- .product-price-container -->
 										</div>
 									</div><!-- .product-item-wrapper -->
@@ -376,82 +560,16 @@
 											<!-- .product-ratings -->
 										</div><!-- .product-thumb -->
 										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
+											<h4><a id="product8" class="product-title" href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h4>
+											<h4><a id="shop8" class="product-title" href="1-shop.html" title="title"><u>书店</u></a></h4>
 											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
-											</div><!-- .product-price-container -->
-										</div>
-									</div><!-- .product-item-wrapper -->
-								</div><!-- .product-item -->
-								<div class="product-item col-grid-4 top-space">
-									<div class="product-item-wrapper zoom-effect-hover-container box-shadow-block">
-										<div class="product-thumb zoom-effect">
-											<a class="thumbnail" href="1-product.html"><img alt="product" src="images/shop/product-1.jpg"></a>
-											<div class="pruduct-buttons">
-												<a href="#" class="product-button tooltip"><i class="fas fa-cart-plus"></i>
-													<span class="tooltiptext tooltip-right">Add To Cart</span></a>
-												<a href="#" class="product-button tooltip"><i class="far fa-heart"></i><span class="tooltiptext tooltip-right">Wishlist</span></a>
-											</div><!-- .product-buttons -->
-											<!-- .product-ratings -->
-										</div><!-- .product-thumb -->
-										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
-											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
-											</div><!-- .product-price-container -->
-										</div>
-									</div><!-- .product-item-wrapper -->
-								</div><!-- .product-item -->
-								<div class="product-item col-grid-4 top-space">
-									<div class="product-item-wrapper zoom-effect-hover-container box-shadow-block">
-										<div class="product-thumb zoom-effect">
-											<a class="thumbnail" href="1-product.html"><img alt="product" src="images/shop/product-1.jpg"></a>
-											<div class="pruduct-buttons">
-												<a href="#" class="product-button tooltip"><i class="fas fa-cart-plus"></i>
-													<span class="tooltiptext tooltip-right">Add To Cart</span></a>
-												<a href="#" class="product-button tooltip"><i class="far fa-heart"></i><span class="tooltiptext tooltip-right">Wishlist</span></a>
-											</div><!-- .product-buttons -->
-											<!-- .product-ratings -->
-										</div><!-- .product-thumb -->
-										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
-											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
-											</div><!-- .product-price-container -->
-										</div>
-									</div><!-- .product-item-wrapper -->
-								</div><!-- .product-item -->
-								<div class="product-item col-grid-4 top-space">
-									<div class="product-item-wrapper zoom-effect-hover-container box-shadow-block">
-										<div class="product-thumb zoom-effect">
-											<a class="thumbnail" href="1-product.html"><img alt="product" src="images/shop/product-1.jpg"></a>
-											<div class="pruduct-buttons">
-												<a href="#" class="product-button tooltip"><i class="fas fa-cart-plus"></i>
-													<span class="tooltiptext tooltip-right">Add To Cart</span></a>
-												<a href="#" class="product-button tooltip"><i class="far fa-heart"></i><span class="tooltiptext tooltip-right">Wishlist</span></a>
-											</div><!-- .product-buttons -->
-											<!-- .product-ratings -->
-										</div><!-- .product-thumb -->
-										<div class="product-item-details">
-											<h3 class="product-title"><a href="1-product.html" title="title">Cold Shoulder Wrap Top</a></h3>
-											<div class="product-price-container">
-												<span class="fix-price">$45.99</span>
+												<a>￥</a><span id="price8" class="fix-price">45.99</span>
 											</div><!-- .product-price-container -->
 										</div>
 									</div><!-- .product-item-wrapper -->
 								</div><!-- .product-item -->
 							</div><!-- .products-inner-wrapper -->
 						</div><!-- .inner-wrapper -->
-						<div class="pruduct-filter-row clear-fix top-space">
-							<nav class="filter-row-box navigation pagination  pull-right">
-	                        	<div class="nav-links">
-	                          <span class="page-numbers current">1</span>
-	                          <a class="page-numbers" href="1-search.html" >2</a>
-	                          <a class="page-numbers" href="1-search.html" >3</a>
-	                          <a class="next page-numbers" href="1-search.html" >下一页 »</a>
-	                        </div> <!-- .nav-links -->
-	                      </nav> <!-- .navigation.pagination -->
-						</div>
 					</div><!-- .section-products -->
                     </main> <!-- #main -->
                   </div> <!-- #primary -->
@@ -568,8 +686,8 @@
 							</div>
 							<form class="single-cart" method="post">
 								<input type="number" class="input-text" step="1" min="1" value="1">
-								<button type="submit" name="add-ro-cart" class="custom-button button-small"> Add To Cart </button>
-								<button type="submit" name="add-ro-cart" class="custom-button custom-secondary-button button-small"> Wishlist </button>
+								<button type="button" name="add-ro-cart" class="custom-button button-small"> Add To Cart </button>
+								<button type="button" name="add-ro-cart" class="custom-button custom-secondary-button button-small"> Wishlist </button>
 							</form><!-- .single-cart -->
 							<div class="entry-meta product-meta">
 								<h4>CATEGORY :</h4>
@@ -606,7 +724,7 @@
         					<form>
         						<input type="email" placeholder="Username OR Email address">
         						<input type="password" placeholder="Password">
-        						<input type="submit" class="custom-button button-small" value="Login">
+        						<input type="button" class="custom-button button-small" value="Login">
         					</form>
         				</div>
         			</div> <!-- .login-account -->
@@ -631,7 +749,7 @@
         						<input type="text" placeholder="Mobile number">
         						<input type="email" placeholder="Email address">
         						<input type="password" placeholder="Password">
-        						<input type="submit" class="btn btn-custom2" value="Register">
+        						<input type="button" class="btn btn-custom2" value="Register">
         					</form>
         				</div>
         			</div><!-- .register-account -->

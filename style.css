@@ -522,7 +522,6 @@ table {
 
 .content input {  padding:1px 1px; border:1px solid #ccc; }
 
-
 input[type="button"], input[type="reset"], input[type="submit"], button {
     background: #ce1648;
     color: #fff;
@@ -7834,8 +7833,6 @@ div#login-popup {
 /*===========================================================
 						Style End
 =============================================================*/
-
-
 .frameless-table th, td{
 	border: 0px;
 	text-align: left;

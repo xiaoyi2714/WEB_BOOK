@@ -106,15 +106,15 @@
 							<h1 class="site-title"><a href="1-home.html"  rel="home"><img alt="logo" class="site-logo" src="images/logo.png">红杉书屋</a></h1>
 						</div><!-- #site-identity -->
 					</div><!-- .site-branding -->
-					<input type="button" value="搜索" class="pull-right quick-link-button"><input type="text" Class="pull-right quick-link-button">
+					<a href="1-search.html"><input type="button" value="搜索" class="pull-right quick-link-button" ><input type="text" Class="pull-right quick-link-button"></a>
 					<div id="header-right" class="pull-right">
 						<div class="hearder-min-cart">
 							<ul>
 								<li class="cart-button mini-cart-wrap">
-									<a href="#"><i class=" icon-basket"></i>	</a>
+									<a href="1-cart.html"><i class=" icon-basket"></i>	</a>
 								</li>
 			       				<li class="cart-button">
-				       				<a href="wishlist.html"  title="wishlist"><i class=" icon-heart"></i>	</a>
+				       				<a href="1-wishlist.html"  title="wishlist"><i class=" icon-heart"></i>	</a>
 			       				</li>
 							</ul>
 						</div><!-- #quick-link-buttons -->
@@ -144,18 +144,22 @@
 			<div id="custom-header">
 			  <div class="custom-header-content">
 			    <div class="container">
-			      <h1 class="page-title">个人信息</h1>
+			      <h1 class="page-title">我的账户</h1>
 			      <div id="breadcrumb">
 			        <div  aria-label="Breadcrumbs" class="breadcrumbs breadcrumb-trail">
 			          <ul class="trail-items">
 			            <li class="trail-item trail-begin"><a href="1-home.html" rel="home"><span>主页</span></a></li>
-			            <li class="trail-item trail-end"><span>个人信息</span></li>
+			            <li class="trail-item trail-end"><span>我的账户</span></li>
 			          </ul>
 			        </div> <!-- .breadcrumbs -->
 			      </div> <!-- #breadcrumb -->
 			    </div> <!-- .container -->
 			  </div>  <!-- .custom-header-content -->
 			</div> <!-- .custom-header -->
+			<br>
+			<br>
+			<br>
+			<br>
             <div id="content" class="site-content default-full-width">
               <div class="container">
                 <div class="inner-wrapper">
@@ -166,64 +170,72 @@
 							    <div class="col2-set" id="customer_details">
 							        <div class="col-1">
 							            <div class="product-billing-fields">
-							                <h3>基础信息</h3>
+							                <h3>账户信息</h3>
 							                <div class="product-billing-fields_field-wrapper">
+												<div class="form-row form-row-first">
+													<label>用户头像</label>
+													<tr>
+														<td><label>(点击按键以初始化或更新用户头像)</label></td>
+														<td><input type="file" style="width:300px; height:35px;" /></td>
+													</tr>
+												</div>
+												<div class="form-row form-row-last">
+													<img src="images/blog-single/author1.png" alt="" width="110" height="110">
+												</div>
 							                    <div class="form-row form-row-first">
-							                        <label>用户ID<abbr class="required">*</abbr></label>
+							                        <label>用户ID</label>
 													<p>772192398</p>
 							                    </div>
 							                    <div class="form-row form-row-last">
-							                        <label>账号密码<abbr class="required">*</abbr></label>
+							                        <label>用户昵称</label>
 													<p>12345678</p>
 							                    </div>
-							                    <div class="form-row form-row-first">
-							                        <label>真实姓名<abbr class="required">*</abbr></label>
-													<p>洪欣鹏</p>
-							                    </div>
-												<div class="form-row form-row-last">
-													<label>用户性别<abbr class="required">*</abbr></label>
-													<p>男</p>
-												</div>
 												<div class="form-row form-row-first">
-													<label>用户生日<abbr class="required">*</abbr></label>
-													<p>1998年3月8日</p>
-												</div>
-												<div class="form-row form-row-last">
-													<label>手机号码<abbr class="required">*</abbr></label>
+													<label>账户密码</label>
 													<p>18717787656</p>
 												</div>
-												<div class="form-row form-row-first">
-													<label>家乡省市<abbr class="required">*</abbr></label>
-													<p>江西省南昌市</p>
-												</div>
 												<div class="form-row form-row-last">
-													<label>居住地址<abbr class="required">*</abbr></label>
-													<p>江西省南昌市青山湖区洪都中大道1239号</p>
+													<label>账户积分</label>
+													<p>3000</p>
 												</div>
 							                </div>
 							            </div>
 							        </div>
 							        <div class="col-2">
 							            <div class="product-additional-fields">
-							                <h3>附加信息</h3>
-							                <div class="product-additional-fields-field-wrapper">
-							                    <div class="form-row notes" id="order-comments-field">
-							                        <label>自我介绍</label>
-													<p>大家好我是洪欣鹏大家好我是洪欣鹏大家好我是洪欣鹏大家好我是洪欣鹏大家好我是洪欣鹏</p>
-							                    </div>
-							                </div>
-											<div class="product-additional-fields-field-wrapper">
-												<div class="form-row notes" id="order-comments-field">
-													<label>个性签名</label>
-													<p>大家好我是洪欣鹏大家好我是洪欣鹏大家好我是洪欣鹏大家好我是洪欣鹏大家好我是洪欣鹏</p>
-												</div>
+											<h3>个人信息</h3>
+											<div class="form-row form-row-first">
+												<label>真实姓名</label>
+												<p>洪欣鹏</p>
+											</div>
+											<div class="form-row form-row-last">
+												<label>默认地址</label>
+												<p>江西南昌洪都大道12号</p>
+											</div>
+											<div class="form-row form-row-first">
+												<label>出生日期</label>
+												<p>1998年3月8日</p>
+											</div>
+											<div class="form-row form-row-last">
+												<label>身份证号</label>
+												<p>360103199803085915</p>
+											</div>
+											<div class="form-row form-row-first">
+												<label>手机号码</label>
+												<p>18717787656</p>
+											</div>
+											<div class="form-row form-row-last">
+												<label>个人邮箱</label>
+												<p>hongxinpeng@tongji.edu.cn</p>
 											</div>
 							            </div>
-										<a href="1-change.html"><h3 id="order-review-heading">如需修改密码请点击此处</h3></a>
 								        <div id="payment" class="product-checkout-payment">
-								             <div class="form-row place-order">
-												 <input type="submit" class="button alt" name="product-checkout-place-order" id="place_order" value="编辑个人信息" data-value="Place order">
+								             <div class="form-row-first place-order">
+												 <a href="1-changeinfo.html"><input type="button" class="button alt" name="product-checkout-place-order" id="place_order" value="编辑个人信息" data-value="Place order"></a>
 								             </div>
+											<div class="form-row-last place-order">
+												<a href="1-change.html"><input type="button" class="button alt" name="product-checkout-place-order" id="place_order" value="修改账户密码" data-value="Place order"></a>
+											</div>
 								        </div>
 							        </div>
 
@@ -235,12 +247,18 @@
                 </div> <!-- #inner-wrapper -->
               </div><!-- .container -->
             </div> <!-- #content-->
+			<br>
+			<br>
+			<br>
+			<br>
 			<div class="footer-container">
 				<footer id="colophon" class="site-footer">
 					<div class="colophon-bottom">
 						<div class="container">
 							<div class="inner-wrapper">
 								<a href="1-intro.html">  团队介绍 </a>
+								<br>
+								<a href="http://www.miitbeian.gov.cn"> 互联网ICP备案：沪ICP备19023316号-1 </a>
 								<p> (+86) 008 400 123 &nbsp&nbsp database@tongji.edu.cn &nbsp&nbsp 4800 Changan Street, China </p>
 								<p> Copyright © 2019 SequoiaBook . All rights reserved. </p>
 							</div><!-- .inner-wrapper -->
@@ -323,8 +341,8 @@
 							</div>
 							<form class="single-cart" method="post">
 								<input type="number" class="input-text" step="1" min="1" value="1">
-								<button type="submit" name="add-ro-cart" class="custom-button button-small"> Add To Cart </button>
-								<button type="submit" name="add-ro-cart" class="custom-button custom-secondary-button button-small"> Wishlist </button>
+								<button type="button" name="add-ro-cart" class="custom-button button-small"> Add To Cart </button>
+								<button type="button" name="add-ro-cart" class="custom-button custom-secondary-button button-small"> Wishlist </button>
 							</form><!-- .single-cart -->
 							<div class="entry-meta product-meta">
 								<h4>CATEGORY :</h4>
@@ -361,7 +379,7 @@
         					<form>
         						<input type="email" placeholder="Username OR Email address">
         						<input type="password" placeholder="Password">
-        						<input type="submit" class="custom-button button-small" value="Login">
+        						<input type="button" class="custom-button button-small" value="Login">
         					</form>
         				</div>
         			</div> <!-- .login-account -->
@@ -386,7 +404,7 @@
         						<input type="text" placeholder="Mobile number">
         						<input type="email" placeholder="Email address">
         						<input type="password" placeholder="Password">
-        						<input type="submit" class="btn btn-custom2" value="Register">
+        						<input type="button" class="btn btn-custom2" value="Register">
         					</form>
         				</div>
         			</div><!-- .register-account -->

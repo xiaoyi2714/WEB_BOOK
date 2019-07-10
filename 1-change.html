@@ -36,7 +36,7 @@
 		<!-- <link rel="stylesheet" type="text/css" href="css/colors/dark-blue.css"> -->
 		<!-- <link rel="stylesheet" type="text/css" href="css/colors/purple.css"> -->
 		<!-- <link rel="stylesheet" type="text/css" href="css/colors/sky-blue.css"> -->
-		
+
 
 		<link rel="stylesheet" href="third-party/fontawesome/releases/v5.2.0/css/all.css" >
 
@@ -49,11 +49,80 @@
 		<script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		<script>
+			function checkName(){
+				if ($.trim($('#name').val()).length == 0) {
+					$('#nameError').html('姓名没有输入');
+					$('#name').focus();
+					return false;
+				} else {
+					$('#nameError').html('');
+					return true;}
+			}
+
+			function checkPassword(){
+				if($.trim($('#password').val()).length == 0){
+					$('#passwordError').html('密码没有输入');
+					$('#password').focus();
+					return false;
+				}else{
+					$('#passwordError').html('');
+					const rePass = $.trim($('#rePassword').val());
+					const pass = $.trim($('#password').val());
+					if (rePass.length != 0) {
+						if (rePass != pass) {
+							$('#rePasswordError').html('两次密码不一致');
+							return false;
+						} else {
+							$('#rePasswordError').html('');
+							return true;
+						}
+					}
+				}
+			}
+
+			function checkRePassword(){
+				const rePass = $.trim($('#rePassword').val());/*去除字符串两端空白*/
+				if(rePass.length == 0){
+					$('#rePasswordError').html("密码没有输入");
+					$('#rePassword').focus();
+					return false;
+				}else{
+					$('#rePasswordError').html('');
+					const pass=$.trim($('#password').val());
+					if(pass.length==0){
+						$('#rePassword').val('');
+						$('#passwordError').html("密码没有输入");
+						$('#password').focus();
+						return false;
+					}else if(rePass != pass){
+						$('#rePasswordError').html('两次密码不一致');
+						return false;
+					}else{
+						$('#rePasswordError').html('');
+						return true;
+					}
+				}
+			}
+
+			function checkRegister(){
+				if(checkName()==false){
+					return false;
+				}
+				if(checkPassword()==false){
+					return false;
+				}
+				if(checkRePassword()==false){
+					return false;
+				}
+			}
+
+		</script>
 
 	</head>
 	<body class="home header-v1">
 		<div id="page" class="site">
-		
+
 			<header id="masthead" class="site-header sticky-enabled">
 				<div class="container">
 					<div class="site-branding pull-left">
@@ -93,8 +162,8 @@
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
 			</header> <!-- .site-header -->
-			
-			
+
+
 			<div id="custom-header">
 			  <div class="custom-header-content">
 			    <div class="container">
@@ -122,11 +191,17 @@
 							    </div>
 							    <div class="content-body">
 							       <form>
-							          <p><label>姓名</label><input type="text" placeholder="姓名"></p>
+							          <p><label>姓名</label><input id="name" name="name" onblur="checkName()" required="required"
+																 type="text" placeholder="姓名"></p>
 							          <p><label>旧密码</label><input type="password" placeholder="旧密码"></p>
-							          <p><label>新密码</label><input type="password" placeholder="新密码"></p>
-							          <p><label>再次输入新密码</label><input type="password" placeholder="再次输入新密码"></p>
-							          <p><input type="submit" value="确认"></p>
+							          <p><label>新密码</label><input id="password" name="password" onblur="checkPassword()"
+																  required="required" type="password" placeholder="新密码">
+									   <p id="passwordError" style="color:red;"></p>
+									  </p>
+							          <p><label>再次输入新密码</label><input id="rePassword" name="rePassword" onblur="checkRePassword()"
+																	  required="required" type="password" placeholder="再次输入新密码">
+									   <p id="rePasswordError" style="color:red;"></p></p>
+							          <p><input type="submit" value="确认" onblur="checkRegister()"></p>
 							       </form>
 							    </div>
 							    <div class="user-acc-footer">
@@ -139,7 +214,7 @@
                 </div> <!-- #inner-wrapper -->
               </div><!-- .container -->
             </div> <!-- #content-->
-			
+
 		<!-- 页脚 -->
 			<div class="footer-container">
 				<footer id="colophon" class="site-footer">
@@ -153,7 +228,7 @@
 				</footer> <!-- footer ends here -->
 			</div><!-- footer-container -->
 		</div> <!--#page-->
-        
+
 		<script  src="third-party/jquery/jquery-3.2.1.min.js"></script>
 		<script  src="third-party/jquery/jquery-migrate-3.0.0.min.js"></script>
 		<!--Include all compiled plugins (below), or include individual files as needed-->

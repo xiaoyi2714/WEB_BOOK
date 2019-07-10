@@ -165,7 +165,27 @@
                                 </li>
                                 <a href="1-order.html" >我的订单&nbsp&nbsp&nbsp</a>
                                 <a href="1-info.html" >我的账户&nbsp&nbsp&nbsp</a>
-                                <a href="0-root.html" >退出</a>
+                                <a onclick="logout()">退出</a>
+                                <script>
+                                    function logout(){
+                                        $.ajax({
+                                            url: 'http://192.168.1.178:5000/api/Logout',
+                                            type: 'post',
+                                            contentType: 'application/json; charset=UTF-8',
+                                            xhrFields: {	//发送cookie
+                                                withCredentials: true
+                                            },
+                                            data: JSON.stringify({}),
+                                            success: function(msg){
+                                                console.log("success");
+                                                window.location = '1-login.html';
+                                            },
+                                            error: function(err){
+                                                //理论上不可能
+                                            }
+                                        });
+                                    }
+                                </script>
                             </ul>
                         </nav> <!-- .site-navigation -->
 					</div> <!-- .container -->

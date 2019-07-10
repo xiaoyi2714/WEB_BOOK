@@ -52,9 +52,10 @@
 		<script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		<script src="js/order.js"></script>
 
 	</head>
-	<body class="home header-v1">
+	<body class="home header-v1" onload="CustomerGetAllTransacts()">
 
 		<div id="page" class="site">
 			
@@ -129,136 +130,319 @@
 						            <thead>
 						                <tr>
 											<th class="product-name">商品细节</th>
-											<th class="product-time">更新时间</th>
-											<th class="product-status">商品状态</th>
+											<th class="product-time">创建时间</th>
 											<th class="product-total">合计价格</th>
 											<th class="product-total">物流信息</th>
 						                    <th class="product-remove">添加评论</th>
 						                </tr>
 						            </thead>
 						            <tbody>
+									<tr class="cart-item">
+										<td class="product-name" data-title="Product">
+											<a href="#" class="cart-product-thumb">
+												<img src="images/shop/product-1.jpg" alt="Product Thumbnail">
+											</a>
+											<div class="product-info">
+												<h3 id="title0">Product Title</h3>
+												<ul>
+													<li>商品 ID: <a id="ISBN0">123</a></li>
+													<li>订单 ID: <a id="transactID0">123</a></li>
+												</ul>
+											</div>
+										</td>
+										<td class="product-time" data-title="Time">
+											<a class="product-Time-amount amount" id="time0">
+												2018.05.27 05:27
+											</a>
+										</td>
+										<td class="product-subtotal" data-title="Total">
+											<a class="product-Time-amount amount" id="price0">
+												￥180
+											</a>
+										</td>
+										<td class="product-subtotal" data-title="Total">
+													<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="查看物流">
+												   </span>
+										</td>
+										<td class="product-subtotal" data-title="Total">
+												<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="添加评论">
+												</span>
+										</td>
+									</tr>
 						                <tr class="cart-item">
 						                    <td class="product-name" data-title="Product">
 						                        <a href="#" class="cart-product-thumb">
 						                            <img src="images/shop/product-1.jpg" alt="Product Thumbnail">
 						                        </a>
 						                        <div class="product-info">
-						                            <h3>Product Title</h3>
+						                            <h3 id="title1">Product Title</h3>
 						                            <ul>
-														<li>用户 ID: Cus-1</li>
-						                                <li>商品 ID: Com-1</li>
-						                                <li>订单 ID: Ord-1</li>
+														<li>商品 ID: <a id="ISBN1">123</a></li>
+														<li>订单 ID: <a id="transactID1">123</a></li>
 						                            </ul>
 						                        </div>
 						                    </td>
 						                    <td class="product-time" data-title="Time">
-						                       <span class="product-Time-amount amount">
+						                       <a class="product-Time-amount amount" id="time1">
 						                            2018.05.27 05:27
-						                       </span>
-						                    </td>
-						                    <td class="product-status" data-title="Status">
-												<span class="badge badge-warning">已确认收货</span>
+						                       </a>
 						                    </td>
 						                    <td class="product-subtotal" data-title="Total">
-						                        <span class="product-Time-amount amount">
+						                        <a class="product-Time-amount amount" id="price1">
 						                            ￥180
-						                       </span>
+						                       </a>
 											</td>
 											<td class="product-subtotal" data-title="Total">
 													<span class="product-Price-amount amount">
-														<a href="logistics.html">
-															<a href="1-api.html"><input type=button class="custom-button button-small" value="查看物流"></a>
-														</a>
+														<input type=button class="custom-button button-small" value="查看物流">
 												   </span>
 											</td>
 						                    <td class="product-subtotal" data-title="Total">
 												<span class="product-Price-amount amount">
-													<a href="comment.html">
-														<a href="1-comment.html"><input type=button class="custom-button button-small" value="添加评论"></a>
-													</a>
+														<input type=button class="custom-button button-small" value="添加评论">
 												</span>
 											</td>
 						                </tr>
-						                <tr class="cart-item">
-						                    <td class="product-name" data-title="Product">
-						                        <a href="#" class="cart-product-thumb">
-						                            <img src="images/shop/product-3.jpg" alt="Product Thumbnail">
-						                        </a>
-						                        <div class="product-info">
-						                            <h3>Product Title</h3>
-						                            <ul>
-														<li>用户 ID: Cus-2</li>
-						                                <li>商品 ID: Com-2</li>
-						                                <li>订单 ID: Ord-2</li>
-						                            </ul>
-						                        </div>
-						                    </td>
-						                    <td class="product-time" data-title="Time">
-						                       <span class="product-Time-amount amount">
+										<tr class="cart-item">
+											<td class="product-name" data-title="Product">
+												<a href="#" class="cart-product-thumb">
+													<img src="images/shop/product-1.jpg" alt="Product Thumbnail">
+												</a>
+												<div class="product-info">
+													<h3 id="title2">Product Title</h3>
+													<ul>
+														<li>商品 ID: <a id="ISBN2">123</a></li>
+														<li>订单 ID: <a id="transactID2">123</a></li>
+													</ul>
+												</div>
+											</td>
+											<td class="product-time" data-title="Time">
+												<a class="product-Time-amount amount" id="time2">
 													2018.05.27 05:27
-						                       </span>
-						                    </td>
-						                    <td class="product-status" data-title="Status">
-												<span class="badge badge-danger">待付款</span>
-						                    </td>
-						                    <td class="product-subtotal" data-title="Total">
-						                        <span class="product-Time-amount amount">
-						                            ￥150
-						                       </span>
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<a class="product-Time-amount amount" id="price2">
+													￥180
+												</a>
 											</td>
 											<td class="product-subtotal" data-title="Total">
 													<span class="product-Price-amount amount">
-														<a href="logistics.html">
-															<a href="1-api.html"><input type=button class="custom-button button-small" value="查看物流"></a>
-														</a>
+														<input type=button class="custom-button button-small" value="查看物流">
 												   </span>
 											</td>
-						                    <td class="product-remove" data-title="Remove">
-						                        <a href="#" class="remove" title="Remove this item">
-						                            <i class="fa fa-times" aria-hidden="true"></i>
-						                        </a>
-						                    </td>
-						                </tr>
-						                <tr class="cart-item">
-						                    <td class="product-name" data-title="Product">
-						                        <a href="#" class="cart-product-thumb">
-						                            <img src="images/shop/product-4.jpg" alt="Product Thumbnail">
-						                        </a>
-						                        <div class="product-info">
-						                            <h3>Product Title</h3>
-						                            <ul>
-														<li>用户 ID: Cus-3</li>
-						                                <li>商品 ID: Com-3</li>
-						                                <li>订单 ID: Ord-3</li>
-						                            </ul>
-						                        </div>
-						                    </td>
-						                    <td class="product-time" data-title="Time">
-						                       <span class="product-Time-amount amount">
+											<td class="product-subtotal" data-title="Total">
+												<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="添加评论">
+												</span>
+											</td>
+										</tr>
+										<tr class="cart-item">
+											<td class="product-name" data-title="Product">
+												<a href="#" class="cart-product-thumb">
+													<img src="images/shop/product-1.jpg" alt="Product Thumbnail">
+												</a>
+												<div class="product-info">
+													<h3 id="title3">Product Title</h3>
+													<ul>
+														<li>商品 ID: <a id="ISBN3">123</a></li>
+														<li>订单 ID: <a id="transactID3">123</a></li>
+													</ul>
+												</div>
+											</td>
+											<td class="product-time" data-title="Time">
+												<a class="product-Time-amount amount" id="time3">
 													2018.05.27 05:27
-						                       </span>
-						                    </td>
-						                    <td class="product-status" data-title="Status">
-												<span class="badge badge-success">已发货</span>
-						                    </td>
-						                    <td class="product-subtotal" data-title="Total">
-						                        <span class="product-Time-amount amount">
-						                            ￥550
-						                       </span>
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<a class="product-Time-amount amount" id="price3">
+													￥180
+												</a>
 											</td>
 											<td class="product-subtotal" data-title="Total">
 													<span class="product-Price-amount amount">
-														<a href="logistics.html">
-															<a href="1-api.html"><input type=button class="custom-button button-small" value="查看物流"></a>
-														</a>
+														<input type=button class="custom-button button-small" value="查看物流">
 												   </span>
 											</td>
-						                    <td class="product-remove" data-title="Remove">
-						                        <a href="#" class="remove" title="Remove this item">
-						                            <i class="fa fa-times" aria-hidden="true"></i>
-						                        </a>
-						                    </td>
-						                </tr>
+											<td class="product-subtotal" data-title="Total">
+												<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="添加评论">
+												</span>
+											</td>
+										</tr>
+										<tr class="cart-item">
+											<td class="product-name" data-title="Product">
+												<a href="#" class="cart-product-thumb">
+													<img src="images/shop/product-1.jpg" alt="Product Thumbnail">
+												</a>
+												<div class="product-info">
+													<h3 id="title4">Product Title</h3>
+													<ul>
+														<li>商品 ID: <a id="ISBN4">123</a></li>
+														<li>订单 ID: <a id="transactID4">123</a></li>
+													</ul>
+												</div>
+											</td>
+											<td class="product-time" data-title="Time">
+												<a class="product-Time-amount amount" id="time4">
+													2018.05.27 05:27
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<a class="product-Time-amount amount" id="price4">
+													￥180
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+													<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="查看物流">
+												   </span>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="添加评论">
+												</span>
+											</td>
+										</tr>
+										<tr class="cart-item">
+											<td class="product-name" data-title="Product">
+												<a href="#" class="cart-product-thumb">
+													<img src="images/shop/product-1.jpg" alt="Product Thumbnail">
+												</a>
+												<div class="product-info">
+													<h3 id="title5">Product Title</h3>
+													<ul>
+														<li>商品 ID: <a id="ISBN5">123</a></li>
+														<li>订单 ID: <a id="transactID5">123</a></li>
+													</ul>
+												</div>
+											</td>
+											<td class="product-time" data-title="Time">
+												<a class="product-Time-amount amount" id="time5">
+													2018.05.27 05:27
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<a class="product-Time-amount amount" id="price5">
+													￥180
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+													<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="查看物流">
+												   </span>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="添加评论">
+												</span>
+											</td>
+										</tr>
+										<tr class="cart-item">
+											<td class="product-name" data-title="Product">
+												<a href="#" class="cart-product-thumb">
+													<img src="images/shop/product-1.jpg" alt="Product Thumbnail">
+												</a>
+												<div class="product-info">
+													<h3 id="title6">Product Title</h3>
+													<ul>
+														<li>商品 ID: <a id="ISBN6">123</a></li>
+														<li>订单 ID: <a id="transactID6">123</a></li>
+													</ul>
+												</div>
+											</td>
+											<td class="product-time" data-title="Time">
+												<a class="product-Time-amount amount" id="time6">
+													2018.05.27 05:27
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<a class="product-Time-amount amount" id="price6">
+													￥180
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+													<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="查看物流">
+												   </span>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="添加评论">
+												</span>
+											</td>
+										</tr>
+										<tr class="cart-item">
+											<td class="product-name" data-title="Product">
+												<a href="#" class="cart-product-thumb">
+													<img src="images/shop/product-1.jpg" alt="Product Thumbnail">
+												</a>
+												<div class="product-info">
+													<h3 id="title7">Product Title</h3>
+													<ul>
+														<li>商品 ID: <a id="ISBN7">123</a></li>
+														<li>订单 ID: <a id="transactID7">123</a></li>
+													</ul>
+												</div>
+											</td>
+											<td class="product-time" data-title="Time">
+												<a class="product-Time-amount amount" id="time7">
+													2018.05.27 05:27
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<a class="product-Time-amount amount" id="price7">
+													￥180
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+													<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="查看物流">
+												   </span>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="添加评论">
+												</span>
+											</td>
+										</tr>
+										<tr class="cart-item">
+											<td class="product-name" data-title="Product">
+												<a href="#" class="cart-product-thumb">
+													<img src="images/shop/product-1.jpg" alt="Product Thumbnail">
+												</a>
+												<div class="product-info">
+													<h3 id="title8">Product Title</h3>
+													<ul>
+														<li>商品 ID: <a id="ISBN8">123</a></li>
+														<li>订单 ID: <a id="transactID8">123</a></li>
+													</ul>
+												</div>
+											</td>
+											<td class="product-time" data-title="Time">
+												<a class="product-Time-amount amount" id="time8">
+													2018.05.27 05:27
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<a class="product-Time-amount amount" id="price8">
+													￥180
+												</a>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+													<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="查看物流">
+												   </span>
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<span class="product-Price-amount amount">
+														<input type=button class="custom-button button-small" value="添加评论">
+												</span>
+											</td>
+										</tr>
 						            </tbody>
 						        </table>
 						    </form> <!-- .product-cart-form -->

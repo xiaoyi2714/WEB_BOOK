@@ -65,22 +65,42 @@
 
 
 		<script>
-			var ReceiverName, ReceiverPhone, SourceProvince, SourceCity, SourceBlock, SourceDetailAddress,
-					SoureceZipCode, SellerPhone, DestinationProvince, DestinationCity, DestinationBlock, LogisticTrackNum;
-			var searchData;
-			function show_logistics() {
+			var TransactId, SourceCity, DestinationCity, searchData;
+			function get_transactid() {
 				$.ajax({
-					url: 'http://192.168.1.178:5000/api/CustomerGetAllTransacts/',
+					url: 'http://192.168.1.178:5000/api/GetTransacts/',
 					type: 'post',
 					contentType: 'application/json;charset=UTF-8',
-					xhrFields: {
-						withCredentials: true
-					},
+					data: JSON.stringify({
+						'Title': $("#search").val()
+					}),
 					data: {},
 					success: function(data){
 						searchData = data;
 						console.log('search success');
 						console.info(searchData);
+						TransactId = searchData[0].TransactId;
+					},
+					error: function(err){
+						console.log('fail');
+					}
+				});
+			}
+			function get_citynames() {
+				$.ajax({
+					url: 'http://192.168.1.178:5000/api/GetLogistics/',
+					type: 'post',
+					contentType: 'application/json;charset=UTF-8',
+					data: JSON.stringify({
+						'Title': $("TransactId").val()
+					}),
+					data: {},
+					success: function(data){
+						searchData = data;
+						console.log('search success');
+						console.info(searchData);
+						SourceCity = searchData[0].SourceCity;
+						DestinationCity = searchData[0].DestinationCity;
 					},
 					error: function(err){
 						console.log('fail');
@@ -539,11 +559,13 @@
 <script type="text/javascript">
 	// 百度地图API功能
 	var map = new BMap.Map("allmap");
-	var start = "同济大学";
-	var end = "百度大厦";
+	var start = "上海";
+	var end = "北京";
 	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
 	$("#result").click(function(){
-		show_logistics();
+		//show_logistics();
+		//start = SourceCity;
+		//end = DestinationCity;
 		map.clearOverlays();
 		var i=$("#driving_way select").val();
 		search(start,end,BMAP_DRIVING_POLICY_LEAST_DISTANCE);

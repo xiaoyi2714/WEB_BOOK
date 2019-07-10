@@ -302,7 +302,7 @@
 							</ul>
 						</nav>
 						<br>
-						<form  style="top:-400px;left:-450px; position:relative;" onsubmit="check()">
+						<form  style="top:-400px;left:-450px; position:relative;" onclick="check()">
 							<table style="border-style:none;">
 								<tr>
 									<td style="border-style:none;top:400px;left:500px;position:absolute;">优惠卷ID</td>
@@ -366,13 +366,16 @@
 											}
 										}
 									}
+									if(couponData.length == 0){
+										$("#error").html("没有符合条件的优惠券信息！");
+									}
 									console.log(couponData);
 									jQuery_New(function(){
 										pagination();
 									});
 								}
 							</script>
-
+							<p id="error" style="color:red"></p>
 							<br><br><br><br><br><br>
 						<!-- </form>
 												<form style="top:220px;left:20px; position:relative;">

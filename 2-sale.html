@@ -275,6 +275,9 @@
 														}
 													}
 												}
+												if(saleData.length == 0){
+													$("#error").html("没有符合条件的商品信息！");
+												}
 												console.log(saleData);
 												jQuery_New(function(){
 													pagination();
@@ -296,6 +299,7 @@
 
 									</tr>
 								</table>
+								<p id="error" style="color:red"></p>
 							</form>
 						</div>
 						<br><br>

@@ -225,7 +225,7 @@
 									</tr>
 									<tr>
 										<td style="border-style:none;"><label>顾客编号</label></td>
-										<td style="border-style:none;"><input id="ISBN" type="text" style="width:150px; height:35px;" /></td>
+										<td style="border-style:none;"><input id="nick" type="text" style="width:150px; height:35px;" /></td>
 										<td style="border-style:none;"><label>物流单号</label></td>
 										<td style="border-style:none;"><input id="transact" type="number" style="width:200px; height: 35px;"/></td>
 									</tr>
@@ -235,6 +235,7 @@
 						<br>
 						<div>
 							<p><input type="button" value="订单查询" onclick="query()"/></p>
+							<p id="error" style="color:red"></p>
 						</div>
 						<script>
 							function query(){
@@ -248,6 +249,7 @@
 										}
 									}
 								}
+								console.log(orderData);
 								if($("#mintime").val() != "" && $("#maxtime").val() != ""){
 									for(var i = 0; i< orderData.length; i++){
 										if(orderData[i].CreateTime < $("#mintime").val() || orderData[i].CreateTime > $("#maxtime").val()){
@@ -256,14 +258,7 @@
 										}
 									}
 								}
-								if($("#name").val() != ""){			//todo*******************************************************
-									for(var i = 0; i< orderData.length; i++){
-										if(orderData[i].DiscountAmount != $("#discount").val()){
-											orderData.splice(i, 1);
-											i--;
-										}
-									}
-								}
+								console.log(orderData);
 								if($("#minprice").val() != "" && $("#maxprice").val()){
 									for(var i = 0; i< orderData.length; i++){
 										if(orderData[i].ActualPrice < $("#minprice").val() || orderData[i].ActualPrice > $("#maxprice").val()){
@@ -272,31 +267,57 @@
 										}
 									}
 								}
-								if($("#ISBN").val() != ""){
+								console.log(orderData);
+								if($("#name").val() != ""){
 									for(var i = 0; i< orderData.length; i++){
-										if(orderData[i].Merchandise.ISBN != $("#ISBN").val()){
-											orderData.splice(i, 1);
-											i--;
-										}
-									}
-								}
-								if($("#transact").val() != ""){
-									for(var i = 0; i< orderData.length; i++){
-										if(orderData[i].TransactId != $("#transact").val()){
-											orderData.splice(i, 1);
-											i--;
-										}
-									}
-								}
-								if($("#nick").val() != ""){
-									for(var i = 0; i< orderData.length; i++){
-										if(orderData[i].Customer.NickName != $("#nick").val()){
+										$.ajax({
+											url: 'http://192.168.1.178:5000/api/GetBook/',
+											type: 'post',
+											async:false,
+											contentType: 'application/json; charset=UTF-8',
+											xhrFields: {	//发送cookie
+												withCredentials: true
+											},
+											data: JSON.stringify({
+												'ISBN': orderData[i].Merchandise.ISBN
+											}),
+											success: function(msg){
+												console.log("success");
+												console.log(msg);
+												bookname = msg.Title;
+											},
+											error: function(err){
+												console.log(err.statusText);
+											}
+										});
+										if(bookname != $("#ISBN").val()){
 											orderData.splice(i, 1);
 											i--;
 										}
 									}
 								}
 								console.log(orderData);
+								if($("#transact").val() != ""){
+									for(var i = 0; i< orderData.length; i++){
+										if(orderData[i].LogisticTrackNum != $("#transact").val()){
+											orderData.splice(i, 1);
+											i--;
+										}
+									}
+								}
+								console.log(orderData);
+								if($("#nick").val() != ""){
+									for(var i = 0; i< orderData.length; i++){
+										if(orderData[i].CustomerId != $("#nick").val()){
+											orderData.splice(i, 1);
+											i--;
+										}
+									}
+								}
+								console.log(orderData);
+								if(orderData.length == 0){
+									$('#error').html('不存在符合条件的订单！');
+								}
 								jQuery_New(function(){
 									pagination();
 								});

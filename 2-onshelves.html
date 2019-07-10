@@ -109,10 +109,32 @@
 									</tr>
 									<tr></tr>
 									<tr>
-										<td><input type="button" value="查询" onclick="query();"/></td>
+										<td><input type="button" value="查询" onclick="query();"/>
+										<p id="error1" style="color:red"></p></td>
 										<script>
 											function query(){
 												$.ajax({
+													url: 'http://192.168.1.178:5000/api/GetBook/',
+													type: 'post',
+													async:false,
+													contentType: 'application/json; charset=UTF-8',
+													xhrFields: {	//发送cookie
+														withCredentials: true
+													},
+													data: JSON.stringify({
+														'ISBN': $("#ISBN").val()
+													}),
+													success: function(msg){
+														console.log("success");
+														console.log(msg);
+														$("#bookname").val(msg.Title);
+														$("#authorname").val(msg.Author);
+														$("#publisher").val(msg.Publisher);
+														$("#year").val(msg.PublishYear);
+													},
+													error: function(err){
+														$("#error1").html("抱歉，没有查询到指定的ISBN号码");
+													}
 												});
 											}
 										</script>
@@ -120,19 +142,19 @@
 									<tr></tr>
 									<tr>
 										<td><label>书籍名称</label></td>
-										<td><input type="text" style="width:300px; height:35px;" readonly/></td>
+										<td><input id="bookname" type="text" style="width:300px; height:35px;" readonly/></td>
 									</tr>
 									<tr>
 										<td><label>作者姓名</label></td>
-										<td><input type="text" style="width:300px; height:35px;" readonly/></td>
+										<td><input id="authorname" type="text" style="width:300px; height:35px;" readonly/></td>
 									</tr>
 									<tr>
 										<td><label>出版商</label></td>
-										<td><input type="text" style="width:300px; height:35px;" readonly/></td>
+										<td><input id="publisher" type="text" style="width:300px; height:35px;" readonly/></td>
 									</tr>
 									<tr>
 										<td><label>出版年份</label></td>
-										<td><input type="text" style="width:300px; height:35px;" readonly/></td>
+										<td><input id="year" type="text" style="width:300px; height:35px;" readonly/></td>
 									</tr>
 									<tr>
 										<td><label>定价</label></td>
@@ -174,6 +196,7 @@
 										</script>
 									</tr>
 								</table>
+								<p id="error2" style="color:red"></p>
 							</form>
 						</div>
 					</div>

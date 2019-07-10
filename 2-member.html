@@ -242,6 +242,9 @@
 													}
 												}
 												console.log(memberData);
+												if(memberData.length == 0){
+													$("#error").html("没有符合条件的会员信息！");
+												}
 												jQuery_New(function(){
 													pagination();
 												});
@@ -263,6 +266,7 @@
 									</div>
 								</div>
 								</form>
+								<p id="error" style="color:red"></p>
 
 							<div style="padding-left:10px;padding-top: 70px">
 									<div>
@@ -291,7 +295,6 @@
 						   <ul>
                           <li><a href="2-evaluation.html" >评价管理</a> </li>
 						  <li><a href="2-order.html" >订单信息</a> </li>
-						  <li><a href="2-userana.html" >用户行为分析</a> </li>
 								</ul></li>
 						  <li><h3><a href="#"><img alt="logo" class="site-logo" src="images/logistics.png">物流管理</a></h3>
 						   <ul>

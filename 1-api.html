@@ -70,12 +70,13 @@
 			var searchData;
 			function show_logistics() {
 				$.ajax({
-					url: 'http://192.168.1.178:5000/api/CustomerGetAllTransact/',
+					url: 'http://192.168.1.178:5000/api/CustomerGetAllTransacts/',
 					type: 'post',
 					contentType: 'application/json;charset=UTF-8',
 					xhrFields: {
 						withCredentials: true
 					},
+					data: {},
 					success: function(data){
 						searchData = data;
 						console.log('search success');

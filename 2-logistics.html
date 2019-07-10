@@ -259,6 +259,9 @@
 													}
 												}
 												console.log(orderData);
+												if(orderData.length == 0){
+													$("#error").html("不存在符合条件的物流信息");
+												}
 												jQuery_New(function(){
 													pagination();
 												});
@@ -284,6 +287,7 @@
 	
 									</tr>
 								</table>
+								<p id="error" style="color:red"></p>
 							</form>
 						</div>
 						<br><br>

@@ -236,7 +236,7 @@
 												}
 												if($("#nick").val() != ""){
 													for(var i = 0; i< orderData.length; i++){
-														if(orderData[i].customer.NickName != $("#nick").val()){
+														if(orderData[i].CustomerId != $("#nick").val()){
 															orderData.splice(i, 1);
 															i--;
 														}

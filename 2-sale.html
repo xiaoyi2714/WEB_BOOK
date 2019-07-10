@@ -267,6 +267,58 @@
 														}
 													}
 												}
+												if($("#author").val() != ""){
+													for(var i = 0; i< saleData.length; i++){
+														$.ajax({
+															url: 'http://192.168.1.178:5000/api/GetBook/',
+															type: 'post',
+															async:false,
+															contentType: 'application/json; charset=UTF-8',
+															xhrFields: {	//发送cookie
+																withCredentials: true
+															},
+															data: JSON.stringify({
+																'ISBN': saleData[i].ISBN
+															}),
+															success: function(msg){
+																authorname = msg.Author;
+															},
+															error: function(err){
+																console.log(err.statusText);
+															}
+														});
+														if(authorname != $("#author").val()){
+															saleData.splice(i, 1);
+															i--;
+														}
+													}
+												}
+												if($("#name").val() != ""){
+													for(var i = 0; i< saleData.length; i++){
+														$.ajax({
+															url: 'http://192.168.1.178:5000/api/GetBook/',
+															type: 'post',
+															async:false,
+															contentType: 'application/json; charset=UTF-8',
+															xhrFields: {	//发送cookie
+																withCredentials: true
+															},
+															data: JSON.stringify({
+																'ISBN': saleData[i].ISBN
+															}),
+															success: function(msg){
+																bookname = msg.Title;
+															},
+															error: function(err){
+																console.log(err.statusText);
+															}
+														});
+														if(bookname != $("#name").val()){
+															saleData.splice(i, 1);
+															i--;
+														}
+													}
+												}
 												if($("#minprice").val() != "" && $("#maxprice").val() != ""){
 													for(var i = 0; i< saleData.length; i++){
 														if(saleData[i].Price < $("#minprice").val() || saleData[i].Price > $("#maxprice").val()){

@@ -187,9 +187,11 @@
 													}),
 													success: function(msg){
 														console.log("success");
+														$("#error2").html("恭喜您，上架成功！");
 													},
 													error: function(err){
 														console.log(err.statusText);
+														$("#error2").html("很抱歉，上架失败！");
 													}
 												});
 											}

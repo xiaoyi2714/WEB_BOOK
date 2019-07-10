@@ -252,7 +252,7 @@
 										<script>
 											function getPhoneCode(){
 												$.ajax({
-													url: 'http://192.168.1.178:5000/api/SellerSMS',
+													url: 'http://192.168.1.154:5000/api/SellerSms',
 													type: 'post',
 													contentType: 'application/json; charset=UTF-8',
 													xhrFields: {	//发送cookie
@@ -260,8 +260,7 @@
 													},
 													data: JSON.stringify({
 														'Phone': $("#phone1").val(),
-														'Password': 
-														"123456",
+														'Password': "123456",
 														'PhoneStatus': '0'
 													}),
 													success: function(msg){
@@ -278,7 +277,39 @@
 										<p><label>邮箱</label><input id="email1" type="password" placeholder="邮箱"></p>
 										<p><label>密码</label><input id="password1" type="password" placeholder="密码"></p>
 										<p><label>店铺名称</label><input id="name1" type="password" placeholder="店铺名称"></p>
-										<a href="1-login.html"><p><input type="button" value="注册" onclick="RegisterWithPhone()"></p></a>
+										<a href="#"><p><input type="button" value="注册" onclick="RegisterWithPhone()"></p></a>
+										<script>
+											/////////////////////TODO
+												function RegisterWithPhone(){
+													$.ajax({
+														url: '',
+														type: 'post',
+														contentType: 'application/json; charset=UTF-8',
+														xhrFields: {	//发送cookie
+															withCredentials: true
+														},
+														data: JSON.stringify({			//注册信息不足
+															"ValidateCode": $("#code2").val(),
+															"SellerData": JSON.stringify({
+																  'Password': $("#password2").val(),
+																  'ShopName': $("#name2").val(),
+																  'CreditLevel': 5,
+																  'ShopDescription': 'fuck',
+																  'AvatarPath': 'mmp',
+																  'DefaultSellerAddressIndex': 0,
+																  'SellerEmail': $("#email2").val(),
+																  'SellerPhone': $("#phone2").val()
+															})
+														}),
+														success: function(msg){
+															console.log("success");
+														},
+														error: function(err){
+															console.log(err.statusText);
+														}
+													});
+												}
+											</script>  
 									</form>
 							    </div>
 								  <div class="content-body" id="div4" style="display: none">
@@ -371,7 +402,7 @@
 					<a href="1-intro.html">  团队介绍 </a>
 					<br>
 					<a href="http://www.miitbeian.gov.cn"> 互联网ICP备案：沪ICP备19023316号-1 </a>
-					<p> (+86) 008 400 123 &nbsp&nbsp database@tongji.edu.cn &nbsp&nbsp 4800 Changan Street, China </p>
+					<p> (+86) 008 400 123 &nbsp&nbsp database@tongji.edu.cn &nbsp&nbsp 4800 Cao'an Street, China </p>
 					<p> Copyright © 2019 SequoiaBook . All rights reserved. </p>
 				</div><!-- .inner-wrapper -->
 			</div> <!-- .container -->

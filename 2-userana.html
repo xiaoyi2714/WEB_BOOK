@@ -92,9 +92,29 @@
 					</div><!-- .site-branding -->
 					<nav class="main-navigation pull-right">
 						<ul>
-							<li><a href="1-home.html">网站首页</a></li>
 							<li><a href="2-information.html">我的店铺</a></li>
-							<li><a href="#" >安全退出</a></li>
+							<li><a href="2-login.html">登录</a></li>
+							<li><a href="#" onclick="logout()">安全退出</a></li>
+							<script>
+								function logout(){
+									$.ajax({
+										url: 'http://www.sparkxyf.cn:8080/api/SellerLogout',
+										type: 'post',
+										contentType: 'application/json; charset=UTF-8',
+										xhrFields: {	//发送cookie
+										withCredentials: true
+										},
+										data: JSON.stringify({}),
+										success: function(msg){
+											console.log("success");
+											window.location = '2-login.html';
+										},
+										error: function(err){
+											//理论上不可能
+										}
+									});
+								}
+							</script>	
 						</ul>
 					</nav> <!-- .site-navigation -->
 				</div> <!-- .container -->
@@ -119,7 +139,6 @@
 
 						<h2>用户行为分析</h2>
 
-                        <button type=button value="模拟商家登录" onclick="Shop_Login()">模拟商家登录</button>
 						<button onclick="download1()">生成报告一</button>
 						<button onclick="download2()">生成报告二</button>
                         <script type="text/javascript" src="js/login_pic.js"></script>
@@ -146,7 +165,6 @@
 
                             <!-- 第二幅图——价格分布折线图 -->
                             <div id="line" style="width:600px; height:400px;display:none;"></div>
-							<script type="text/javascript" src="js/testApi.js"></script>
 
 						<br>
 						<!-- 图表分割线 -->

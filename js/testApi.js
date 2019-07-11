@@ -219,10 +219,12 @@ function Test_Api5(){
             option = {
                 xAxis: {
                     type: 'category',
-                    data: var_2
+                    data: var_2,
+                    name:"单位：图书数量"
                 },
                 yAxis: {
-                    type: 'value'
+                    type: 'value',
+                    name:"单位：元"
                 },
                 series: [{
                     data: var_1,
@@ -281,9 +283,6 @@ function Test_Api4(){
             }
 
             Sort(var_1);
-
-
-
 
             var option = {
                 grid: { left: '2%', right: '2%', bottom: '10%', containLabel: true },

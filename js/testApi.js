@@ -12,7 +12,7 @@ function download2(){
     var var_2 = new Array(); //书名
     var var_3 = new Array(); //描述
     $.ajax({
-        url: 'http://192.168.1.178:5000/api/GetMerchandisesOfSeller/',
+        url: 'http://www.sparkxyf.cn:8080/api/GetMerchandisesOfSeller/',
         type: 'post',
         contentType: 'application/json;charset=UTF-8',
         xhrFields: {
@@ -88,7 +88,7 @@ function download1(){
     var var_2 = new Array(); //书名
     var var_3 = new Array(); //描述
     $.ajax({
-        url: 'http://192.168.1.178:5000/api/GetMerchandisesOfSeller/',
+        url: 'http://www.sparkxyf.cn:8080/api/GetMerchandisesOfSeller/',
         type: 'post',
         contentType: 'application/json;charset=UTF-8',
         xhrFields: {
@@ -185,7 +185,7 @@ function Test_Api5(){
     var var_2 = new Array(); //书名
     var var_3 = new Array(); //描述
     $.ajax({
-        url: 'http://192.168.1.178:5000/api/GetMerchandisesOfSeller/',
+        url: 'http://www.sparkxyf.cn:8080/api/GetMerchandisesOfSeller/',
         type: 'post',
         contentType: 'application/json;charset=UTF-8',
         xhrFields: {
@@ -219,10 +219,12 @@ function Test_Api5(){
             option = {
                 xAxis: {
                     type: 'category',
-                    data: var_2
+                    data: var_2,
+                    name:"单位：图书数量"
                 },
                 yAxis: {
-                    type: 'value'
+                    type: 'value',
+                    name:"单位：元"
                 },
                 series: [{
                     data: var_1,
@@ -251,7 +253,7 @@ function Test_Api4(){
     var var_2 = new Array(); //书名
     var var_3 = new Array(); //描述
     $.ajax({
-        url: 'http://192.168.1.178:5000/api/GetMerchandisesOfSeller/',
+        url: 'http://www.sparkxyf.cn:8080/api/GetMerchandisesOfSeller/',
         type: 'post',
         contentType: 'application/json;charset=UTF-8',
         xhrFields: {
@@ -281,9 +283,6 @@ function Test_Api4(){
             }
 
             Sort(var_1);
-
-
-
 
             var option = {
                 grid: { left: '2%', right: '2%', bottom: '10%', containLabel: true },
@@ -316,7 +315,7 @@ function Test_Api3(){
     var var_1 = new Array();
     var var_2 = new Array();
     $.ajax({
-        url: 'http://192.168.1.178:5000/api/GetMerchandise/',
+        url: 'http://www.sparkxyf.cn:8080/api/GetMerchandise/',
         type: 'post',
         contentType: 'application/json;charset=UTF-8',
         xhrFields: {
@@ -340,7 +339,7 @@ function Test_Api2(){
     var var_1 = new Array();
     var var_2 = new Array();
     $.ajax({
-        url: 'http://192.168.1.178:5000/api/GetMerchandisesOfSeller/',
+        url: 'http://www.sparkxyf.cn:8080/api/GetMerchandisesOfSeller/',
         type: 'post',
         contentType: 'application/json;charset=UTF-8',
         xhrFields: {
@@ -364,7 +363,7 @@ function Test_Api1(){
     var var_1 = new Array();
     var var_2 = new Array();
     $.ajax({
-        url: 'http://192.168.1.178:5000/api/GetSeller/',
+        url: 'http://www.sparkxyf.cn:8080/api/GetSeller/',
         type: 'post',
         contentType: 'application/json;charset=UTF-8',
         xhrFields: {

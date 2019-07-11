@@ -233,7 +233,6 @@
 													}
 												}
 												if($("#mindate").val() != "" && $("#maxdate").val() != ""){
-													console.log("fuckdate");
 													for(var i = 0; i< memberData.length; i++){
 														if(memberData[i].vipInfo.ValidThrough < $("#mindate").val() || memberData[i].vipInfo.ValidThrough > $("#maxdate").val()){
 															memberData.splice(i, 1);
